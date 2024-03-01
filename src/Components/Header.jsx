@@ -10,7 +10,7 @@ const Header = () => {
             </div>
             <div className="">
                 <a href="/Signup">
-                    <img src="./registration.png" alt="Sign up icon" width="65" className='absolute right-5 top-5 py-2 px-2 hover:bg-red-800'></img>
+                    <img src="./sign-up.png" alt="Sign up icon" width="65" className='absolute right-5 top-5 py-2 px-2 hover:bg-red-800'></img>
                 </a>
             </div>
         </div>
