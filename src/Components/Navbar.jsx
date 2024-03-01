@@ -32,7 +32,7 @@ const Navbar = () => {
             <div className="max-w-screen-xl flex items-center justify-between mx-auto p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                 <a href="http://google.com" className='mx-6'>
                     <img src="/VillageLogo.png" alt="Logo with heart in hand" width="80"></img>
-                    <span className='self-center my-2 text-sm font-semibold'>It takes a Village...</span>
+                    <span className='self-center my-2 text-sm font-semibold'>It takes a Village.....</span>
                 </a>
 
                 <div className='flex items-center space-x-3 md:space-x-0 rtl:space-x-reverse'>
