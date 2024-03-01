@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+
+
 const Navbar = () => {
+    const API = import.meta.env.VITE_API_URL;
+
     const [isMenuOpen, setMenuOpen] = useState(false);
     const menuButtonRef = useRef(null);
     const dropdownRef = useRef(null);
@@ -48,22 +52,22 @@ const Navbar = () => {
                 className={`absolute right-0 mt-2 ${isMenuOpen ? ' ' : 'hidden'}`} id="navbar-hamburger">
                 <ul className='flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700'>
                     <li>
-                        <a href="#" className='block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600' aria-current="page"> Home</a>
+                        <a href={`/`} className='block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600' aria-current="page"> Home</a>
                     </li>
                     <li>
-                        <a href="#" className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Register</a>
+                        <a href={`${API}/users/sign-up`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Register</a>
                     </li>
                     <li>
-                        <a href="#" className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign In</a>
+                        <a href={`${API}/users/login`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign In</a>
                     </li>
                     <li>
-                        <a href="#" className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Profile</a>
+                        <a href={`${API}/users/:user_id/profile`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Profile</a>
                     </li>
                     <li>
-                        <a href="#" className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Emergency Contacts</a>
+                        <a href={`${API}/`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Emergency Contacts</a>
                     </li>
                     <li>
-                        <a href="#" className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Medicine Cabinet</a>
+                        <a href={`${API}/`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Medicine Cabinet</a>
                     </li>
                 </ul>
             </div>
