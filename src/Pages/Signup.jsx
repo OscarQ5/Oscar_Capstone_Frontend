@@ -5,7 +5,7 @@ function Signup() {
     firstName: '',
     lastName: '',
     email: '',
-    phoneNumber: 0,
+    phoneNumber: ''
   });
 
   const handleChange = (e) => {
