@@ -32,7 +32,7 @@ const Navbar = () => {
             <div className="max-w-screen-xl flex items-center justify-between mx-auto p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
                 <a href="http://google.com" className='mx-6'>
                     <img src="/VillageLogo.png" alt="Logo with heart in hand" width="80"></img>
-                    <span className='self-center my-2 text-sm font-semibold'>It takes a Village...</span>
+                    <span className='self-center my-2 text-sm font-semibold'>It takes a Village.....</span>
                 </a>
 
                 <div className='flex items-center space-x-3 md:space-x-0 rtl:space-x-reverse'>
@@ -42,7 +42,7 @@ const Navbar = () => {
                         aria-expanded={isMenuOpen}>
                         <span className="sr-only">Open main menu</span>
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15" />
+                            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
                         </svg>
                     </button>
                 </div>
