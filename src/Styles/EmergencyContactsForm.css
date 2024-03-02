@@ -2,7 +2,7 @@
     border: 1px solid rgb(242, 18, 18);
     padding: 20px;
     border-radius: 35px;
-    width: 40vh;
+    width: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -59,7 +59,7 @@
   }
   
   .blurb-EC {
-    width: 45vh;
+    width: 30vw;
     display: flex;
     align-items: center;
   }
