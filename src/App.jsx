@@ -7,7 +7,8 @@ import SignupPage from './Pages/SignupPage';
 import EmergencyContactsPage from './Pages/EmergencyContactPage';
 import MedicalHistoryPage from './Pages/MedicalHistoryPage';
 import HomePage from './Pages/HomePage.jsx';
-import ProtectedRoute from './Pages/ProtecteRoutes.jsx';
+import ProtectedRoute from './Components/ProtecteRoutes.jsx';
+import ContactsFetchPage from './Pages/ContactsFetchPage.jsx';
 
 function App() {
 
@@ -27,16 +28,28 @@ function App() {
           <Route path="users/sign-up/:user_id/medical" element={<MedicalHistoryPage />} />
 
           <Route path="users/home"
-          element={
-            <ProtectedRoute
-              element={HomePage}
-              isAuthenticated={!!user && !!token}
-              user={user}
-              token={token}
-            />
-          }
-        />
-        
+            element={
+              <ProtectedRoute
+                element={HomePage}
+                isAuthenticated={!!user && !!token}
+                user={user}
+                token={token}
+              />
+            }
+          />
+
+
+          <Route path="users/contacts"
+            element={
+              <ProtectedRoute
+                element={ContactsFetchPage}
+                isAuthenticated={!!user && !!token}
+                user={user}
+                token={token}
+              />
+            }
+          />
+
         </Routes>
 
       </Router>
