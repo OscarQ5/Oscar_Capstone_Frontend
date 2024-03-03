@@ -21,6 +21,15 @@ function LoginProvider({ children }) {
         phone_number: ''
     })
 
+    const [medicalForm, setMedicalForm] = useState({
+
+        blood_type: "",
+        allergies: "",
+        medication: "",
+        medical_history: ""
+
+    })
+
     const isAuthenticated = user && token
 
     // axios.defaults.headers.common["Authorization"] = token
@@ -34,7 +43,9 @@ function LoginProvider({ children }) {
             setToken,
             isAuthenticated,
             form,
-            setForm
+            setForm,
+            medicalForm,
+            setMedicalForm
         }}>
             {children}
         </LoginData.Provider>
