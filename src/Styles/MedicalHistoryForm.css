@@ -1,72 +1,70 @@
 .medicalHistoryForm {
-    border: 1px solid rgb(242, 18, 18);
-    padding: 20px;
-    border-radius: 35px;
-    width: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(234, 234, 234);
-    color: black;
-  }
-  
-  form {
-    padding: 5px;
-    display: flex;
-    flex-direction: column;
-    border-radius: 35px;
-    gap: 5px;
-    width: 50vh;
-    height: 100%;
-  }
-  
-  .submitButton {
-    margin-top: 10px;
-  }
-  .submitButton button {
-    background-color: rgb(232, 116, 45);
-    color: black;
-  }
-  
-  .submitButton button:hover {
-    background-color: green;
-    color: black;
-  }
-  
-  input {
-    border-radius: 35px;
-    background-color: rgb(228, 228, 228);
-    border-color: rgb(136, 136, 136);
-    color: rgb(0, 0, 0);
-  }
-  
-  span {
-    border: 1px solid white;
-    background-color: rgb(232, 116, 45);
-    border-radius: 50%;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 8px;
-    padding-right: 8px;
-    font-size: small;
-    cursor: pointer;
-  }
-  
-  span:hover {
-    background-color: rgb(108, 100, 95);
-    border-color: red;
-  }
-  
-  .blurb {
-    width: 30vw;
-    display: flex;
-    align-items: center;
-  }
-  
-  .skip {
-    margin-top: 5px;
-    background-color: rgb(232, 116, 45);
-    border-radius: 50px;
-    
-  }
-  
+  border: 1px solid rgb(242, 18, 18);
+  padding: 20px;
+  border-radius: 35px;
+  width: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(234, 234, 234);
+  color: black;
+}
+
+form {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 35px;
+  gap: 5px;
+  width: 50vh;
+  height: 100%;
+}
+
+.submitButton {
+  margin-top: 10px;
+}
+.submitButton button {
+  background-color: rgb(232, 116, 45);
+  color: black;
+}
+
+.submitButton button:hover {
+  background-color: green;
+  color: black;
+}
+
+input {
+  border-radius: 35px;
+  background-color: rgb(228, 228, 228);
+  border-color: rgb(136, 136, 136);
+  color: rgb(0, 0, 0);
+}
+
+span {
+  border: 1px solid white;
+  background-color: rgb(232, 116, 45);
+  border-radius: 50%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 8px;
+  padding-right: 8px;
+  font-size: small;
+  cursor: pointer;
+}
+
+span:hover {
+  background-color: rgb(108, 100, 95);
+  border-color: red;
+}
+
+.blurb {
+  width: 30vw;
+  display: flex;
+  align-items: center;
+}
+
+.skip {
+  margin-top: 5px;
+  background-color: rgb(232, 116, 45);
+  border-radius: 50px;
+}

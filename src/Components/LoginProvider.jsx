@@ -18,20 +18,12 @@ function LoginProvider({ children }) {
         name: '',
         email: '',
         password_hash: '',
-        phone_number: 0,
+        phone_number: ''
     })
-    const ProtectedRoute = ({ element: Component, isAuthenticated, user, token }) => {
-        return isAuthenticated ? (
-            <Component user={user} token={token} />
-        ) :
-            (
-                <Navigate to='/login' replace />
-            )
-    };
 
     const isAuthenticated = user && token
 
-    axios.defaults.headers.common["Authorization"] = token
+    // axios.defaults.headers.common["Authorization"] = token
 
     return (
         <LoginData.Provider value={{

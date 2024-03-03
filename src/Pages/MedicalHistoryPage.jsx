@@ -2,8 +2,10 @@ import React from 'react';
 import MedicalHistoryForm from '../Components/MedicalHistoryForm';
 import { useState } from 'react';
 import { useLoginDataProvider } from "../Components/LoginProvider"
+import { useNavigate } from 'react-router-dom';
 
 const MedicalHistoryPage = () => {
+
     const { API, user } = useLoginDataProvider()
 
     const [showBlurb, setShowBlurb] = useState(false)
@@ -11,6 +13,13 @@ const MedicalHistoryPage = () => {
     const toggleBlurb = () => {
         setShowBlurb(!showBlurb);
     };
+    
+    const navigate = useNavigate();
+    
+    const handleSkip = () => {
+      
+        navigate('/users/home');
+      };
 
     return (
         <div>
@@ -31,7 +40,7 @@ const MedicalHistoryPage = () => {
                 </div>
             )}
             <MedicalHistoryForm />
-            <button className="skip">Skip</button>
+            <button onClick={handleSkip} className="skip">Skip</button>
         </div>
     );
 };

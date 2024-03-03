@@ -2,16 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate, Link } from "react-router-dom";
 import '../Styles/EmergencyContactsForm.css'
-
-// const API = import.meta.env.VITE_API_URL;
-
 import { useLoginDataProvider } from "./LoginProvider"
-
-
 
 export default function EmergencyContactsForm() {
 
-    const { API, user } = useLoginDataProvider()
+    const { API, user, token } = useLoginDataProvider()
 
     const navigate = useNavigate();
 
@@ -30,7 +25,8 @@ export default function EmergencyContactsForm() {
         fetch(`${API}/users/${user.user_id}/contacts`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': token
             },
             body: JSON.stringify(contact),
         })

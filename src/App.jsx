@@ -6,10 +6,12 @@ import { useLoginDataProvider } from "./Components/LoginProvider"
 import SignupPage from './Pages/SignupPage';
 import EmergencyContactsPage from './Pages/EmergencyContactPage';
 import MedicalHistoryPage from './Pages/MedicalHistoryPage';
+import HomePage from './Pages/HomePage.jsx';
+import ProtectedRoute from './Pages/ProtecteRoutes.jsx';
 
 function App() {
 
-  const { setUser, setToken } = useLoginDataProvider()
+  const { setUser, setToken, user, token } = useLoginDataProvider()
 
   return (
     <>
@@ -24,6 +26,17 @@ function App() {
           <Route path="users/sign-up/:user_id/contacts" element={<EmergencyContactsPage />} />
           <Route path="users/sign-up/:user_id/medical" element={<MedicalHistoryPage />} />
 
+          <Route path="users/home"
+          element={
+            <ProtectedRoute
+              element={HomePage}
+              isAuthenticated={!!user && !!token}
+              user={user}
+              token={token}
+            />
+          }
+        />
+        
         </Routes>
 
       </Router>
