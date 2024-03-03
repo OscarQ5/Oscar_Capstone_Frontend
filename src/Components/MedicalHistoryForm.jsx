@@ -2,12 +2,11 @@ import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react'
 import '../Styles/medicalHistoryForm.css'
-
 import { useLoginDataProvider } from "./LoginProvider"
 
-
 const MedicalHistoryForm = () => {
-    const { API } = useLoginDataProvider()
+
+    const { API, token } = useLoginDataProvider()
 
     const navigate = useNavigate();
 
@@ -25,12 +24,13 @@ const MedicalHistoryForm = () => {
         fetch(`${API}/users/`, {
             method: "POST",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                'Authorization': token
             },
             body: JSON.stringify(medicalHistory),
         })
             .then(() => {
-                navigate(`/`);
+                navigate(`/users/home`);
             })
             .catch((error) => console.error("catch", error));
     };
@@ -42,6 +42,7 @@ const MedicalHistoryForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         addMedicalHistory();
+       
     }
 
     return (
@@ -90,9 +91,7 @@ const MedicalHistoryForm = () => {
                 />
 
                 <div className="submitButton">
-                    {/* <Link to={`/village`} className="newLink" style={{ margin: '0', padding: '0' }}>
-                    <button>↩︎</button>
-                </Link> */}
+                 
                     <button type="submit" >Submit</button>
                 </div>
             </form>

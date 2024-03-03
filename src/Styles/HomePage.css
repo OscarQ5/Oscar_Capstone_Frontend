@@ -1,0 +1,29 @@
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.sosButton {
+  border-radius: 90px;
+  background-color: white;
+  width: 49%;
+  height: 25vh;
+  font-size: xx-large;
+}
+
+.emergencyContactButton:hover {
+  background-color: rgb(131, 212, 131);
+  color: black;
+}
+
+.sosButton:hover {
+  background-color: rgb(228, 139, 139);
+}
+
+.medicineCabinetButton:hover {
+  background-color: rgb(131, 212, 131);
+  color: black;
+}

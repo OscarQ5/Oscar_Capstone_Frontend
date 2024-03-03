@@ -2,9 +2,7 @@ import React from 'react';
 import EmergencyContactsForm from '../Components/EmergencyContactsForm';
 import '../Styles/EmergencyContactPage.css'
 import { useState } from 'react';
-
 import { useLoginDataProvider } from "../Components/LoginProvider"
-
 
 const EmergencyContactPage = () => {
 
