@@ -2,8 +2,9 @@ import React, { useState, useRef, useEffect } from 'react';
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 import '../Styles/FriesNavbar.css';
 
+
 const FriesNavbar = () => {
-    const API = import.meta.env.VITE_API_URL;
+    const API = import.meta.env.VITE_BASE_URL;
 
     const [openMenu, setOpenMenu] = useState(false);
     const menuRef = useRef(null);
@@ -27,46 +28,46 @@ const FriesNavbar = () => {
 
     return (
         <nav className='friesnavbar-style'>
-            <Router>
-                <Link to={`${API}/`} >
-                    <img src='./VillageLogo.png' alt='Logo with heart in hand' width="80" className='logo'></img>
-                </Link>
-                <h5 className='logo-caption'>It takes a Village...</h5>
 
-                <div className='fries-btn-container'>
-                    <button type="button" ref={menuRef} className={`fries-btn ${openMenu ? 'open' : ''}`} onClick={toggleMenu}>
-                        <div className='fry'></div>
-                        <div className='fry short'></div>
-                        <div className='fry'></div>
-                    </button>
+            <Link to={`/`} >
+                <img src='../VillageLogo.png' alt='Logo with heart in hand' width="80" className='logo' />
+            </Link>
+            <h5 className='logo-caption'>It takes a Village...</h5>
 
-                    {openMenu && (
-                        <div className='dropdown-content'>
-                            <ul className='ul-style'>
-                                <li>
-                                    <Link to={'/'} className='Link'> Home </Link>
-                                </li>
-                                <li>
-                                    <Link to={`${API}/users/Sign-up`} className='Link'> Sign Up </Link>
-                                </li>
-                                <li>
-                                    <Link to={`${API}/users/login`} className='Link'> Log in </Link>
-                                </li>
-                                <li>
-                                    <Link to={`${API}/users/:user_id/profile`} className='Link'> Profile </Link>
-                                </li>
-                                <li>
-                                    <Link to={`${API}/users/:user_id/contacts`} className='Link'> Emergency Contacts </Link>
-                                </li>
-                                <li>
-                                    <Link to={`${API}/users/:user_id/medical`} className='Link'> Medical History</Link>
-                                </li>
-                            </ul>
-                        </div>
+            <div className='fries-btn-container'>
+                <button type="button" ref={menuRef} className={`fries-btn ${openMenu ? 'open' : ''}`} onClick={toggleMenu}>
+                    <div className='fry'></div>
+                    <div className='fry short'></div>
+                    <div className='fry'></div>
+                </button>
 
-                    )}
-                </div>
-            </Router>
+                {openMenu && (
+                    <div className='dropdown-content'>
+                        <ul className='ul-style'>
+                            <li>
+                                <Link to={'/'} className='Link'> Home </Link>
+                            </li>
+                            <li>
+                                <Link to={'/users/sign-up'} className='Link'> Sign Up </Link>
+                            </li>
+                            <li>
+                                <Link to={'/users/login'} className='Link'> Log in </Link>
+                            </li>
+                            <li>
+                                <Link to={'/users/sign-up/:user_id/profile'} className='Link' > Profile </Link>
+                            </li>
+                            <li>
+                                <Link to={'/users/contacts'} className='Link'> Emergency Contacts </Link>
+                            </li>
+                            <li>
+                                <Link to={'/users/medical'} className='Link'> Medical History</Link>
+                            </li>
+                        </ul>
+                    </div>
+
+                )}
+            </div>
+
         </nav>
     );
 };
