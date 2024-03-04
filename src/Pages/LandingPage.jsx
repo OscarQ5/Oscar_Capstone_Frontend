@@ -5,7 +5,6 @@ import Landing from '../Components/Landing.jsx';
 const LandingPage = () => {
     return (
         <div>
-            <Header />
             <Landing />
         </div>
     );
