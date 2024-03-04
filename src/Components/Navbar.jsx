@@ -52,7 +52,7 @@ const Navbar = () => {
                 className={`absolute right-0 mt-2 ${isMenuOpen ? ' ' : 'hidden'}`} id="navbar-hamburger">
                 <ul className='flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700'>
                     <li>
-                        <a href={`/`} className='block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600' aria-current="page"> Home</a>
+                        <Link to={`/`} className='block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600' aria-current="page"> Home</Link>
                     </li>
                     <li>
                         <Link to={`${API}/users/sign-up`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign-up</Link>
@@ -64,10 +64,10 @@ const Navbar = () => {
                         <Link to={`${API}/users/:user_id/profile`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Profile</Link>
                     </li>
                     <li>
-                        <Link to={`${API}/`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Emergency Contacts</Link>
+                        <Link to={`${API}/users/:user_id/contacts`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Emergency Contacts</Link>
                     </li>
                     <li>
-                        <Link to={`${API}/medical`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Medicine Cabinet</Link>
+                        <Link to={`${API}/users/:user_id/medical`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Medical History</Link>
                     </li>
                 </ul>
             </div>

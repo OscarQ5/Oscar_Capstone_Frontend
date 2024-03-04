@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar.jsx'
+import FriesNavbar from './Components/FriesNavbar.jsx';
 import './App.css'
 import { useLoginDataProvider } from "./Components/LoginProvider"
 import LandingPage from './Pages/LandingPage.jsx';
@@ -18,12 +19,13 @@ function App() {
   return (
     <>
       {/* <Navbar /> */}
+      <FriesNavbar />
 
       <Router>
 
         <Routes>
 
-          <Route path='/' element={<LandingPage />} />
+          {/* <Route path='/' element={<LandingPage />} /> */}
           <Route path="users/sign-up" element={<SignupPage setUser={setUser} setToken={setToken} />} />
           <Route path="users/sign-up/:user_id/contacts" element={<EmergencyContactsPage />} />
           <Route path="users/sign-up/:user_id/medical" element={<MedicalHistoryPage />} />
