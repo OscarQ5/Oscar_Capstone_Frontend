@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -30,10 +30,10 @@ const Navbar = () => {
     return (
         <nav className="bg-orange-200 fixed w-full z-20 top-0 start-0 border-b dark:border-gray-300 py-5 shadow-lg">
             <div className="max-w-screen-xl flex items-center justify-between mx-auto p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                <a href="http://google.com" className='mx-6'>
+                <Link to={`${API}/`} className='mx-6'>
                     <img src="/VillageLogo.png" alt="Logo with heart in hand" width="80"></img>
                     <span className='self-center my-2 text-sm font-semibold'>It takes a Village.....</span>
-                </a>
+                </Link>
 
                 <div className='flex items-center space-x-3 md:space-x-0 rtl:space-x-reverse'>
                     <button
@@ -55,19 +55,19 @@ const Navbar = () => {
                         <a href={`/`} className='block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600' aria-current="page"> Home</a>
                     </li>
                     <li>
-                        <a href={`${API}/users/sign-up`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Register</a>
+                        <Link to={`${API}/users/sign-up`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign-up</Link>
                     </li>
                     <li>
-                        <a href={`${API}/users/login`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign In</a>
+                        <Link to={`${API}/users/login`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign In</Link>
                     </li>
                     <li>
-                        <a href={`${API}/users/:user_id/profile`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Profile</a>
+                        <Link to={`${API}/users/:user_id/profile`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Profile</Link>
                     </li>
                     <li>
-                        <a href={`${API}/`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Emergency Contacts</a>
+                        <Link to={`${API}/`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Emergency Contacts</Link>
                     </li>
                     <li>
-                        <a href={`${API}/`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Medicine Cabinet</a>
+                        <Link to={`${API}/medical`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Medicine Cabinet</Link>
                     </li>
                 </ul>
             </div>
