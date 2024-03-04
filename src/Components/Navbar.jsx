@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 
 const Navbar = () => {
-    const API = import.meta.env.VITE_API_URL;
+    const API = import.meta.env.VITE_BASE_URL;
+
 
     const [isMenuOpen, setMenuOpen] = useState(false);
     const menuButtonRef = useRef(null);
@@ -30,7 +31,7 @@ const Navbar = () => {
     return (
         <nav className="bg-orange-200 fixed w-full z-20 top-0 start-0 border-b dark:border-gray-300 py-5 shadow-lg">
             <div className="max-w-screen-xl flex items-center justify-between mx-auto p-2 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
-                <Link to={`${API}/`} className='mx-6'>
+                <Link to={`/`} className='mx-6'>
                     <img src="/VillageLogo.png" alt="Logo with heart in hand" width="80"></img>
                     <span className='self-center my-2 text-sm font-semibold'>It takes a Village.....</span>
                 </Link>
@@ -55,19 +56,19 @@ const Navbar = () => {
                         <Link to={`/`} className='block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600' aria-current="page"> Home</Link>
                     </li>
                     <li>
-                        <Link to={`${API}/users/sign-up`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign-up</Link>
+                        <Link to={`users/sign-up`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign-up</Link>
                     </li>
                     <li>
-                        <Link to={`${API}/users/login`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign In</Link>
+                        <Link to={`/users/login`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Sign In</Link>
                     </li>
                     <li>
-                        <Link to={`${API}/users/:user_id/profile`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Profile</Link>
+                        <Link to={`/users/:user_id/profile`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Profile</Link>
                     </li>
                     <li>
-                        <Link to={`${API}/users/:user_id/contacts`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Emergency Contacts</Link>
+                        <Link to={`/users/:user_id/contacts`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Emergency Contacts</Link>
                     </li>
                     <li>
-                        <Link to={`${API}/users/:user_id/medical`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Medical History</Link>
+                        <Link to={`/users/:user_id/medical`} className='block py-2 px-3 text-gray-900 rounded hover:bg-yellow-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white' aria-current="page"> Medical History</Link>
                     </li>
                 </ul>
             </div>
