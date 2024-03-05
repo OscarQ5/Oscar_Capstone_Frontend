@@ -6,7 +6,7 @@ import { useLoginDataProvider } from "./LoginProvider"
 
 const MedicalHistoryForm = () => {
 
-    const { API, token } = useLoginDataProvider()
+    const { API, token, user } = useLoginDataProvider()
 
     const navigate = useNavigate();
 
@@ -15,13 +15,14 @@ const MedicalHistoryForm = () => {
         blood_type: "",
         allergies: "",
         medication: "",
-        medical_history: ""
+        medical_history: "",
+        user_id:user.user_id
 
     })
 
     const addMedicalHistory = () => {
 
-        fetch(`${API}/users/`, {
+        fetch(`${API}/users/medical`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

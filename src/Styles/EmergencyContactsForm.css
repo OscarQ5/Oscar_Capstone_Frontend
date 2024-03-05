@@ -9,7 +9,9 @@
   align-items: center;
   background-color: rgb(234, 234, 234);
   color: black;
+  /* margin: 10px; */
 }
+
 
 form {
   padding: 5px;
