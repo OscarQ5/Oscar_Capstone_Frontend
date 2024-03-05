@@ -19,7 +19,8 @@ const LoginForm = () => {
     }));
   };
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault()
     fetch(`${API}/users/login`, {
         method: "POST",
         body: JSON.stringify(formData),
@@ -29,7 +30,7 @@ const LoginForm = () => {
     })
     .then(res => res.json())
     .then(res => {
-        if (res.user && res.token) {
+        if (res.token && res.user.user_id) {
             const { user, token } = res;
             setUser(user);
             setToken(token);
