@@ -2,16 +2,17 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useLoginDataProvider } from "./LoginProvider"
 import '../Styles/ContactsFetchPage.css'
-
+import { Link } from 'react-router-dom';
+// import { useParams } from 'react-router-dom'
 
 
 const EmergencyContactsFetch = () => {
     const [eContacts, setEContacts] = useState([])
     const { API, token, user } = useLoginDataProvider()
-
+    // const { contact_id} = useParams()
 
     useEffect(() => {
-        fetch(`${API}/users/${user.user_id}/contacts`, {
+        fetch(`${API}/users/contacts`, {
             headers: {
                 "Authorization": token
             }
@@ -29,8 +30,9 @@ const EmergencyContactsFetch = () => {
                     <h2>{contact.lastname}</h2>
                     <h2>{contact.phone_number}</h2>
                     <div>
-                    <img className="editButton" src='../DarkButton.svg' alt="Edit Emergency Contact" />
-                    <img className="deleteButton" src='../Anonymous_Architetto_--_Cestino_pieno.svg' alt="Delete Emergency Contact" />
+
+                 <Link to={`edit/${contact.contact_id}`} >  <img className="editButton" src='../DarkButton.svg' alt="Edit Emergency Contact" /> </Link> 
+                 
                     </div>
                 </div>
             ))}

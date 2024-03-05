@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar.jsx'
+import LoginPage from './Pages/LoginPage.jsx';
 import FriesNavbar from './Components/FriesNavbar.jsx';
 import './App.css'
 import { useLoginDataProvider } from "./Components/LoginProvider"
@@ -12,6 +13,8 @@ import MedicalHistoryPage from './Pages/MedicalHistoryPage';
 import HomePage from './Pages/HomePage.jsx';
 import ProtectedRoute from './Components/ProtecteRoutes.jsx';
 import ContactsFetchPage from './Pages/ContactsFetchPage.jsx';
+import EditContactForm from './Pages/EditContactForm.jsx';
+import NewContactForm from './Pages/NewContactForm.jsx';
 
 function App() {
 
@@ -19,11 +22,9 @@ function App() {
 
   return (
     <>
-
       <Router>
         <FriesNavbar />
         {/* <Navbar /> */}
-
         <Routes>
 
           <Route path='/' element={<LandingPage />} />
@@ -31,6 +32,7 @@ function App() {
           {/* <Route path='users/login' element={<Login />} /> */}
           <Route path="users/sign-up/:user_id/contacts" element={<EmergencyContactsPage />} />
           <Route path="users/sign-up/:user_id/medical" element={<MedicalHistoryPage />} />
+          <Route path="users/login" element={< LoginPage setUser={setUser} setToken={setToken}/>} />
 
           <Route path="users/home"
             element={
@@ -55,6 +57,28 @@ function App() {
             }
           />
 
+
+          <Route path="users/contacts/edit/:contact_id"
+            element={
+              <ProtectedRoute
+                element={EditContactForm}
+                isAuthenticated={!!user && !!token}
+                user={user}
+                token={token}
+              />
+            }
+          />
+
+          <Route path="users/contacts/new"
+            element={
+              <ProtectedRoute
+                element={NewContactForm}
+                isAuthenticated={!!user && !!token}
+                user={user}
+                token={token}
+              />
+            }
+          />
         </Routes>
 
       </Router>

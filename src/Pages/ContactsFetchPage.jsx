@@ -7,10 +7,16 @@ const ContactsFetchPage = () => {
     return (
         <div>
             <h1>Emergency Contacts</h1>
-<div className="cCard">
-            <h2> <EmergencyContactsFetch/> </h2>
+            <div className="cCard">
+                <h2> <EmergencyContactsFetch /> </h2>
 
-            <Link to="/users/home"><button>Back</button></Link>
+                <div className="emButtons">
+
+                <Link to="/users/contacts/new">   <img className="addUserButton" src="/contact-add.svg" alt="Add Emergency Contact" /> </Link>
+
+                    <Link to="/users/home"><button className='backButton'>Back</button></Link>
+
+                </div>
             </div>
         </div>
     );
