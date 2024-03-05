@@ -2,9 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate, Link } from "react-router-dom";
 import '../Styles/EmergencyContactsForm.css'
-import { useLoginDataProvider } from "./LoginProvider"
+import { useLoginDataProvider } from "../Components/LoginProvider"
 
-export default function EmergencyContactsForm() {
+export default function NewContactForm() {
 
     const { API, user, token } = useLoginDataProvider()
 
@@ -18,8 +18,6 @@ export default function EmergencyContactsForm() {
 
     })
 
-    const [successMessage, setSuccessMessage] = useState("");
-
     const addEmergencyContact = () => {
 
         fetch(`${API}/users/contacts`, {
@@ -31,20 +29,8 @@ export default function EmergencyContactsForm() {
             },
         })
             .then(() => {
-                navigate(`/users/sign-up/${user.user_id}/medical`);
+                navigate(`/users/contacts`);
             })
-            .catch((error) => console.error("catch", error));
-    };
-
-    const addMoreEmergencyContact = () => {
-        fetch(`${API}/users/contacts`, {
-            method: "POST",
-            body: JSON.stringify(contact),
-            headers: {
-                "Content-Type": "application/json",
-                'Authorization': token
-            },
-        })
             .catch((error) => console.error("catch", error));
     };
 
@@ -58,28 +44,9 @@ export default function EmergencyContactsForm() {
 
     }
 
-    const handleAddMoreSubmit = (event) => {
-        event.preventDefault();
-        
-        addMoreEmergencyContact();
-
-        setSuccessMessage(`Successfully added: ${contact.firstname} ${contact.lastname} `);
-
-        setTimeout(() => {
-            setSuccessMessage("");
-        }, 2000);
-        setContact({
-            firstname: "",
-            lastname: "",
-            phone_number: "",
-        });
-
-    };
 
     return (
         <div className="emergencyContactForm">
-
-            {successMessage && <div className="successMessage">{successMessage}</div>}
 
             <form onSubmit={handleSubmit} className="newForm">
 
@@ -113,12 +80,9 @@ export default function EmergencyContactsForm() {
                     required
                 />
 
-
                 <div className="submitButton-EC">
 
-                    <button onClick={handleAddMoreSubmit}>Add </button>
-
-                    <button type="submit">Next</button>
+                    <button type="submit">Submit</button>
                 </div>
             </form>
 
