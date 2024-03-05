@@ -1,6 +1,7 @@
 // import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar.jsx'
+import LoginPage from './Pages/LoginPage.jsx';
 import FriesNavbar from './Components/FriesNavbar.jsx';
 import './App.css'
 import { useLoginDataProvider } from "./Components/LoginProvider"
@@ -20,12 +21,9 @@ function App() {
   const { setUser, setToken, user, token } = useLoginDataProvider()
 
   return (
-    <>
-
       <Router>
         <FriesNavbar />
         {/* <Navbar /> */}
-
         <Routes>
 
           <Route path='/' element={<LandingPage />} />
@@ -33,6 +31,7 @@ function App() {
           {/* <Route path='users/login' element={<Login />} /> */}
           <Route path="users/sign-up/:user_id/contacts" element={<EmergencyContactsPage />} />
           <Route path="users/sign-up/:user_id/medical" element={<MedicalHistoryPage />} />
+          <Route path="users/login" element={< LoginPage setUser={setUser} setToken={setToken}/>} />
 
           <Route path="users/home"
             element={

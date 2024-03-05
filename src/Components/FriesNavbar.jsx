@@ -28,6 +28,11 @@ const FriesNavbar = () => {
 
     return (
         <nav className='friesnavbar-style'>
+            {/* <Router> */}
+                <Link to={`${API}/`} >
+                    <img src='./VillageLogo.png' alt='Logo with heart in hand' width="80" className='logo'></img>
+                </Link>
+                <h5 className='logo-caption'>It takes a Village...</h5>
 
             <Link to={`/`} >
                 <img src='../VillageLogo.png' alt='Logo with heart in hand' className='logo' />
@@ -65,9 +70,33 @@ const FriesNavbar = () => {
                         </ul>
                     </div>
 
-                )}
-            </div>
+                    {openMenu && (
+                        <div className='dropdown-content'>
+                            <ul className='ul-style'>
+                                <li>
+                                    <Link to={'/'} className='Link'> Home </Link>
+                                </li>
+                                <li>
+                                    <Link to={'/users/sign-up'} className='Link'> Sign Up </Link>
+                                </li>
+                                <li>
+                                    <Link to={`/users/login`} className='Link'> Log in </Link>
+                                </li>
+                                <li>
+                                    <Link to={`/users/:user_id/profile`} className='Link'> Profile </Link>
+                                </li>
+                                <li>
+                                    <Link to={`/users/:user_id/contacts`} className='Link'> Emergency Contacts </Link>
+                                </li>
+                                <li>
+                                    <Link to={`/users/:user_id/medical`} className='Link'> Medical History</Link>
+                                </li>
+                            </ul>
+                        </div>
 
+                    )}
+                </div>
+            {/* </Router> */}
         </nav>
     );
 };
