@@ -1,6 +1,7 @@
 .friesnavbar-style {
     background-color: slategray;
     border-style: ridge 2px solid;
+    border-radius: 15px;
     width: 100%;
     position: relative;
     z-index: 20;
@@ -14,11 +15,11 @@
 
 .logo {
     display: flex;
+    position: relative;
+    top: -6px;
     width: 50px;
     height: 50px;
-    margin-left: 10px;
-    /* width:50px;
-    height:50px; */
+    margin-left: 15px;
 }
 
 .logo-caption {
@@ -26,7 +27,7 @@
     display: flex;
     position: absolute;
     color: black;
-    bottom: -5px;
+    bottom: 2px;
     left: 6px;
 }
 
@@ -34,17 +35,14 @@
     display: flex;
     justify-content: flex-end;
     padding: 4px;
-    
-
 }
 
 .fries-btn {
-
     cursor: pointer;
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 20px;
+    top: 15px;
     right: 32px;
     font-size: 14px;
 }
@@ -86,25 +84,24 @@
     border-style: ridge;
     flex-direction: column;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-
 }
 
 .ul-style {
     list-style-type: none;
-    width: 300px;
-    height: 100%;
+    width: 200px;
+    height: 200px;
     margin: 0;
-    padding: 20px 0;
+    padding: 2px 0;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
     transition-duration: .25s;
 }
 
 .Link {
     display: block;
-    padding: 12px 24px;
+    padding: 3px 6px;
     color: #333;
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     text-decoration: none;
     transition-duration: .25s;
