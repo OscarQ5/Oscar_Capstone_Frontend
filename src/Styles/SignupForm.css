@@ -4,11 +4,12 @@
   border-radius: 35px;
   width: 50vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: rgb(234, 234, 234);
   color: black;
+
 }
 
 form {

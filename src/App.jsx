@@ -12,6 +12,8 @@ import MedicalHistoryPage from './Pages/MedicalHistoryPage';
 import HomePage from './Pages/HomePage.jsx';
 import ProtectedRoute from './Components/ProtecteRoutes.jsx';
 import ContactsFetchPage from './Pages/ContactsFetchPage.jsx';
+import EditContactForm from './Pages/EditContactForm.jsx';
+import NewContactForm from './Pages/NewContactForm.jsx';
 
 function App() {
 
@@ -55,6 +57,28 @@ function App() {
             }
           />
 
+
+          <Route path="users/contacts/edit/:contact_id"
+            element={
+              <ProtectedRoute
+                element={EditContactForm}
+                isAuthenticated={!!user && !!token}
+                user={user}
+                token={token}
+              />
+            }
+          />
+
+          <Route path="users/contacts/new"
+            element={
+              <ProtectedRoute
+                element={NewContactForm}
+                isAuthenticated={!!user && !!token}
+                user={user}
+                token={token}
+              />
+            }
+          />
         </Routes>
 
       </Router>
