@@ -30,7 +30,7 @@ const FriesNavbar = () => {
         <nav className='friesnavbar-style'>
 
             <Link to={`/`} >
-                <img src='../VillageLogo.png' alt='Logo with heart in hand' width="80" className='logo' />
+                <img src='../VillageLogo.png' alt='Logo with heart in hand' className='logo' />
             </Link>
             <h5 className='logo-caption'>It takes a Village...</h5>
 
