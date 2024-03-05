@@ -11,7 +11,7 @@
     background-color: rgb(234, 234, 234);
     color: black;
     gap: 50px;
-    margin:30px;
+    /* margin:30px; */
 
 }
 
@@ -30,11 +30,45 @@
 .deleteButton{
     width:75px;
     height: 30px;
-}
-
-.deleteButton:hover{
     background-color:  rgb(232, 116, 45);
     border-radius: 60px;
     padding:5px;
     width: 6vh;
+}
+
+.deleteButton:hover{
+    background-color:  rgb(92, 88, 86);
+    border-radius: 60px;
+    padding:5px;
+    width: 6vh;
+}
+
+.addUserButton{
+    width:80px;
+    height: 40px;
+    background-color:rgb(232, 116, 45);
+    border-radius: 60px;
+}
+
+.addUserButton:hover{
+    background-color:   rgb(113, 110, 108);
+    border: 2px solid rgb(232, 116, 45)
+}
+
+.emButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+}
+
+.backButton{
+    background-color:rgb(232, 116, 45);
+    border-radius: 60px;
+    color: black;
+}
+
+.backButton:hover{
+    background-color: rgb(113, 110, 108) ;
+    border: 2px solid rgb(232, 116, 45);
 }
