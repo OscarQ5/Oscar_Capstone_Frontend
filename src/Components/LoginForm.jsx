@@ -29,7 +29,7 @@ const LoginForm = () => {
     })
     .then(res => res.json())
     .then(res => {
-        if (res.user && res.user.user_id) {
+        if (res.user && res.token) {
             const { user, token } = res;
             setUser(user);
             setToken(token);
@@ -38,13 +38,40 @@ const LoginForm = () => {
                 phone_number: '', 
                 password_hash: ''
             });
-            navigate('/users/home');
+            navigate(`/users/home`);
         } else {
-            console.log(res);
+            console.log("Login failed:", res);
         }
     })
-    .catch(err => console.log(err));
+    .catch(err => console.error("Login error:", err));
 };
+
+//   const handleLogin = () => {
+//     fetch(`${API}/users/login`, {
+//         method: "POST",
+//         body: JSON.stringify(formData),
+//         headers: {
+//             "Content-Type": "application/json"
+//         }
+//     })
+//     .then(res => res.json())
+//     .then(res => {
+//         if (res.user && res.user.user_id) {
+//             const { user, token } = res;
+//             setUser(user);
+//             setToken(token);
+//             setForm(formData);
+//             setFormData({
+//                 phone_number: '', 
+//                 password_hash: ''
+//             });
+//             navigate(`/users/home`);
+//         } else {
+//             console.log(res);
+//         }
+//     })
+//     .catch(err => console.log(err));
+// };
 
   return (
     <div style={{ marginTop: "50px" }}>

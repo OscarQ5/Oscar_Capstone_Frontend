@@ -22,7 +22,7 @@ export default function EmergencyContactsForm() {
 
     const addEmergencyContact = () => {
 
-        fetch(`${API}/users/${user.user_id}/contacts`, {
+        fetch(`${API}/users/contacts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -37,7 +37,7 @@ export default function EmergencyContactsForm() {
     };
 
     const addMoreEmergencyContact = () => {
-        fetch(`${API}/users/${user.user_id}/contacts`, {
+        fetch(`${API}/users/contacts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
