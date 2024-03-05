@@ -21,6 +21,7 @@ function App() {
   const { setUser, setToken, user, token } = useLoginDataProvider()
 
   return (
+    <>
       <Router>
         <FriesNavbar />
         {/* <Navbar /> */}
