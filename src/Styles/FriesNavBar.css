@@ -54,7 +54,7 @@
     margin: 2px 0;
     border-radius: 2px;
     transition: transform 0.3s ease-in-out;
-    
+
 }
 
 .short {
@@ -101,7 +101,7 @@
     padding: 3px 6px;
     color: #333;
     font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     text-decoration: none;
     transition-duration: .25s;
@@ -110,6 +110,7 @@
 .Link:hover {
     background-color: #CFD8DC;
 }
+
 
 /* Medium screens, laptops, and desktops */
 @media only screen and (max-width: 1280px) {
