@@ -78,7 +78,7 @@ function SignupForm() {
                     value={formData.name}
                     type="text"
                     onChange={handleChange}
-                    placeholder="ex. Jane"
+                    placeholder="ex. Jane Doe"
                     required
                 />
 

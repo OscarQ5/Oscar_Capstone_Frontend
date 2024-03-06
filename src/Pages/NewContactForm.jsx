@@ -44,7 +44,6 @@ export default function NewContactForm() {
 
     }
 
-
     return (
         <div className="emergencyContactForm">
 
