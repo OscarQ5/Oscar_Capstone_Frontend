@@ -10,7 +10,6 @@ const EmergencyContactPage = () => {
 
     const [showBlurb, setShowBlurb] = useState(false)
 
-
     const toggleBlurb = () => {
         setShowBlurb(!showBlurb);
     };
@@ -25,7 +24,6 @@ const EmergencyContactPage = () => {
                 <div className="blurb-EC">
                     <p>
                         Add your emergency contacts below. These contacts will be notified in case of an emergency.
-
                     </p>
                 </div>
             )}

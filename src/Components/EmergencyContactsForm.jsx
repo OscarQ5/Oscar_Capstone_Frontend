@@ -55,7 +55,7 @@ export default function EmergencyContactsForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         addEmergencyContact();
-
+           
     }
 
     const handleAddMoreSubmit = (event) => {
@@ -116,9 +116,9 @@ export default function EmergencyContactsForm() {
 
                 <div className="submitButton-EC">
 
-                    <button onClick={handleAddMoreSubmit}>Add </button>
-
-                    <button type="submit">Next</button>
+                    <button onClick={handleAddMoreSubmit}>Add More</button>
+                    <Link to={`/users/sign-up/${user.user_id}/medical`}><button >Next</button></Link>
+                    {/* <button type="submit">Next</button> */}
                 </div>
             </form>
 

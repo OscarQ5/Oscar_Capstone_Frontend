@@ -12,9 +12,9 @@ const ContactsFetchPage = () => {
 
                 <div className="emButtons">
 
-                <Link to="/users/contacts/new">   <img className="addUserButton" src="/contact-add.svg" alt="Add Emergency Contact" /> </Link>
+                    <Link to="/users/contacts/new">  <img className="addUserButton" src="/contact-add.svg" alt="Add Emergency Contact" /> </Link>
 
-                    <Link to="/users/home"><button className='backButton'>Back</button></Link>
+                    <Link to="/users/home"> <img className="backButton" src="/backButton2.svg" alt="Back Button" /></Link>
 
                 </div>
             </div>

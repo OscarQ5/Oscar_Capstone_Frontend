@@ -3,13 +3,10 @@ import { useState, useEffect } from 'react';
 import { useLoginDataProvider } from "./LoginProvider"
 import '../Styles/ContactsFetchPage.css'
 import { Link } from 'react-router-dom';
-// import { useParams } from 'react-router-dom'
-
 
 const EmergencyContactsFetch = () => {
     const [eContacts, setEContacts] = useState([])
     const { API, token, user } = useLoginDataProvider()
-    // const { contact_id} = useParams()
 
     useEffect(() => {
         fetch(`${API}/users/contacts`, {
@@ -39,6 +36,5 @@ const EmergencyContactsFetch = () => {
         </div>
     );
 };
-
 
 export default EmergencyContactsFetch;

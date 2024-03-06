@@ -1,42 +1,59 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
-import { useLoginDataProvider } from "./LoginProvider"
+import React, { useState,useEffect } from 'react';
+import { useLoginDataProvider } from "../Components/LoginProvider";
+import EditMedicalHistory from "./EditMedicalHistory";
+import '../Styles/MedicalHistoryFetch.css'
 
-const MedicalHistoryFetch = () => {
-
-    const [medHistory, setMedHistory] = useState()
-
-    const { API, token, user, med } = useLoginDataProvider()
-
+const MedicalHistoryFetch = ({setShowMedicineCabinet}) => {
+    const { API, token } = useLoginDataProvider();
+    const [medHistory, setMedHistory] = useState([]);
+    const [editMode, setEditMode] = useState(false);
 
     useEffect(() => {
-        fetch(`${API}/users/${user.user_id}/medical/${med.medical_id}`, {
+        fetch(`${API}/users/medical`, {
             headers: {
                 "Authorization": token
             }
         })
-            .then((res) => res.json())
-            .then((res) => setMedHistory(() => res))
+        .then((res) => res.json())
+        .then((res) => setMedHistory(res))
+        .catch((error) => console.error('Error fetching medical history:', error));
+    }, [API, token]);
 
-    }, [user])
+    const handleEditClick = () => {
+        setEditMode(true);
+    };
 
-    console.log(medHistory, user)
+    const handleEditCancel = () => {
+        setEditMode(false);
+    };
 
     return (
-        <div className='contactBody'>
-        
-            <div key={medHistory.id} className="medHistoryCard">
+        <div className='medicalBody'>
+            {!editMode && (
+                <>
+                    {medHistory.map((person) => (
+                        <div key={person.medical_id} className="personCard">
+                            <h2>Medication: {person.medication}</h2>
+                            <h2>Allergies: {person.allergies}</h2>
+                            <h2>Blood Type: {person.blood_type}</h2>
+                            <h2>Medical History: {person.medical_history}</h2>
+                            <div>
+                            <img  onClick={handleEditClick} className="editButton" src='../DarkButton.svg' alt="Edit Emergency Contact" />   
+                            </div>
+                        </div>
+                    ))}
+                </>
+            )}
 
-                <h2>{medHistory.allergies}</h2>
-                <h2>{medHistory.blood_type}</h2>
-                <h2>{medHistory.medical_history}</h2>
-                <div>
-                <img className="editButton" src='../DarkButton.svg' alt="Edit Emergency Contact" />
-                <img className="deleteButton" src='../Anonymous_Architetto_--_Cestino_pieno.svg' alt="Delete Emergency Contact" />
-                </div>
-            </div>
-     
-    </div>
+            {editMode && (
+                <EditMedicalHistory
+                    medHistory={medHistory}
+                    setEditMode={setEditMode}
+                    handleEditCancel={handleEditCancel}
+                    setShowMedicineCabinet={setShowMedicineCabinet}
+                />
+            )}
+        </div>
     );
 };
 

@@ -14,20 +14,12 @@ function LoginProvider({ children }) {
 
     const [user, setUser] = useState(null)
     const [token, setToken] = useState(null)
+    
     const [form, setForm] = useState({
         name: '',
         email: '',
         password_hash: '',
         phone_number: ''
-    })
-
-    const [medicalForm, setMedicalForm] = useState({
-
-        blood_type: "",
-        allergies: "",
-        medication: "",
-        medical_history: ""
-
     })
 
     const isAuthenticated = user && token
@@ -43,9 +35,8 @@ function LoginProvider({ children }) {
             setToken,
             isAuthenticated,
             form,
-            setForm,
-            medicalForm,
-            setMedicalForm
+            setForm
+    
         }}>
             {children}
         </LoginData.Provider>

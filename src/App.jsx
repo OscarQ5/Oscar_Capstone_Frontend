@@ -14,6 +14,7 @@ import ProtectedRoute from './Components/ProtecteRoutes.jsx';
 import ContactsFetchPage from './Pages/ContactsFetchPage.jsx';
 import EditContactForm from './Pages/EditContactForm.jsx';
 import NewContactForm from './Pages/NewContactForm.jsx';
+import MedHistoryFetch from './Pages/MedHistoryFetch.jsx'
 
 function App() {
 
@@ -79,6 +80,18 @@ function App() {
               />
             }
           />
+
+{/* 
+            <Route path="users/medical"
+            element={
+              <ProtectedRoute
+                element={MedHistoryFetch}
+                isAuthenticated={!!user && !!token}
+                user={user}
+                token={token}
+              />
+            }
+          /> */}
         </Routes>
 
       </Router>

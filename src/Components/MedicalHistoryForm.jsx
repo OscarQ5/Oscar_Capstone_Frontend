@@ -6,7 +6,7 @@ import { useLoginDataProvider } from "./LoginProvider"
 
 const MedicalHistoryForm = () => {
 
-    const { API, token, user } = useLoginDataProvider()
+    const { API, token } = useLoginDataProvider()
 
     const navigate = useNavigate();
 
@@ -16,7 +16,6 @@ const MedicalHistoryForm = () => {
         allergies: "",
         medication: "",
         medical_history: "",
-        user_id:user.user_id
 
     })
 
@@ -29,9 +28,11 @@ const MedicalHistoryForm = () => {
                 'Authorization': token
             },
             body: JSON.stringify(medicalHistory),
-        })
-            .then(() => {
-                navigate(`/users/home`);
+        })     
+         .then((res) => res.json())
+         .then((res) => {
+            console.log(res)
+           navigate(`/users/home`);
             })
             .catch((error) => console.error("catch", error));
     };
