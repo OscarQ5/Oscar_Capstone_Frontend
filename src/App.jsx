@@ -25,12 +25,10 @@ function App() {
     <>
       <Router>
         <FriesNavbar />
-        {/* <Navbar /> */}
         <Routes>
 
           <Route path='/' element={<LandingPage />} />
           <Route path="users/sign-up" element={<SignupPage setUser={setUser} setToken={setToken} />} />
-          {/* <Route path='users/login' element={<Login />} /> */}
           <Route path="users/sign-up/:user_id/contacts" element={<EmergencyContactsPage />} />
           <Route path="users/sign-up/:user_id/medical" element={<MedicalHistoryPage />} />
           <Route path="users/login" element={< LoginPage setUser={setUser} setToken={setToken}/>} />
@@ -46,7 +44,6 @@ function App() {
             }
           />
 
-
           <Route path="users/contacts"
             element={
               <ProtectedRoute
@@ -57,7 +54,6 @@ function App() {
               />
             }
           />
-
 
           <Route path="users/contacts/edit/:contact_id"
             element={

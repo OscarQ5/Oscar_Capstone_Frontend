@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLoginDataProvider } from "../Components/LoginProvider";
+import '../Styles/EditMedicalHistory.css'
 
 const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShowMedicineCabinet }) => {
     const { API, token } = useLoginDataProvider();
@@ -96,7 +97,7 @@ const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShow
                 <div className="submitButton">
                     <button type="submit">Submit</button>
                     <button onClick={handleEditCancel}>Cancel</button>
-                    <img onClick={handleDelete} className="deleteButton" src="/Anonymous_Architetto_--_Cestino_pieno.svg" alt="Delete Emergency Contact" />
+                    {/* <img onClick={handleDelete} className="deleteButton" src="/Anonymous_Architetto_--_Cestino_pieno.svg" alt="Delete Emergency Contact" /> */}
                 </div>
             </form>
         </div>

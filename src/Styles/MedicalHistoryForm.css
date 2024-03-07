@@ -1,5 +1,5 @@
 .medicalHistoryForm {
-  border: 1px solid rgb(242, 18, 18);
+  border: 3px solid rgb(242, 18, 18);
   padding: 20px;
   border-radius: 35px;
   width: 60vh;
@@ -68,3 +68,4 @@ span:hover {
   background-color: rgb(232, 116, 45);
   border-radius: 50px;
 }
+

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLoginDataProvider } from './LoginProvider';
 import { useNavigate } from 'react-router-dom';
+import '../Styles/LoginPage.css'
 
 const LoginForm = () => {
     const { API, setToken, setUser, setForm } = useLoginDataProvider();
@@ -46,11 +47,11 @@ const LoginForm = () => {
         })
         .catch(err => console.error("Login error:", err));
     };
-
+                      //You had each input wrapped around a div
     return (
-        <div style={{ marginTop: "50px" }}>
-            <form onSubmit={handleLogin}>
-                <div>
+        <div className="loginFormBody">
+            <form onSubmit={handleLogin} className='loginFormPage' >
+                
                     <label htmlFor="phone_number">Phone Number</label> 
                     <input
                         type="tel" 
@@ -60,8 +61,8 @@ const LoginForm = () => {
                         onChange={handleInputChange}
                         required
                     />
-                </div>
-                <div>
+                
+               
                     <label htmlFor="password_hash">Password</label>
                     <input
                         type="password"
@@ -71,7 +72,7 @@ const LoginForm = () => {
                         onChange={handleInputChange}
                         required
                     />
-                </div>
+                
                 <button type="submit">Log in</button>
             </form>
         </div>
