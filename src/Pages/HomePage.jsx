@@ -39,7 +39,7 @@ const HomePage = () => {
 
                     {showMedicineCabinet && <MedicalHistoryFetch setShowMedicineCabinet={setShowMedicineCabinet}/>}
 
-                    <button className="medicineCabinetButton" onClick={toggleMedicineCabinet}>MEDICINE CABINET</button>
+                    <button className="medicineCabinetButton" onClick={toggleMedicineCabinet}>MEDICAL CABINET</button>
                 </div>
             </div>
         </>
