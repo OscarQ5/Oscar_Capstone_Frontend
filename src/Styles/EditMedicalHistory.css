@@ -1,5 +1,5 @@
-.submitButton{
-   display: flex;
-   flex-direction: row;
+.submitButton {
+  display: flex;
+  flex-direction: row;
   gap: 40px;
 }

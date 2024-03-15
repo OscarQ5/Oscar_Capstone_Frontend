@@ -1,20 +1,20 @@
 import React from 'react';
 import MedicalHistoryFetch from '../Components/MedicalHistoryFetch';
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const MedHistoryFetch = () => {
     return (
         <div>
-        <h1>Medicine Cabinet</h1>
-<div className="cCard">
+            <h1>Medicine Cabinet</h1>
 
-        <h2> <MedicalHistoryFetch/> </h2>
-
-        <Link to="/users/home"><button>Back</button></Link>
+            <div className="cCard">
+                <h2> <MedicalHistoryFetch /> </h2>
+                <Link to="/users/home"><button>Back</button></Link>
+            </div>
+            
         </div>
-    </div>
-);
-    
+    );
+
 };
 
 export default MedHistoryFetch;

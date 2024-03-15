@@ -11,11 +11,9 @@ export default function EmergencyContactsForm() {
     const navigate = useNavigate();
 
     const [contact, setContact] = useState({
-
         firstname: "",
         lastname: "",
         phone_number: ""
-
     })
 
     const [successMessage, setSuccessMessage] = useState("");
@@ -54,8 +52,7 @@ export default function EmergencyContactsForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        addEmergencyContact();
-           
+        addEmergencyContact();      
     }
 
     const handleAddMoreSubmit = (event) => {
@@ -73,7 +70,6 @@ export default function EmergencyContactsForm() {
             lastname: "",
             phone_number: "",
         });
-
     };
 
     return (
@@ -113,12 +109,11 @@ export default function EmergencyContactsForm() {
                     required
                 />
 
-
                 <div className="submitButton-EC">
 
                     <button onClick={handleAddMoreSubmit}>Add More</button>
                     <Link to={`/users/sign-up/${user.user_id}/medical`}><button >Next</button></Link>
-                    {/* <button type="submit">Next</button> */}
+            
                 </div>
             </form>
 

@@ -1,7 +1,7 @@
 .friesnavbar-style {
   background-color: slategray;
   border-style: ridge 2px solid;
-  width: 180vh;
+  width: 100vw;
   position: relative;
   z-index: 20;
   top: 20;
@@ -74,11 +74,12 @@
   top: 100%;
   right: 0%;
   background-color: black;
-  padding: 2%;
+  padding: 0.7%;
   display: block;
   border-style: ridge;
   flex-direction: column;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 70px;
 }
 
 .ul-style {
@@ -89,6 +90,7 @@
   padding: 20px 0;
   box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
   transition-duration: 0.25s;
+  border-radius: 80px;
 }
 
 .Link {
@@ -104,4 +106,6 @@
 
 .Link:hover {
   background-color: #cfd8dc;
+  border-radius: 80px;
+  color: rgb(232, 116, 45);
 }

@@ -6,7 +6,7 @@ import { useLoginDataProvider } from "../Components/LoginProvider"
 
 export default function NewContactForm() {
 
-    const { API, user, token } = useLoginDataProvider()
+    const { API, token } = useLoginDataProvider()
 
     const navigate = useNavigate();
 
@@ -41,7 +41,6 @@ export default function NewContactForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
         addEmergencyContact();
-
     }
 
     return (
@@ -80,7 +79,6 @@ export default function NewContactForm() {
                 />
 
                 <div className="submitButton-EC">
-
                     <button type="submit">Submit</button>
                 </div>
             </form>

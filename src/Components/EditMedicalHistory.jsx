@@ -5,7 +5,7 @@ import '../Styles/EditMedicalHistory.css'
 const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShowMedicineCabinet }) => {
     const { API, token } = useLoginDataProvider();
 
-    const { medical_id } = medHistory[0]; 
+    const { medical_id } = medHistory[0];
 
     const [medicalHistory, setMedicalHistory] = useState({
         blood_type: medHistory[0].blood_type,
@@ -29,28 +29,28 @@ const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShow
                 'Authorization': token
             }
         })
-        .then(res => res.json())
-        .then(res => {
-            console.log( res);
-            setEditMode(false); 
-            setShowMedicineCabinet(false)
-        })
-        .catch(err => console.log(err));
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                setEditMode(false);
+                setShowMedicineCabinet(false)
+            })
+            .catch(err => console.log(err));
     };
 
     const handleDelete = () => {
         fetch(`${API}/users/medical/${medical_id}`, {
             method: "DELETE",
             headers: {
-                "Authorization" : token
+                "Authorization": token
             }
         })
-        .then(res => res.json())
-        .then(res => {
-            console.log("Completed Delete");
-            setEditMode(false); 
-        })
-        .catch(err => console.log(err));
+            .then(res => res.json())
+            .then(res => {
+                console.log("Completed Delete");
+                setEditMode(false);
+            })
+            .catch(err => console.log(err));
     };
 
     return (
@@ -65,8 +65,8 @@ const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShow
                     placeholder="ex. Bananas"
                     required
                 />
-     
-     <label htmlFor="medication">Are you taking any medication? </label>
+
+                <label htmlFor="medication">Are you taking any medication? </label>
                 <input
                     id="medication"
                     value={medicalHistory.medication}
@@ -97,7 +97,6 @@ const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShow
                 <div className="submitButton">
                     <button type="submit">Submit</button>
                     <button onClick={handleEditCancel}>Cancel</button>
-                    {/* <img onClick={handleDelete} className="deleteButton" src="/Anonymous_Architetto_--_Cestino_pieno.svg" alt="Delete Emergency Contact" /> */}
                 </div>
             </form>
         </div>

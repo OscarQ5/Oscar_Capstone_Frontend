@@ -11,12 +11,10 @@ const MedicalHistoryForm = () => {
     const navigate = useNavigate();
 
     const [medicalHistory, setMedicalHistory] = useState({
-
         blood_type: "",
         allergies: "",
         medication: "",
         medical_history: "",
-
     })
 
     const addMedicalHistory = () => {
@@ -28,11 +26,11 @@ const MedicalHistoryForm = () => {
                 'Authorization': token
             },
             body: JSON.stringify(medicalHistory),
-        })     
-         .then((res) => res.json())
-         .then((res) => {
-            console.log(res)
-           navigate(`/users/home`);
+        })
+            .then((res) => res.json())
+            .then((res) => {
+                console.log(res)
+                navigate(`/users/home`);
             })
             .catch((error) => console.error("catch", error));
     };
@@ -44,7 +42,6 @@ const MedicalHistoryForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         addMedicalHistory();
-       
     }
 
     return (
@@ -72,7 +69,6 @@ const MedicalHistoryForm = () => {
                     required
                 />
 
-
                 <label htmlFor="medical_history">Any Past Medical History?</label>
                 <input
                     id="medical_history"
@@ -82,6 +78,7 @@ const MedicalHistoryForm = () => {
                     placeholder="ex. Asthma, COPD"
                     required
                 />
+
                 <label htmlFor="blood_type">What's Your Blood Type?</label>
                 <input
                     id="blood_type"
@@ -93,11 +90,10 @@ const MedicalHistoryForm = () => {
                 />
 
                 <div className="submitButton">
-                 
                     <button type="submit" >Submit</button>
                 </div>
-            </form>
 
+            </form>
         </div>
     )
 };

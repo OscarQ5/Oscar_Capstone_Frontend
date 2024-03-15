@@ -9,5 +9,4 @@ const ProtectedRoute = ({element: Component, isAuthenticated, user, token}) => {
         <Navigate to='/login' replace />
     )
 };
-
 export default ProtectedRoute;
