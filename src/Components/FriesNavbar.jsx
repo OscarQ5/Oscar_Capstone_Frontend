@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import '../Styles/FriesNavbar.css';
 
-
 const FriesNavbar = ({ user, setUser, setToken, }) => {
     const API = import.meta.env.VITE_BASE_URL;
 

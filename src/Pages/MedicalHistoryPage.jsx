@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 const MedicalHistoryPage = () => {
 
-    const { API, user } = useLoginDataProvider()
+    const { user } = useLoginDataProvider()
 
     const [showBlurb, setShowBlurb] = useState(false)
 

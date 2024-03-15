@@ -58,12 +58,11 @@ function SignupForm() {
                     navigate(`${user.user_id}/contacts`);
                 } else {
                     console.log("Failed to create user:", res);
-                 
                 }
             })
             .catch(err => {
                 console.error("Error creating user:", err);
-             
+
             });
     };
 
@@ -101,6 +100,7 @@ function SignupForm() {
                     placeholder="ex. JaneDoe@example.com"
                     required
                 />
+
                 <label htmlFor="phone_number">Phone Number</label>
                 <input
                     id="phone_number"
@@ -112,7 +112,6 @@ function SignupForm() {
                 />
 
                 <div className="submitButton">
-
                     <button type="submit" >Submit</button>
                 </div>
             </form>

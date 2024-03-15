@@ -8,7 +8,7 @@ const LoginForm = () => {
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        phone_number: '', 
+        phone_number: '',
         password_hash: '',
     });
 
@@ -29,50 +29,50 @@ const LoginForm = () => {
                 "Content-Type": "application/json"
             }
         })
-        .then(res => res.json())
-        .then(res => {
-            if (res.token && res.user.user_id) {
-                const { user, token } = res;
-                setUser(user);
-                setToken(token);
-                setForm(formData);
-                setFormData({
-                    phone_number: '', 
-                    password_hash: ''
-                });
-                navigate(`/users/home`);
-            } else {
-                console.log("Login failed:", res);
-            }
-        })
-        .catch(err => console.error("Login error:", err));
+            .then(res => res.json())
+            .then(res => {
+                if (res.token && res.user.user_id) {
+                    const { user, token } = res;
+                    setUser(user);
+                    setToken(token);
+                    setForm(formData);
+                    setFormData({
+                        phone_number: '',
+                        password_hash: ''
+                    });
+                    navigate(`/users/home`);
+                } else {
+                    console.log("Login failed:", res);
+                }
+            })
+            .catch(err => console.error("Login error:", err));
     };
-                      //You had each input wrapped around a div
+    //You had each input wrapped around a div
     return (
         <div className="loginFormBody">
             <form onSubmit={handleLogin} className='loginFormPage' >
-                
-                    <label htmlFor="phone_number">Phone Number</label> 
-                    <input
-                        type="tel" 
-                        id="phone_number"
-                        name="phone_number" 
-                        value={formData.phone_number} 
-                        onChange={handleInputChange}
-                        required
-                    />
-                
-               
-                    <label htmlFor="password_hash">Password</label>
-                    <input
-                        type="password"
-                        id="password_hash"
-                        name="password_hash"
-                        value={formData.password_hash}
-                        onChange={handleInputChange}
-                        required
-                    />
-                
+
+                <label htmlFor="phone_number">Phone Number</label>
+                <input
+                    type="tel"
+                    id="phone_number"
+                    name="phone_number"
+                    value={formData.phone_number}
+                    onChange={handleInputChange}
+                    required
+                />
+
+
+                <label htmlFor="password_hash">Password</label>
+                <input
+                    type="password"
+                    id="password_hash"
+                    name="password_hash"
+                    value={formData.password_hash}
+                    onChange={handleInputChange}
+                    required
+                />
+
                 <button type="submit">Log in</button>
             </form>
         </div>

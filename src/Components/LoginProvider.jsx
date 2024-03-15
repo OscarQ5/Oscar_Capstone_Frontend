@@ -14,7 +14,7 @@ function LoginProvider({ children }) {
 
     const [user, setUser] = useState(null)
     const [token, setToken] = useState(null)
-    
+
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -36,7 +36,7 @@ function LoginProvider({ children }) {
             isAuthenticated,
             form,
             setForm
-    
+
         }}>
             {children}
         </LoginData.Provider>

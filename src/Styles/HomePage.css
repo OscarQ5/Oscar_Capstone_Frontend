@@ -7,12 +7,12 @@
 }
 
 .sosButton {
-  border-radius: 90px;
+  border-radius: 125px;
   background-color: white;
-  width: 80%;
+  position: relative;
+  width: 15vw;
   height: 25vh;
   font-size: xx-large;
-
 }
 
 .emergencyContactButton:hover {
@@ -29,10 +29,10 @@
   color: black;
 }
 
-.time{
-    color:rgb(232, 116, 45)
+.time {
+  color: rgb(232, 116, 45);
 }
 
-.userName{
-   color:rgb(232, 116, 45)
+.userName {
+  color: rgb(232, 116, 45);
 }

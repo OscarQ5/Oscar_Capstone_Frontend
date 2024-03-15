@@ -1,0 +1,55 @@
+.villageCard {
+  /* border:2px solid red; */
+  background-color: rgb(234, 234, 234);
+  border-radius: 80px;
+  color: black;
+  padding: 15px;
+  width: 9vw;
+  height: 15vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  text-decoration: none;
+  font-weight: bold;
+  gap: 30px;
+  margin: 10px;
+}
+
+.villageCard:hover {
+  color: rgb(232, 116, 45);
+}
+
+.villageCardBody {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  /* gap: 30px; */
+}
+
+.villageDelete {
+  font-size: xx-small;
+  border-radius: 80px;
+  background-color: #242424;
+}
+
+.villageDelete:hover {
+  font-size: xx-small;
+  border-radius: 80px;
+  background-color: black;
+}
+
+.villageLink {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  padding-top: 30px;
+}
+
+.villageLink:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(232, 116, 45);
+}

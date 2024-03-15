@@ -3,9 +3,8 @@ import SignupForm from '../Components/SignupForm';
 import { useState } from 'react';
 
 const SignupPage = () => {
-    
-    const [showBlurb, setShowBlurb] = useState(false)
 
+    const [showBlurb, setShowBlurb] = useState(false)
     const toggleBlurb = () => {
         setShowBlurb(!showBlurb);
     }
