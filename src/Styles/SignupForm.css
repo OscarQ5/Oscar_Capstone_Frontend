@@ -1,0 +1,70 @@
+.signUpForm {
+  border: 3px solid rgb(242, 18, 18);
+  padding: 20px;
+  border-radius: 35px;
+  width: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(234, 234, 234);
+  color: black;
+}
+
+form {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 35px;
+  gap: 5px;
+  width: 50vh;
+  height: 100%;
+}
+
+form .submitButton-EC {
+  margin: 10px;
+  gap: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+form label {
+  font-weight: bold;
+}
+
+.submitButton-EC button:hover {
+  background-color: green;
+  color: white;
+  border-color: black;
+}
+
+.submitButton-EC button {
+  border-radius: 75px;
+  background-color: rgb(232, 116, 45);
+}
+
+input {
+  border-radius: 35px;
+  border-color: rgb(159, 148, 148);
+  color: rgb(0, 0, 0);
+  width: 40vh;
+}
+
+.successMessage {
+  color: white;
+  font-weight: bolder;
+  background-color: rgb(47, 184, 19);
+  border-radius: 35px;
+  padding: 2px;
+}
+
+.blurb-SU {
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}

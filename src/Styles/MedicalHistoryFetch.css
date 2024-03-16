@@ -1,0 +1,12 @@
+.medicalBody{
+    border: 3px solid rgb(242, 18, 18);
+    padding: 20px;
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(234, 234, 234);
+    color: black;
+    position:fixed;
+    margin-bottom: 55px;
+}

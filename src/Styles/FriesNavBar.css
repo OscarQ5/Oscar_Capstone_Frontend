@@ -1,0 +1,111 @@
+.friesnavbar-style {
+  background-color: slategray;
+  border-style: ridge 2px solid;
+  width: 100vw;
+  position: relative;
+  z-index: 20;
+  top: 20;
+  left: 0;
+  border-bottom: 1px solid #e5e7eb;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+  display: flex;
+  margin-left: 10px;
+  /* width:50px;
+    height:50px; */
+}
+
+.logo-caption {
+  font-size: 11px;
+  display: flex;
+  position: absolute;
+  color: black;
+  bottom: -13px;
+  left: 13px;
+}
+
+.fries-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px;
+}
+
+.fries-btn {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+}
+
+.fry {
+  width: 30px;
+  height: 6px;
+  background-color: #ffcc29;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.short {
+  width: 20px;
+}
+
+.open .fry:nth-child(1) {
+  transform: rotate(-45deg) translate(4px, 0px);
+}
+
+.open .fry:nth-child(2) {
+  opacity: 0;
+}
+
+.open .fry:nth-child(3) {
+  transform: rotate(45deg) translate(-4px, 0px);
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  right: 0%;
+  background-color: black;
+  padding: 0.7%;
+  display: block;
+  border-style: ridge;
+  flex-direction: column;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 70px;
+}
+
+.ul-style {
+  list-style-type: none;
+  width: 300px;
+  height: 100%;
+  margin: 0;
+  padding: 20px 0;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+  transition-duration: 0.25s;
+  border-radius: 80px;
+}
+
+.Link {
+  display: block;
+  padding: 12px 24px;
+  color: #333;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition-duration: 0.25s;
+}
+
+.Link:hover {
+  background-color: #cfd8dc;
+  border-radius: 80px;
+  color: rgb(232, 116, 45);
+}
