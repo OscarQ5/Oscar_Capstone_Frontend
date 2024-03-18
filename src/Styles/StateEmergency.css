@@ -34,3 +34,13 @@ border-radius: 50px;;
     color: white;
     font-size: smaller;
 }
+
+.villageDropdown{
+    margin-top:15px;
+    border: 2px solid red;
+    color: black;
+    background-color: aliceblue;
+    font-size:medium;
+    font-weight: bolder;
+    border-radius: 50px;
+}

@@ -15,17 +15,10 @@ padding: 10px;
 }
 
 .emergencyContactButton:hover {
-  background-color: rgb(131, 212, 131);
-  color: black;
-}
-
-.sosButton:hover {
-  background-color: rgb(228, 139, 139);
-}
-
-.medicineCabinetButton:hover {
-  background-color: rgb(131, 212, 131);
-  color: black;
+  border:2px solid red;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 40px;
 }
 
 .time {
@@ -34,4 +27,26 @@ padding: 10px;
 
 .userName {
   color: rgb(232, 116, 45);
+}
+
+.villagesButton{
+  border:2px solid red;
+  background-color: white;
+  color:black;
+  border-radius: 40px;
+}
+
+
+.villagesButton:hover{
+  border:2px solid red;
+  background-color: rgb(0, 0, 0);
+  color:white;
+  border-radius: 40px;
+}
+
+.emergencyContactButton{
+  border:2px solid red;
+  background-color: white;
+  color:black;
+  border-radius: 40px;
 }
