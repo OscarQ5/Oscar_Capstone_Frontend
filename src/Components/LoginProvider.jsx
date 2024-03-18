@@ -19,7 +19,8 @@ function LoginProvider({ children }) {
         name: '',
         email: '',
         password_hash: '',
-        phone_number: ''
+        phone_number: '',
+        username:''
     })
 
     const isAuthenticated = user && token

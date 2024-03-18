@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import { useLoginDataProvider } from './LoginProvider';
 import { useNavigate } from 'react-router-dom';
-import '../Styles/LoginPage.css'
+import '../Styles/LoginPage.css';
 
 const LoginForm = () => {
     const { API, setToken, setUser, setForm } = useLoginDataProvider();
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
-        phone_number: '',
+        username: '',
         password_hash: '',
     });
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
+
+        setFormData(prevState => ({
+            ...prevState,
+            [name]: value
         }));
-    };
+    }
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -29,42 +30,42 @@ const LoginForm = () => {
                 "Content-Type": "application/json"
             }
         })
-            .then(res => res.json())
-            .then(res => {
-                if (res.token && res.user.user_id) {
-                    const { user, token } = res;
-                    setUser(user);
-                    setToken(token);
-                    setForm(formData);
-                    setFormData({
-                        phone_number: '',
-                        password_hash: ''
-                    });
-                    navigate(`/users/home`);
-                } else {
-                    console.log("Login failed:", res);
-                }
-            })
-            .catch(err => console.error("Login error:", err));
+        .then(res => res.json())
+        .then(res => {
+            if (res.token && res.user.user_id) {
+                const { user, token } = res;
+                setUser(user);
+                setToken(token);
+                setForm(formData);
+                setFormData({
+                    username: '',
+                    password_hash: ''
+                });
+                navigate(`/users/home`);
+            } else {
+                console.log("Login failed:", res);
+            }
+        })
+        .catch(err => console.error("Login error:", err));
     };
-    //You had each input wrapped around a div
+
     return (
         <div className="loginFormBody">
-            <form onSubmit={handleLogin} className='loginFormPage' >
-
-                <label htmlFor="phone_number">Phone Number</label>
+            <form onSubmit={handleLogin} className='loginFormPage'>
+                <label htmlFor="username">User Name</label>
                 <input
-                    type="tel"
-                    id="phone_number"
-                    name="phone_number"
-                    value={formData.phone_number}
+                    id="username"
+                    name="username" 
+                    value={formData.username}
+                    type="text"
                     onChange={handleInputChange}
+                    placeholder="ex. Jane D."
                     required
                 />
 
-
                 <label htmlFor="password_hash">Password</label>
                 <input
+                    className="password"
                     type="password"
                     id="password_hash"
                     name="password_hash"
@@ -73,7 +74,7 @@ const LoginForm = () => {
                     required
                 />
 
-                <button type="submit">Log in</button>
+                <button className='loginSubmit' type="submit">Log in</button>
             </form>
         </div>
     );

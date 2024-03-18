@@ -7,17 +7,15 @@ import { useLoginDataProvider } from "../Components/LoginProvider"
 const EmergencyContactPage = () => {
 
     const { API, user } = useLoginDataProvider()
-
     const [showBlurb, setShowBlurb] = useState(false)
-
     const toggleBlurb = () => {
         setShowBlurb(!showBlurb);
     };
     return (
         <div className="emergencyContactPage">
-            <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png' />
+            {/* <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/2048px-Windows_10_Default_Profile_Picture.svg.png' />
 
-            <h1>{user.name}</h1>
+            <h1>{user.name}</h1> */}
             <h2>Emergency Contact Form <span onClick={toggleBlurb}>?</span></h2>
 
             {showBlurb && (

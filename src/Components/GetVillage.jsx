@@ -12,11 +12,10 @@ const GetVillage = () => {
     const [villageUsers, setVillageUsers] = useState([]);
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
-        phone_number: '',
+        username: '',
     });
     console.log('Village ID:', village_id);
 
-    // Get all users to filter number
     useEffect(() => {
         fetch(`${API}/users`, {
             headers: {
@@ -28,7 +27,6 @@ const GetVillage = () => {
             .catch((error) => console.error("Error fetching all users:", error));
     }, [API, token]);
 
-    // Get village detail
     useEffect(() => {
         if (!village_id) return;
 
@@ -51,13 +49,13 @@ const GetVillage = () => {
         e.preventDefault();
 
         const results = allUsers.filter(user =>
-            user.phone_number === formData.phone_number
+            user.username === formData.username
         );
 
         setSearchResults(results);
     };
 
-    //Adding users to a specific village
+
     const handleAddToVillage = async (userId) => {
         try {
             const requestBody = { user_id: userId, village_id: +village_id };
@@ -72,7 +70,7 @@ const GetVillage = () => {
             });
 
             if (response.ok) {
-                // After successful addition, fetch updated village users
+                
                 const updatedResponse = await fetch(`${API}/users/village-users/${village_id}`, {
                     method: "GET",
                     headers: {
@@ -94,7 +92,6 @@ const GetVillage = () => {
                 }))
                 setVillageUsers(usersWithInfo);
 
-                // Update the search results with the newly added user
                 const updatedSearchResults = searchResults.filter(result => result.user_id !== userId);
                 setSearchResults(updatedSearchResults);
             } else {
@@ -151,13 +148,12 @@ const GetVillage = () => {
                 }
                 console.log("Completed Delete");
 
-                // Remove the deleted user from villageUsers state
                 setVillageUsers(prevUsers => prevUsers.filter(user => user.user_id !== villageUserId));
             })
             .catch(err => console.error("Error deleting:", err));
     };
 
-    const { phone_number } = formData;
+    const { username } = formData;
 
     if (!village) {
         return <div>Loading...</div>;
@@ -167,23 +163,24 @@ const GetVillage = () => {
         <div className="getVillageBody">
             <h2>Village Details</h2>
             <div className="searchR">
-                <h2>Find User</h2>
+                <h2>Find User 🔎</h2>
                 <div className="phoneFilter">
 
                     <form onSubmit={handleSearch}>
-                        <label htmlFor="phone_number">Enter Phone Number:</label>
+                        <label htmlFor="username">Enter User Name:</label>
                         <input
                             type="text"
-                            id="phone_number"
-                            value={phone_number}
-                            placeholder="ex. 212-222-2222"
-                            onChange={(e) => setFormData({ ...formData, phone_number: e.target.value })}
+                            id="username"
+                            name="username"
+                            value={username}
+                            placeholder="ex. Jane D."
+                            onChange={(e) => setFormData({ ...formData, username: e.target.value })}
                         />
                         <div>
                             <h2>Search Result:</h2>
                             {searchResults.map((result) => (
                                 <div key={result.user_id} className="search-result">
-                                    <h2>Name: {result.name}</h2> <h2> Phone Number: {result.phone_number}</h2>
+                                    <h2>Name: {result.name}</h2> <h2> User Name: {result.username}</h2>
                                     <button className='addButton' onClick={() => handleAddToVillage(result.user_id, village_id)}>Add</button>
                                 </div>
                             ))}
@@ -204,7 +201,7 @@ const GetVillage = () => {
                             <div className="villageMemberCard" key={user.user_id}>
                                 <h2>
                                     Name: {user.userInfo.name} <br />
-                                    Phone Number: {user.userInfo.phone_number}<br />
+                                    User Name: {user.userInfo.username}<br />
                                     Role: {user.is_admin ? 'Admin' : 'Member'}
                                 </h2>
                                 <button className="deleteButton" onClick={() => {

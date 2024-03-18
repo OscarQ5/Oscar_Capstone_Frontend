@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import GoogleMapsComponent from './GoogleMaps';
-
+import '../Styles/FetchLocation.css'
 const API_KEY = import.meta.env.VITE_API_KEY;
 
 const FetchLocation = () => {
@@ -71,10 +71,23 @@ const FetchLocation = () => {
       <button className="myLocation" onClick={getUserLocation}>My Location</button>
       <p>{userAddress ? <h3 className="userAddress">{userAddress}</h3> : null}</p>
 
-      <div>
-        <button onClick={() => fetchNearestPlace('fire_station')}> Fire Station</button>
-        <button onClick={() => fetchNearestPlace('police')}>Police Station</button>
-        <button onClick={() => fetchNearestPlace('hospital')}>Hospital</button>
+      <div className="mapButtons">
+
+        <div className="mapButtonDiv">
+          <h4>Fire</h4>
+          <img onClick={() => fetchNearestPlace('fire_station')} className="fireStation" src="/fireStationsvg.svg" alt="Fire Station Button" />
+        </div>
+
+        <div className="mapButtonDiv">
+        <h4>Police</h4>
+          <img onClick={() => fetchNearestPlace('police')} className="policeStation" src="/policeStation.svg" alt="Police Station Button" />
+        </div>
+
+        <div className="mapButtonDiv">
+        <h4>Hospital</h4>
+          <img onClick={() => fetchNearestPlace('hospital')} className="hospitalStation" src="/hospitalStation.svg" alt="Hospital Button" />
+        </div>
+
       </div>
 
       <div className="map-container">

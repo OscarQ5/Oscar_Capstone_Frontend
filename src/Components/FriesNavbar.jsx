@@ -55,7 +55,7 @@ const FriesNavbar = ({ user, setUser, setToken, }) => {
                                 <Link to={'/users/login'} className='Link'> Log in </Link>
                             </li>
                             <li>
-                                <Link to={'/users/sign-up/:user_id/profile'} className='Link' > Profile </Link>
+                                <Link to={'/users/home'} className='Link' > Profile </Link>
                             </li>
                             <li>
                                 <Link to={'/users/contacts'} className='Link'> Emergency Contacts </Link>
