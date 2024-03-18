@@ -6,13 +6,12 @@
   align-items: center;
 }
 
-.sosButton {
-  border-radius: 125px;
-  background-color: white;
-  position: relative;
-  width: 15vw;
-  height: 25vh;
-  font-size: xx-large;
+.SoSButton:hover {
+
+  background-color: aliceblue;
+border-radius: 100px;
+padding: 10px;
+
 }
 
 .emergencyContactButton:hover {

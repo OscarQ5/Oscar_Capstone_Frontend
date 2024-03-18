@@ -1,0 +1,21 @@
+.historyFetch button{
+    border-radius: 75px;
+    background-color: rgb(232, 116, 45);
+   
+     
+}
+
+.historyFetch button:hover{
+    border-radius: 75px;
+    background-color: rgb(99, 95, 92);
+    color: black;
+}
+
+.backB{
+    position:relative;
+    top: -30px;
+}
+
+.medCab{
+font-size: medium;
+}

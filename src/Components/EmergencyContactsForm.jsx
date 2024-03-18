@@ -1,25 +1,26 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate, Link } from "react-router-dom";
-import '../Styles/EmergencyContactsForm.css'
-import { useLoginDataProvider } from "./LoginProvider"
+import '../Styles/EmergencyContactsForm.css';
+import { useLoginDataProvider } from "./LoginProvider";
+import PhoneInput from 'react-phone-number-input';
 
 export default function EmergencyContactsForm() {
-
-    const { API, user, token } = useLoginDataProvider()
-
+    const { API, user, token } = useLoginDataProvider();
     const navigate = useNavigate();
+
+    if (!user) {
+        return <div>Loading...</div>; 
+    }
 
     const [contact, setContact] = useState({
         firstname: "",
         lastname: "",
         phone_number: ""
-    })
+    });
 
     const [successMessage, setSuccessMessage] = useState("");
 
     const addEmergencyContact = () => {
-
         fetch(`${API}/users/contacts`, {
             method: "POST",
             body: JSON.stringify(contact),
@@ -47,13 +48,19 @@ export default function EmergencyContactsForm() {
     };
 
     const handleTextChange = (event) => {
-        setContact({ ...contact, [event.target.id]: event.target.value });
+        const { id, value } = event.target;
+        
+        if (id === "phone_number") {
+            setContact({ ...contact, phone_number: value });
+        } else {
+            setContact({ ...contact, [id]: value });
+        }
     };
 
     const handleSubmit = (event) => {
         event.preventDefault();
         addEmergencyContact();      
-    }
+    };
 
     const handleAddMoreSubmit = (event) => {
         event.preventDefault();
@@ -100,23 +107,21 @@ export default function EmergencyContactsForm() {
                 />
 
                 <label htmlFor="phone_number">Phone Number:</label>
-                <input
+                <PhoneInput
                     id="phone_number"
                     value={contact.phone_number}
-                    type="tel"
-                    onChange={handleTextChange}
-                    placeholder="ex. 919-222-2222"
+                    onChange={(value) => setContact({ ...contact, phone_number: value })}
+                    placeholder="ex. 111-222-3333"
+                    defaultCountry="US"
                     required
                 />
 
                 <div className="submitButton-EC">
-
                     <button onClick={handleAddMoreSubmit}>Add More</button>
-                    <Link to={`/users/sign-up/${user.user_id}/medical`}><button >Next</button></Link>
-            
+                    <Link to={`/users/sign-up/${user.user_id}/medical`}><button>Next</button></Link>
                 </div>
             </form>
 
         </div>
-    )
+    );
 }

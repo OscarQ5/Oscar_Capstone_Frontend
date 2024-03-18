@@ -7,6 +7,7 @@
   border-radius: 35px;
   color: black;
   margin-top: 50px;
+  width: 50vw;
 }
 
 form {
@@ -15,4 +16,30 @@ form {
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+
+.loginSubmit{
+margin-top: 16px;
+  background-color: rgb(232, 116, 45);
+}
+
+.loginSubmit:hover{
+  margin-top: 16px;
+    background-color: rgb(118, 241, 47);
+    color: black;
+    border: 2px solid black;
+  }
+
+/* .password{
+display: flex;
+flex-direction: row;
+align-items: flex-end;
+} */
+
+.PhoneInput{
+display: flex;
+flex-direction: column;
+justify-content:flex-end;
+align-items: center;
+gap:5px;
 }

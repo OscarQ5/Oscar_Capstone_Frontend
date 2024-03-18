@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import { useLoginDataProvider } from "../Components/LoginProvider";
 import { useNavigate, Link } from 'react-router-dom';
-
+import '../Styles/AddVillages.css'
 
 const AddVillages = () => {
-    const { API, token, user} = useLoginDataProvider();
+    const { API, token, user } = useLoginDataProvider();
     const navigate = useNavigate();
-
     const [villageForm, setVillageForm] = useState({
         village_name: ''
     });
@@ -31,7 +30,7 @@ const AddVillages = () => {
             });
 
             if (response.ok) {
-                console.log("Village Successfully Added",response)
+                console.log("Village Successfully Added", response)
                 navigate(`/users/villages`);
             } else {
                 throw new Error('Failed to add village');
@@ -49,7 +48,7 @@ const AddVillages = () => {
     return (
         <div className="addVillageForm">
             <form onSubmit={handleSubmit} className="villageForm">
-                
+
                 <label htmlFor="village_name">Village Name:</label>
                 <input
                     id="village_name"

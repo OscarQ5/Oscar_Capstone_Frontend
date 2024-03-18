@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLoginDataProvider } from "./LoginProvider";
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../Styles/AllVillages.css'
 
 const AllVillages = () => {
@@ -30,7 +30,7 @@ const AllVillages = () => {
                     throw new Error("Failed to delete");
                 }
                 console.log("Completed Delete");
-                // Update villages state after successful deletion
+                
                 setVillages(prevVillages => prevVillages.filter(village => village.village_id !== villageId));
             })
             .catch(err => console.error("Error deleting village:", err));

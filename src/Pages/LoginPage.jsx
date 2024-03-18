@@ -2,11 +2,9 @@ import React from 'react';
 import LoginForm from '../Components/LoginForm';
 import { useState } from 'react';
 
-
 const LoginPage = () => {
     
     const [showBlurb, setShowBlurb] = useState(false)
-
     const toggleBlurb = () => {
         setShowBlurb(!showBlurb);
     }

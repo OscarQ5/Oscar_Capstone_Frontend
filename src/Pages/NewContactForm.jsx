@@ -3,19 +3,16 @@ import { useState } from 'react'
 import { useNavigate, Link } from "react-router-dom";
 import '../Styles/EmergencyContactsForm.css'
 import { useLoginDataProvider } from "../Components/LoginProvider"
+import PhoneInput from 'react-phone-number-input';
 
 export default function NewContactForm() {
 
     const { API, token } = useLoginDataProvider()
-
     const navigate = useNavigate();
-
     const [contact, setContact] = useState({
-
         firstname: "",
         lastname: "",
         phone_number: ""
-
     })
 
     const addEmergencyContact = () => {
@@ -35,7 +32,13 @@ export default function NewContactForm() {
     };
 
     const handleTextChange = (event) => {
-        setContact({ ...contact, [event.target.id]: event.target.value });
+        const { id, value } = event.target;
+
+        if (id === "phone_number") {
+            setContact({ ...contact, phone_number: value });
+        } else {
+            setContact({ ...contact, [id]: value });
+        }
     };
 
     const handleSubmit = (event) => {
@@ -69,12 +72,12 @@ export default function NewContactForm() {
                 />
 
                 <label htmlFor="phone_number">Phone Number:</label>
-                <input
+                <PhoneInput
                     id="phone_number"
                     value={contact.phone_number}
-                    type="tel"
-                    onChange={handleTextChange}
-                    placeholder="ex. 919-222-2222"
+                    onChange={(value) => setContact({ ...contact, phone_number: value })}
+                    placeholder="ex. 111-222-3333"
+                    defaultCountry="US"
                     required
                 />
 

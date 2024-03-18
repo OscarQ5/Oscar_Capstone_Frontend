@@ -14,7 +14,7 @@ import ProtectedRoute from "./Components/ProtecteRoutes.jsx";
 import ContactsFetchPage from "./Pages/ContactsFetchPage.jsx";
 import EditContactForm from "./Pages/EditContactForm.jsx";
 import NewContactForm from "./Pages/NewContactForm.jsx";
-// import MedHistoryFetch from "./Pages/MedHistoryFetch.jsx";
+import MedHistoryFetch from "./Pages/MedHistoryFetch.jsx";
 // import FetchLocation from "./Components/FetchLocation.jsx";
 import VillagesPage from "./Pages/VillagesPage.jsx";
 import AddVillages from "./Pages/AddVillages.jsx";
@@ -28,7 +28,6 @@ function App() {
     <>
       <Router>
         <FriesNavbar />
-        {/* <FetchLocation /> */}
 
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -97,8 +96,7 @@ function App() {
             }
           />
 
-          {/* 
-            <Route path="users/medical"
+          <Route path="users/medical"
             element={
               <ProtectedRoute
                 element={MedHistoryFetch}
@@ -107,7 +105,7 @@ function App() {
                 token={token}
               />
             }
-          /> */}
+          />
 
           <Route
             path="users/villages"
