@@ -34,7 +34,7 @@ const HomePage = () => {
                 <div className="buttons">
 
                     <Link to={`/users/emergency`} style={{ margin: '0', padding: '0' }}> <img className="SoSButton"  src='../emergency-health.svg' alt="Emergency Button" />  </Link>
-                    <Link to={`/users/villages`} style={{ margin: '0', padding: '0' }}>  <button className="emergencyContactButton">VILLAGES</button> </Link>
+                    <Link to={`/users/villages`} style={{ margin: '0', padding: '0' }}>  <button className="villagesButton">VILLAGES</button> </Link>
                     <Link to={`/users/contacts`} style={{ margin: '0', padding: '0' }}>  <button className="emergencyContactButton">EMERGENCY CONTACTS</button> </Link>
 {/* 
                     {showMedicineCabinet && <MedicalHistoryFetch setShowMedicineCabinet={setShowMedicineCabinet} />}

@@ -34,14 +34,16 @@ form .submitButton-EC {
 }
 
 .submitButton-EC button:hover {
-  background-color: green;
+  background-color: black;
   color: white;
-  border-color: black;
+  border-color: red;
 }
 
 .submitButton-EC button {
   border-radius: 75px;
-  background-color: rgb(232, 116, 45);
+  background-color:white;
+ border: 2px solid rgb(242, 18, 18);
+ color: black;
 }
 
 input {

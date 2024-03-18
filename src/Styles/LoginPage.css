@@ -20,21 +20,19 @@ form {
 
 .loginSubmit{
 margin-top: 16px;
-  background-color: rgb(232, 116, 45);
+  background-color:rgb(234, 234, 234);
+  color: black;
+  border: 2px solid red;
+  border-radius: 60px;
 }
 
 .loginSubmit:hover{
   margin-top: 16px;
-    background-color: rgb(118, 241, 47);
-    color: black;
-    border: 2px solid black;
+    background-color:black;
+    color: white;
+    border: 2px solid red;
+    border-radius: 60px;
   }
-
-/* .password{
-display: flex;
-flex-direction: row;
-align-items: flex-end;
-} */
 
 .PhoneInput{
 display: flex;
