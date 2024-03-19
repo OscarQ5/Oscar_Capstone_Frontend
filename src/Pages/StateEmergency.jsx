@@ -1,17 +1,18 @@
 import React from 'react';
 import FetchLocation from "../Components/FetchLocation.jsx";
+import UserLocation from '../Components/UserLocation.jsx';
 import '../Styles/StateEmergency.css'
 const StateEmergency = () => {
     return (
         <div>
-            <FetchLocation />
-
+            {/* <FetchLocation /> */}
+            <UserLocation />
             <div className="emergencyButtons">
 
                 <div className='buttonDiv'>
                     <h4>  911 </h4>
                     <a href="tel:911">
-                        <img class="emergencyServices" src="/blueStar.svg" alt="Emergency Services" />
+                        <img className="emergencyServices" src="/blueStar.svg" alt="Emergency Services" />
                     </a>
                 </div>
 
