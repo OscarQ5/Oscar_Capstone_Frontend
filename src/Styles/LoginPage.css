@@ -6,8 +6,8 @@
   align-items: center;
   border-radius: 35px;
   color: black;
-  margin-top: 50px;
-  width: 50vw;
+  margin-top:100px;
+  width: 42vw;
 }
 
 form {
@@ -40,4 +40,8 @@ flex-direction: column;
 justify-content:flex-end;
 align-items: center;
 gap:5px;
+}
+
+.loginFormBody input{
+ width:25vw;
 }

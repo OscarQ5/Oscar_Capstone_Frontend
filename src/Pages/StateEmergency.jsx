@@ -40,13 +40,13 @@ const StateEmergency = () => {
                 >
                     <option value="">Select a Village</option>
                     {villages.map(village => (
-                        <option key={village.id} value={village.village_name}>
+                        <option key={village.village_id} value={village.village_name}>
                             {village.village_name}
                         </option>
                     ))}
                 </select>
             )}
-            
+
             <div className="emergencyButtons">
 
                 <div className='buttonDiv'>

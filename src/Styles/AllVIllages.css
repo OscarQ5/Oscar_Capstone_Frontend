@@ -39,6 +39,7 @@
   font-size: xx-small;
   border-radius: 80px;
   background-color: black;
+  border:2px solid red;
 }
 
 .villageLink {
@@ -51,5 +52,5 @@
 .villageLink:hover {
   text-decoration: none;
   font-weight: bold;
-  color: rgb(232, 116, 45);
+  color: red;
 }
