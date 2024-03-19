@@ -18,8 +18,7 @@
 }
 
 .fireStation:hover{
-    border: 3px solid rgb(28, 238, 49);
-}
+    border: 3px solid white;}
 .policeStation{
     width:40px;
     height:40px;
@@ -31,8 +30,7 @@
 }
 
 .policeStation:hover{
-    border: 3px solid rgb(28, 238, 49);
-}
+    border: 3px solid white;}
 .hospitalStation{
     width:40px;
     height:40px;
@@ -43,7 +41,7 @@
 }
 
 .hospitalStation:hover{
-    border: 3px solid rgb(28, 238, 49);
+    border: 3px solid white;
 }
 
 .mapButtonDiv h4{

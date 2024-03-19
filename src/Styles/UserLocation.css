@@ -1,0 +1,18 @@
+.map{
+color:black;
+
+}
+
+.userLocation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-popup {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px;
+}

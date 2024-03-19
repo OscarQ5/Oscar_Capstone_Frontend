@@ -75,17 +75,17 @@ const FetchLocation = () => {
 
         <div className="mapButtonDiv">
           <h4>Fire</h4>
-          <img onClick={() => fetchNearestPlace('fire_station')} className="fireStation" src="/fireStationsvg.svg" alt="Fire Station Button" />
+          <img onClick={() => handleSearch('fire_station')} className="fireStation" src="/fireStationsvg.svg" alt="Fire Station Button" />
         </div>
 
         <div className="mapButtonDiv">
         <h4>Police</h4>
-          <img onClick={() => fetchNearestPlace('police')} className="policeStation" src="/policeStation.svg" alt="Police Station Button" />
+          <img onClick={() => handleSearch('police')} className="policeStation" src="/policeStation.svg" alt="Police Station Button" />
         </div>
 
         <div className="mapButtonDiv">
         <h4>Hospital</h4>
-          <img onClick={() => fetchNearestPlace('hospital')} className="hospitalStation" src="/hospitalStation.svg" alt="Hospital Button" />
+          <img onClick={() => handleSearch('hospital')} className="hospitalStation" src="/hospitalStation.svg" alt="Hospital Button" />
         </div>
 
       </div>
