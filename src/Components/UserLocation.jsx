@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import mapboxgl from 'mapbox-gl'
 
-const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1Ijoib3NjYXI1IiwiYSI6ImNsdHhudnRycjA4enUya3FuaWliN2EzOGoifQ.42dh8eTDnmnVaSCkzjIkOw'
+const MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN
 const RADAR_API_KEY = import.meta.env.VITE_RADAR_API_KEY
 
 const UserLocation = () => {

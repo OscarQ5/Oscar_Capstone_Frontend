@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import LoginPage from "./Pages/LoginPage.jsx";
 import FriesNavbar from "./Components/FriesNavbar.jsx";
 import "./App.css";
 import { useLoginDataProvider } from "./Components/LoginProvider";
@@ -17,6 +16,7 @@ import VillagesPage from "./Pages/VillagesPage.jsx";
 import AddVillages from "./Pages/AddVillages.jsx";
 import GetVillage from "./Components/GetVillage.jsx";
 import StateEmergency from "./Pages/StateEmergency.jsx";
+import LoginSignup from "./Components/LoginSignup.jsx";
 
 function App() {
   const { setUser, setToken, user, token } = useLoginDataProvider();
@@ -42,7 +42,7 @@ function App() {
           />
           <Route
             path="users/login"
-            element={<LoginPage setUser={setUser} setToken={setToken} />}
+            element={<LoginSignup setUser={setUser} setToken={setToken} />}
           />
 
           <Route
