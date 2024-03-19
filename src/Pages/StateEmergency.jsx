@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import FetchLocation from "../Components/FetchLocation.jsx";
+import UserLocation from '../Components/UserLocation.jsx';
 import '../Styles/StateEmergency.css'
 import { useLoginDataProvider } from '../Components/LoginProvider';
 
@@ -30,7 +31,8 @@ const StateEmergency = () => {
 
     return (
         <div>
-            <FetchLocation />
+            {/* <FetchLocation /> */}
+            <UserLocation />
 
             {showDropdown && (
                 <select
@@ -46,7 +48,6 @@ const StateEmergency = () => {
                     ))}
                 </select>
             )}
-            
             <div className="emergencyButtons">
 
                 <div className='buttonDiv'>
