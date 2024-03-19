@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import PhoneInput from 'react-phone-number-input';
 import { useLoginDataProvider } from "../Components/LoginProvider"
 import "../Styles/EditContactForm.css"
+
 const EditContactForm = () => {
 
     const { API, user, token } = useLoginDataProvider()
@@ -122,7 +123,7 @@ const EditContactForm = () => {
                     <img onClick={handleDelete} className="deleteButtonEC" src="/Anonymous_Architetto_--_Cestino_pieno.svg" alt="Delete Emergency Contact" />
                 </div>
             </form>
-            
+
         </div>
     );
 };
