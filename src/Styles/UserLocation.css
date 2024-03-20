@@ -1,13 +1,6 @@
-.map{
+/* .map{
 color:black;
 
-}
-
-.userLocation{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 .custom-popup {
@@ -15,4 +8,104 @@ color:black;
     font-size: 14px;
     font-weight: bold;
     padding: 10px;
+} */
+
+.userLocation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    top:25px;
+} 
+
+.custom-popup {
+    max-width: 200px;
+    color: black;
+}
+
+.get-directions-btn {
+    padding: 5px 10px;
+    background-color: rgb(232, 116, 45);
+    color: rgb(212, 212, 212);
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.get-directions-btn:hover {
+    background-color: #b30c00;
+}
+
+.map-container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    color:black;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+    color:black;
+}
+
+.mapDivBody{
+    
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 75vw;
+}
+
+.mapDirections{
+    min-height: 375px;
+    max-height: 375px;
+    min-width: 350px;
+    max-width: 350px;
+    overflow-y: auto;
+    border: 2px solid white;
+    border-radius: 45px;
+}
+
+.userAddress{
+    position:relative;
+    top:35px;
+    border-bottom: 1px solid red;
+}
+
+.h2Directions{
+    text-decoration: underline;
+    /* border-bottom: 1px solid red; */
+    
+}
+
+.closeDirections{
+display:flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items:center;
+border-radius: 40px;
+width: 1vw;
+ margin-left: 8px;
+ margin-top:3px;
+}
+
+.closeDirectionsChar{
+    
+    border: 1px solid red;
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 15px;
+    font-size:xx-small;
+}
+
+.closeDirectionsChar:hover{
+  
+    border: 1px solid red;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px; 
+ 
 }
