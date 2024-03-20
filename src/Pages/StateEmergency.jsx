@@ -30,7 +30,7 @@ const StateEmergency = () => {
     }
 
     return (
-        <div>
+        <div className="stateEmergencyBody">
             {/* <FetchLocation /> */}
             <UserLocation />
 
