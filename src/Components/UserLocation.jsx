@@ -143,7 +143,7 @@ const UserLocation = () => {
                 </div>
 
             </div>
-            <div id="map" style={{ width: '25vw', height: '300px' }}></div>
+            <div id="map" style={{ width: '50vw', height: '150px' }}></div>
 
         </div>
     );

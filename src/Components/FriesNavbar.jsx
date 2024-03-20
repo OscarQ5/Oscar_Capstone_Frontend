@@ -32,10 +32,14 @@ const FriesNavbar = ({ user, setUser, setToken, }) => {
     }, []);
     return (
         <nav className='friesnavbar-style'>
+            <div>
             <Link to={`/`} >
-                <img src='../VillageLogo.png' alt='Logo with heart in hand' className='logo' />
+                <img src='../VillageLogo-Vect.svg' alt='Logo with heart in hand' className='logo' />
             </Link>
+            </div>
+            <div>
             <h5 className='logo-caption'>It takes a Village...</h5>
+            </div>
             <div className='fries-btn-container'>
                 <button type="button" ref={menuRef} className={`fries-btn ${openMenu ? 'open' : ''}`} onClick={toggleMenu}>
                     <div className='fry'></div>

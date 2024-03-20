@@ -100,9 +100,10 @@
 }
 
 .messageButton:hover {
-  background-color: rgb(28, 238, 49);;
+  background-color: rgb(255, 255, 255);;
   border-radius: 50px;
   padding: 6px;
+  border:2px solid red;
 }
 
 .numberDiv {
