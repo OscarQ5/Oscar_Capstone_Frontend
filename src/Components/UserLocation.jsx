@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import '../Styles/UserLocation.css';
 
-const MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN
-const RADAR_API_KEY = import.meta.env.VITE_RADAR_API_KEY
+const MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 const UserLocation = () => {
     const [loading, setLoading] = useState(true);
@@ -12,6 +11,8 @@ const UserLocation = () => {
     const [map, setMap] = useState(null);
     const [places, setPlaces] = useState([]);
     const [currentMarkers, setCurrentMarkers] = useState([]);
+    const [selectedPlace, setSelectedPlace] = useState(null);
+    const [route, setRoute] = useState(null);
 
     const getUserLocation = () => {
         if ('geolocation' in navigator) {
@@ -71,20 +72,53 @@ const UserLocation = () => {
 
     const addMarkers = (places) => {
         const markers = places.map(place => {
+            const popupContent = `
+                <div>
+                    <p>${place.place_name}</p>
+                    <button class="get-directions-btn" data-lng="${place.geometry.coordinates[0]}" data-lat="${place.geometry.coordinates[1]}">
+                        Get Directions
+                    </button>
+                </div>
+            `;
+    
             const popup = new mapboxgl.Popup({
                 className: 'custom-popup',
-            }).setText(place.place_name);
-
+            }).setHTML(popupContent);
+    
             const marker = new mapboxgl.Marker()
                 .setLngLat(place.geometry.coordinates)
                 .setPopup(popup)
                 .addTo(map);
-
+    
+            // Add event listener for the "Get Directions" button in the popup
+            popup.on('open', () => {
+                const btn = document.querySelector('.get-directions-btn');
+                btn.addEventListener('click', () => {
+                    handleDirections(place);
+                });
+            });
+    
             return marker;
         });
-
+    
         setCurrentMarkers(markers);
     };
+
+    const fetchDirections = async (destination) => {
+        try {
+            const response = await fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${userLocation.longitude},${userLocation.latitude};${destination.geometry.coordinates[0]},${destination.geometry.coordinates[1]}?steps=true&access_token=${MAPBOX_ACCESS_TOKEN}`);
+            const data = await response.json();
+            if (data.routes && data.routes.length > 0) {
+                setRoute(data.routes[0]);
+            }
+        } catch (err) {
+            console.error('Error fetching directions:', err);
+        }
+    }
+
+    const handleDirections = (destination) => {
+        fetchDirections(destination);
+    }
 
     useEffect(() => {
         getUserLocation();
@@ -99,7 +133,7 @@ const UserLocation = () => {
     useEffect(() => {
         if (map && userLocation) {
             const userMarker = new mapboxgl.Marker({
-                color: '#FF0000'
+                color: '#E87400' 
             }).setLngLat([userLocation.longitude, userLocation.latitude]).addTo(map);
         }
     }, [map, userLocation]);
@@ -120,33 +154,55 @@ const UserLocation = () => {
         setMap(newMap);
     }, [userLocation]);
 
+    const closeDirections = () => {
+        setRoute(null);
+    }
     return (
         <div className='userLocation'>
-            {/* <h2>User Address:</h2> */}
-            {loading ? <p>Loading...</p> : <h2>{userAddress}</h2>}
-            {/* <h2>User Location Map</h2> */}
+            {loading ? <p>Loading...</p> : <h2 className='userAddress'>{userAddress}</h2>}
             <div className="mapButtons">
-
                 <div className="mapButtonDiv">
                     <h4>Fire</h4>
                     <img onClick={() => handleSearch('fire_station')} className="fireStation" src="/fireStationsvg.svg" alt="Fire Station Button" />
                 </div>
-
                 <div className="mapButtonDiv">
                     <h4>Police</h4>
                     <img onClick={() => handleSearch('police')} className="policeStation" src="/policeStation.svg" alt="Police Station Button" />
                 </div>
-
                 <div className="mapButtonDiv">
                     <h4>Hospital</h4>
                     <img onClick={() => handleSearch('hospital')} className="hospitalStation" src="/hospitalStation.svg" alt="Hospital Button" />
                 </div>
-
             </div>
-            <div id="map" style={{ width: '50vw', height: '150px' }}></div>
-
+            <div className="mapDivBody">
+                <div id="map" style={{ width: '40vw', height: '400px' }}></div>
+                {route && (
+                        <div className="mapDirections">
+                            <div className="closeDirections">
+                            <button className="closeDirectionsChar"onClick={closeDirections}>❌</button>
+                            </div>
+                                <h2 className="h2Directions">Directions</h2>
+                                {route.legs[0].steps.map((step, index) => (
+                                    <p key={index}>{step.maneuver.instruction}</p>
+                                ))}
+                    
+                        </div>
+                    )}
+            </div>
         </div>
     );
 };
 
 export default UserLocation;
+
+
+{/* <div className="mapDirections">
+<h2 className="h2Directions">Directions</h2>
+<ol>
+{route.legs[0].steps.map((step, index) => (
+
+    <li key={index}>{step.maneuver.instruction}</li>
+    ))}
+    </ol>
+
+</div> */}
