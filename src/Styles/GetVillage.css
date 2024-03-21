@@ -3,14 +3,22 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width:100vw;
+  height:80vh;
+  overflow-y: auto;
+  /* scrollbar-width: thin;  */
+  /* scrollbar-color: transparent transparent; */
+  /* margin-top:75px; */
 }
 
 .villageDetail {
   background-color: rgb(234, 234, 234);
   border-radius: 50px;
   color: black;
-  max-height: 300px; 
-  overflow-y: scroll;
+  max-height: 400px; 
+  overflow-y: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
   margin-bottom: 20px;
 }
 
@@ -48,3 +56,4 @@
   border-radius: 90px;
   height: 50px;
 }
+

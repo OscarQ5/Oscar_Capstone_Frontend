@@ -30,6 +30,13 @@ const FriesNavbar = ({ user, setUser, setToken, }) => {
             document.removeEventListener('click', closeMenu);
         }
     }, []);
+
+    const tellTime = () => {
+        let today = new Date()
+        let readableDate = today.toDateString()
+        return readableDate
+    }
+  
     return (
         <nav className='friesnavbar-style'>
             <div>
@@ -38,7 +45,8 @@ const FriesNavbar = ({ user, setUser, setToken, }) => {
             </Link>
             </div>
             <div>
-            <h5 className='logo-caption'>It takes a Village...</h5>
+            {/* <h2 className="timeNav">{tellTime()}</h2> */}
+            <h5 className='logo-caption'>It takes a Village</h5>
             </div>
             <div className='fries-btn-container'>
                 <button type="button" ref={menuRef} className={`fries-btn ${openMenu ? 'open' : ''}`} onClick={toggleMenu}>

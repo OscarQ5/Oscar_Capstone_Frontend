@@ -15,6 +15,7 @@ const HomePage = () => {
         let readableDate = today.toDateString()
         return readableDate
     }
+    
 
     const toggleMedicineCabinet = () => {
         setShowMedicineCabinet(!showMedicineCabinet);
