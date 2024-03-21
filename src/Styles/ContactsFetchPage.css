@@ -62,6 +62,7 @@
   flex-direction: row;
   justify-content: center;
   gap: 10px;
+  margin-top: 20px;
 }
 
 .backButton {
@@ -113,3 +114,17 @@
   align-items: center;
   gap: 13px;
 }
+
+.cCard{
+  max-height: 400px;
+  overflow-y: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
+
+}
+/* .emContactsPageBody{
+  margin-top: 120px;
+  height:100vh;
+  overflow-y: auto;
+  margin-bottom:40px;
+} */

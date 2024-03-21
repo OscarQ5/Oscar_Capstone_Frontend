@@ -28,7 +28,7 @@
 }
 
 .logo-caption {
-  font-size: 15px;
+  font-size: 20px;
   /* display: flex; */
   /* position: absolute; */
   color: black;
@@ -122,4 +122,8 @@
   background-color: #cfd8dc;
   border-radius: 80px;
   color: red;
+}
+
+.timeNav{
+  color:black;
 }
