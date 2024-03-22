@@ -3,12 +3,14 @@ import FetchLocation from "../Components/FetchLocation.jsx";
 import UserLocation from '../Components/UserLocation.jsx';
 import '../Styles/StateEmergency.css'
 import { useLoginDataProvider } from '../Components/LoginProvider';
+import SpeechToText from '../Components/SpeechToText.jsx';
 
 const StateEmergency = () => {
     const [villages, setVillages] = useState([]);
     const { user, API, token } = useLoginDataProvider();
     const [selectedVillage, setSelectedVillage] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
+    const [emergencyText, setEmergencyText] = useState('')
     const [villageUsers, setVillageUsers] = useState([]);
     const [selectedVillageId, setSelectedVillageId] = useState("");
     const [allNumbers, setAllNumbers] = useState([]);
@@ -53,6 +55,11 @@ const StateEmergency = () => {
         setShowDropdown(!showDropdown);
     }
 
+    const handleEmergencySend = () => {
+        // Here you can send the emergencyText to the appropriate destination
+        // For example, you can make an API call to send the text to a server
+        console.log("Emergency text:", emergencyText);
+    }
     //Grabs all the users in the selected village
 
     useEffect(() => {
@@ -136,7 +143,6 @@ const StateEmergency = () => {
     const medicalTextMessage = `Medical Information:
       ${formattedMedicalInfo.join('\n\n')}`;
 
-
     return (
         <div className="stateEmergencyBody">
             <UserLocation />
@@ -175,6 +181,8 @@ const StateEmergency = () => {
                     <img className="emergencyServices" src="/community.svg" alt="Emergency Services" />
                 </div>
             </div>
+            <SpeechToText onTextChange={setEmergencyText} />
+            <button onClick={handleEmergencySend}>Send Emergency Text</button>
         </div>
     );
 };
