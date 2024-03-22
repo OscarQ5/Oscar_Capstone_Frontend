@@ -123,7 +123,6 @@ const UserLocation = () => {
     const handleDirections = (destination, popup) => {
         fetchRouteAndDirections(destination);
         popup.remove(); // Close the popup
-        setCurrentPopup(null);
     }
 
     useEffect(() => {

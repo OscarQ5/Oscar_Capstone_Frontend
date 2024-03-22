@@ -3,12 +3,14 @@ import FetchLocation from "../Components/FetchLocation.jsx";
 import UserLocation from '../Components/UserLocation.jsx';
 import '../Styles/StateEmergency.css'
 import { useLoginDataProvider } from '../Components/LoginProvider';
+import SpeechToText from '../Components/SpeechToText.jsx';
 
 const StateEmergency = () => {
     const [villages, setVillages] = useState([]);
     const { API, token } = useLoginDataProvider();
     const [selectedVillage, setSelectedVillage] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
+    const [emergencyText, setEmergencyText] = useState('')
 
     useEffect(() => {
         fetch(`${API}/users/villages`, {
@@ -27,6 +29,12 @@ const StateEmergency = () => {
 
     const handleVillageClick = () => {
         setShowDropdown(!showDropdown);
+    }
+
+    const handleEmergencySend = () => {
+        // Here you can send the emergencyText to the appropriate destination
+        // For example, you can make an API call to send the text to a server
+        console.log("Emergency text:", emergencyText);
     }
 
     return (
@@ -68,7 +76,8 @@ const StateEmergency = () => {
                 </div>
 
             </div>
-
+            <SpeechToText onTextChange={setEmergencyText} />
+            <button onClick={handleEmergencySend}>Send Emergency Text</button>
         </div>
     );
 };
