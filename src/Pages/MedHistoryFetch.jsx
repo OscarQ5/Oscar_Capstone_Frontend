@@ -25,7 +25,7 @@ const MedHistoryFetch = () => {
         <div className="medCab">
             <h2>Medicine Cabinet</h2>
 
-            <div className="cCard">
+            <div className="mCard">
         {medHistory.length === 0 ? (
 
             <MedicalHistoryPage />

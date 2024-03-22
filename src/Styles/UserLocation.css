@@ -112,3 +112,8 @@ width: 1vw;
     border-radius: 20px; 
  
 }
+
+#map{
+    border:3px solid red;
+    border-radius: 60px;;
+}

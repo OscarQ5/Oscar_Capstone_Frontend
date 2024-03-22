@@ -214,7 +214,7 @@ const UserLocation = () => {
 
     return (
         <div className='userLocation'>
-            {loading ? <h2>Loading...</h2> : <h2 className='userAddress'>{userAddress}</h2>}
+            {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'>{userAddress}</h2>}
             <div className="mapButtons">
                 <div className="mapButtonDiv">
                     <h4>Fire</h4>

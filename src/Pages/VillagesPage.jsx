@@ -6,7 +6,7 @@ import '../Styles/VillagesPage.css'
 
 
 const VillagesPage = () => {
-    // const { user } = useLoginDataProvider()
+   
     return (
         <div>
             <h1> My Villages </h1>
