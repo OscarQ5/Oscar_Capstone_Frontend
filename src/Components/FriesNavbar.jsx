@@ -61,19 +61,22 @@ const FriesNavbar = ({ user, setUser, setToken, }) => {
                                 <Link to={'/'} className='Link'> Home </Link>
                             </li>
                             <li>
-                                <Link to={'/users/sign-up'} className='Link'> Sign Up </Link>
-                            </li>
-                            <li>
-                                <Link to={'/users/login'} className='Link'> Log in </Link>
-                            </li>
-                            <li>
                                 <Link to={'/users/home'} className='Link' > Profile </Link>
+                            </li>
+                            <li>
+                                <Link to={'/users/villages'} className='Link'> Villages </Link>
                             </li>
                             <li>
                                 <Link to={'/users/contacts'} className='Link'> Emergency Contacts </Link>
                             </li>
                             <li>
                                 <Link to={'/users/medical'} className='Link'> Medical History </Link>
+                            </li>
+                            <li>
+                                <Link to={'/users/sign-up'} className='Link'> Sign Up </Link>
+                            </li>
+                            <li>
+                                <Link to={'/users/login'} className='Link'> Log in </Link>
                             </li>
                             <li>
                                 <Link to={'/'} className='Link logout' onClick={handleLogOut} style={{ textDecoration: 'none' }}>Log Out
