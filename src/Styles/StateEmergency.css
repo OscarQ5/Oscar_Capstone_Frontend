@@ -56,7 +56,21 @@
 
 }
 
-.checkbox{
-  background-color:white;
-  color: white;
+.textBox{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.send{
+  font-size: x-small;
+  border-color: red;
+}
+
+.send:hover{
+  background-color: white;
+  color:black;
+  border-color: red;
 }

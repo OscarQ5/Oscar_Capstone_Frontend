@@ -1,0 +1,51 @@
+.textBoxBody{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.inputAndButton{
+    border-radius: 40px;;
+    /* border: 1px solid red; */
+    width: 40vw;
+    margin-top:20px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.micro{
+    height: 30px;
+    width: 30px;
+    display:flex;
+ justify-content: center;
+ align-items: center;
+ border-color: red;
+ /* position:relative;
+ top: 20px;
+ left:-50px; */
+ font-size:x-small;
+ border-radius: 60px;;
+}
+
+.micro:hover{
+    background-color: aliceblue;
+    border-color: red;
+}
+
+/* input .textbox{
+    height: 40px;
+} */
+
+.textbox{
+    display: flex;
+  flex-wrap: wrap;
+  border-radius: 10px;
+/* margin-left:30px; */
+background-color: white;
+color:black;
+}
