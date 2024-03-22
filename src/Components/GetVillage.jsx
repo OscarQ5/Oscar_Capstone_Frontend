@@ -162,6 +162,8 @@ const GetVillage = () => {
     return (
         <div className="getVillageBody">
             <h2>Village Details</h2>
+
+            <div className="getVillForm">
             <div className="searchR">
                 <h2>Find User 🔎</h2>
                 <div className="phoneFilter">
@@ -181,12 +183,14 @@ const GetVillage = () => {
                             {searchResults.map((result) => (
                                 <div key={result.user_id} className="search-result">
                                     <h2>Name: {result.name}</h2> <h2> User Name: {result.username}</h2>
+                                    <div className="addB">
                                     <button className='addButton' onClick={() => handleAddToVillage(result.user_id, village_id)}>Add</button>
+                                    </div>
                                 </div>
                             ))}
 
                         </div>
-                        <button type="submit">Search</button>
+                        <button className='searchButton' type="submit">Search</button>
                     </form>
 
                 </div>
@@ -213,8 +217,10 @@ const GetVillage = () => {
                     </div>
                 </div>
 
+                </div>
+
             </div>
-            <Link to='/users/villages'><button>Back</button></Link>
+            <Link className="villagePageBackLink" to='/users/villages'><button className="villagePageBackB">Back</button></Link>
         </div>
     );
 };
