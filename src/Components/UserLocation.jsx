@@ -13,6 +13,7 @@ const UserLocation = () => {
     const [currentMarkers, setCurrentMarkers] = useState([]);
     const [selectedPlace, setSelectedPlace] = useState(null);
     const [route, setRoute] = useState(null);
+    const [directions, setDirections] = useState(null);
 
     const getUserLocation = () => {
         if ('geolocation' in navigator) {
@@ -61,6 +62,8 @@ const UserLocation = () => {
     };
 
     const handleSearch = (category) => {
+        setRoute(null)
+        setDirections(null)
         searchPlaces(category);
     };
 
@@ -89,36 +92,87 @@ const UserLocation = () => {
                 .setLngLat(place.geometry.coordinates)
                 .setPopup(popup)
                 .addTo(map);
-    
+                marker.getElement().addEventListener('click', () => {
+                    setSelectedPlace(place);
+                })
             // Add event listener for the "Get Directions" button in the popup
             popup.on('open', () => {
                 const btn = document.querySelector('.get-directions-btn');
                 btn.addEventListener('click', () => {
-                    handleDirections(place);
+                    handleDirections(place, popup);
                 });
             });
-    
+              
             return marker;
         });
     
         setCurrentMarkers(markers);
     };
 
-    const fetchDirections = async (destination) => {
+    const fetchRouteAndDirections = async (destination) => {
         try {
-            const response = await fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${userLocation.longitude},${userLocation.latitude};${destination.geometry.coordinates[0]},${destination.geometry.coordinates[1]}?steps=true&access_token=${MAPBOX_ACCESS_TOKEN}`);
+            const response = await fetch(`https://api.mapbox.com/directions/v5/mapbox/driving/${userLocation.longitude},${userLocation.latitude};${destination.geometry.coordinates[0]},${destination.geometry.coordinates[1]}?geometries=geojson&steps=true&access_token=${MAPBOX_ACCESS_TOKEN}`);
             const data = await response.json();
-            if (data.routes && data.routes.length > 0) {
-                setRoute(data.routes[0]);
-            }
+            setRoute(data.routes[0].geometry);
+            setDirections(data.routes[0].legs[0].steps);
         } catch (err) {
-            console.error('Error fetching directions:', err);
+            console.error('Error fetching route and directions:', err);
         }
     }
 
-    const handleDirections = (destination) => {
-        fetchDirections(destination);
+    const handleDirections = (destination, popup) => {
+        fetchRouteAndDirections(destination);
+        popup.remove(); // Close the popup
+        setCurrentPopup(null);
     }
+
+    useEffect(() => {
+        if (map) {
+            if (route) {
+                // Add or update route on the map
+                if (map.getSource('route')) {
+                    // If source exists, update data
+                    map.getSource('route').setData({
+                        type: 'Feature',
+                        properties: {},
+                        geometry: route,
+                    });
+                } else {
+                    // Otherwise, add new source and layer
+                    map.addSource('route', {
+                        type: 'geojson',
+                        data: {
+                            type: 'Feature',
+                            properties: {},
+                            geometry: route,
+                        },
+                    });
+                    map.addLayer({
+                        id: 'route',
+                        type: 'line',
+                        source: 'route',
+                        layout: {
+                            'line-join': 'round',
+                            'line-cap': 'round',
+                        },
+                        paint: {
+                            'line-color': '#007cbf',
+                            'line-width': 8,
+                        },
+                    });
+                }
+            } else {
+                // Remove route layer and source from the map
+                if (map.getLayer('route')) {
+                    map.removeLayer('route');
+                }
+                if (map.getSource('route')) {
+                    map.removeSource('route');
+                }
+            }
+        }
+    }, [map, route]);
+    
 
     useEffect(() => {
         getUserLocation();
@@ -156,10 +210,12 @@ const UserLocation = () => {
 
     const closeDirections = () => {
         setRoute(null);
+        setDirections(null);
     }
+
     return (
         <div className='userLocation'>
-            {loading ? <p>Loading...</p> : <h2 className='userAddress'>{userAddress}</h2>}
+            {loading ? <h2>Loading...</h2> : <h2 className='userAddress'>{userAddress}</h2>}
             <div className="mapButtons">
                 <div className="mapButtonDiv">
                     <h4>Fire</h4>
@@ -176,33 +232,20 @@ const UserLocation = () => {
             </div>
             <div className="mapDivBody">
                 <div id="map" style={{ width: '40vw', height: '400px' }}></div>
-                {route && (
-                        <div className="mapDirections">
-                            <div className="closeDirections">
-                            <button className="closeDirectionsChar"onClick={closeDirections}>❌</button>
-                            </div>
-                                <h2 className="h2Directions">Directions</h2>
-                                {route.legs[0].steps.map((step, index) => (
-                                    <p key={index}>{step.maneuver.instruction}</p>
-                                ))}
-                    
+                {directions && (
+                    <div className="mapDirections">
+                        <div className="closeDirections">
+                            <button className="closeDirectionsChar" onClick={closeDirections}>❌</button>
                         </div>
-                    )}
+                        <h2 className="h2Directions">Directions</h2>
+                        {directions.map((step, index) => (
+                            <p key={index}>{step.maneuver.instruction}</p>
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );
 };
 
 export default UserLocation;
-
-
-{/* <div className="mapDirections">
-<h2 className="h2Directions">Directions</h2>
-<ol>
-{route.legs[0].steps.map((step, index) => (
-
-    <li key={index}>{step.maneuver.instruction}</li>
-    ))}
-    </ol>
-
-</div> */}
