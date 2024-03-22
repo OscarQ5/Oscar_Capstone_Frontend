@@ -15,10 +15,18 @@ const StateEmergency = () => {
     const [selectedVillageId, setSelectedVillageId] = useState("");
     const [allNumbers, setAllNumbers] = useState([]);
     const [medHistory, setMedHistory] = useState([]);
-  
+    const [includeMedicalCabinet, setIncludeMedicalCabinet] = useState(false);
 
-    const handleCheckboxChange = () => {
-        setShowDropdown(!showDropdown);
+    const handleMessageClick = () => {
+        // Ask for confirmation
+        const confirmed = window.confirm("Do you want to include the Medical Cabinet in the message?");
+
+        // If confirmed, set includeMedicalCabinet to true
+        if (confirmed) {
+            setIncludeMedicalCabinet(true);
+        } else {
+            setIncludeMedicalCabinet(false);
+        }
     };
 
     //Grabs all the villages the user is associated with
@@ -60,6 +68,7 @@ const StateEmergency = () => {
         // For example, you can make an API call to send the text to a server
         console.log("Emergency text:", emergencyText);
     }
+
     //Grabs all the users in the selected village
 
     useEffect(() => {
@@ -143,12 +152,13 @@ const StateEmergency = () => {
     const medicalTextMessage = `Medical Information:
       ${formattedMedicalInfo.join('\n\n')}`;
 
+    //   console.log(medicalTextMessage)
     return (
         <div className="stateEmergencyBody">
             <UserLocation />
 
             {showDropdown && (
-                
+                <div>
                 <select
                     value={selectedVillage}
                     onChange={handleVillageSelect}
@@ -161,7 +171,15 @@ const StateEmergency = () => {
                         </option>
                     ))}
                 </select>
+
+            <div className="textBox">
+            <SpeechToText onTextChange={setEmergencyText} />
+            </div>
+
+                </div>
             )}
+
+
 
             <div className="emergencyButtons">
                 <div className='buttonDiv'>
@@ -171,19 +189,18 @@ const StateEmergency = () => {
                     </a>
                 </div>
 
-                <div className='buttonDiv' onClick={handleVillageClick}>
+                <div className='buttonDiv' onClick={() => { handleVillageClick(); handleMessageClick(); }}>
                     <h4>  911 + Village </h4>
                     <img className="emergencyServices" src="/arrows.svg" alt="Emergency Services" />
                 </div>
 
-                <div className='buttonDiv' onClick={handleVillageClick}>
+                <div className='buttonDiv' onClick={() => { handleVillageClick(); handleMessageClick(); }}>
                     <h4>  Village </h4>
                     <img className="emergencyServices" src="/community.svg" alt="Emergency Services" />
                 </div>
             </div>
-            <SpeechToText onTextChange={setEmergencyText} />
-            <button onClick={handleEmergencySend}>Send Emergency Text</button>
         </div>
+        
     );
 };
 
