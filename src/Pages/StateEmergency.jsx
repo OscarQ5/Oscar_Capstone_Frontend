@@ -19,15 +19,17 @@ const StateEmergency = () => {
 
     const handleMessageClick = () => {
         // Ask for confirmation
-        const confirmed = window.confirm("Do you want to include the Medical Cabinet in the message?");
+        const confirmed = window.confirm("Do you want to include your Personal Medical Information in the message?");
 
         // If confirmed, set includeMedicalCabinet to true
         if (confirmed) {
             setIncludeMedicalCabinet(true);
+
         } else {
             setIncludeMedicalCabinet(false);
         }
     };
+    
 
     //Grabs all the villages the user is associated with
 
@@ -63,11 +65,15 @@ const StateEmergency = () => {
         setShowDropdown(!showDropdown);
     }
 
+    //Send message and also checks whether to include medical information
+    
     const handleEmergencySend = () => {
-        // Here you can send the emergencyText to the appropriate destination
-        // For example, you can make an API call to send the text to a server
-        console.log("Emergency text:", emergencyText);
-    }
+        if (includeMedicalCabinet) {
+            console.log("Sending emergency text with medical information:", emergencyText + "\n" + medicalTextMessage);
+        } else {
+            console.log("Sending emergency text only:", emergencyText);
+        }
+    };
 
     //Grabs all the users in the selected village
 
@@ -173,7 +179,7 @@ const StateEmergency = () => {
                 </select>
 
             <div className="textBox">
-            <SpeechToText onTextChange={setEmergencyText} />
+            <SpeechToText onTextChange={setEmergencyText} handleEmergencySend={handleEmergencySend}/>
             </div>
 
                 </div>

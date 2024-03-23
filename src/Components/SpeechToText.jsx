@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import '../Styles/SpeechToText.css'
 
-const SpeechToText = ({ onTextChange }) => {
+const SpeechToText = ({ onTextChange, handleEmergencySend }) => {
     const [transcription, setTranscription] = useState('')
 
     const handleSpeechRecognition = () => {
@@ -24,12 +24,6 @@ const SpeechToText = ({ onTextChange }) => {
     }
 
     const { t } = useTranslation();
-    
-    const handleEmergencySend = () => {
-        // Here you can send the emergencyText to the appropriate destination
-        // For example, you can make an API call to send the text to a server
-        console.log("Emergency text:", emergencyText);
-    }
     
     return (
         <div className='textBoxBody'>
