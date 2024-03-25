@@ -199,7 +199,7 @@ display: none;
   border:2px solid red;
 }
 
-#stars {
+/* #stars {
   width: 1px;
   height: 1px;
   background: transparent;
@@ -249,4 +249,4 @@ display: none;
   from {
     transform: translateY(0px); }
   to {
-    transform: translateY(-2000px); } }
+    transform: translateY(-2000px); } } */

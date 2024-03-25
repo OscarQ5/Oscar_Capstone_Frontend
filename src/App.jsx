@@ -17,6 +17,7 @@ import AddVillages from "./Pages/AddVillages.jsx";
 import GetVillage from "./Components/GetVillage.jsx";
 import StateEmergency from "./Pages/StateEmergency.jsx";
 import LoginSignup from "./Components/LoginSignup.jsx";
+import LandingHomePage from "./Pages/LandingHomePage.jsx";
 
 function App() {
   const { setUser, setToken, user, token } = useLoginDataProvider();
@@ -27,7 +28,7 @@ function App() {
         <FriesNavbar />
 
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingHomePage />} />
           <Route
             path="users/sign-up"
             element={<SignupPage setUser={setUser} setToken={setToken} />}
