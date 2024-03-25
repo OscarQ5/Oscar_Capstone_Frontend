@@ -5,7 +5,7 @@ import '../Styles/StateEmergency.css'
 import { useLoginDataProvider } from '../Components/LoginProvider';
 import SpeechToText from '../Components/SpeechToText.jsx';
 
-const StateEmergency = () => {
+const StateEmergency = ({ setTranscription }) => {
     const [villages, setVillages] = useState([]);
     const { user, API, token } = useLoginDataProvider();
     const [selectedVillage, setSelectedVillage] = useState('');
@@ -17,11 +17,12 @@ const StateEmergency = () => {
     const [medHistory, setMedHistory] = useState([]);
     const [includeMedicalCabinet, setIncludeMedicalCabinet] = useState(false);
 
+    
     const handleMessageClick = () => {
         // Ask for confirmation
-        const confirmed = window.confirm("Do you want to include your Personal Medical Information in the message?");
+        const confirmed = window.confirm("Include your Personal Medical Information ?");
 
-        // If confirmed, set includeMedicalCabinet to true
+     
         if (confirmed) {
             setIncludeMedicalCabinet(true);
 
@@ -29,7 +30,7 @@ const StateEmergency = () => {
             setIncludeMedicalCabinet(false);
         }
     };
-    
+
 
     //Grabs all the villages the user is associated with
 
@@ -192,22 +193,22 @@ const StateEmergency = () => {
 
             {showDropdown && (
                 <div>
-                <select
-                    value={selectedVillage}
-                    onChange={handleVillageSelect}
-                    className="villageDropdown"
-                >
-                    <option value="">Select a Village</option>
-                    {villages.map(village => (
-                        <option key={village.village_id} value={village.village_name}>
-                            {village.village_name}
-                        </option>
-                    ))}
-                </select>
+                    <select
+                        value={selectedVillage}
+                        onChange={handleVillageSelect}
+                        className="villageDropdown"
+                    >
+                        <option value="">Select a Village</option>
+                        {villages.map(village => (
+                            <option key={village.village_id} value={village.village_name}>
+                                {village.village_name}
+                            </option>
+                        ))}
+                    </select>
 
-            <div className="textBox">
-            <SpeechToText onTextChange={setEmergencyText} handleEmergencySend={handleEmergencySend}/>
-            </div>
+                    <div className="textBox">
+                        <SpeechToText onTextChange={setEmergencyText} handleEmergencySend={handleEmergencySend} />
+                    </div>
 
                 </div>
             )}
@@ -233,7 +234,7 @@ const StateEmergency = () => {
                 </div>
             </div>
         </div>
-        
+
     );
 };
 

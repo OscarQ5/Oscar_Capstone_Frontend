@@ -1,5 +1,5 @@
 .bg-image {
-    background-image: url('./emergency.jpg');
+    background-image: url('./villageLogo2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -7,5 +7,6 @@
     opacity: 0.8;
     width: 100;
     position:relative;
-    top:50px
+    top:50px;
+    color:black;
 }
