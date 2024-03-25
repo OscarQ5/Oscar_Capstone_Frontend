@@ -16,13 +16,14 @@ const StateEmergency = ({ setTranscription }) => {
     const [allNumbers, setAllNumbers] = useState([]);
     const [medHistory, setMedHistory] = useState([]);
     const [includeMedicalCabinet, setIncludeMedicalCabinet] = useState(false);
+    const [is911VillageClicked, setIs911VillageClicked] = useState(false);
 
-    
+
     const handleMessageClick = () => {
         // Ask for confirmation
         const confirmed = window.confirm("Include your Personal Medical Information ?");
 
-     
+
         if (confirmed) {
             setIncludeMedicalCabinet(true);
 
@@ -87,19 +88,71 @@ const StateEmergency = ({ setTranscription }) => {
     }
 
     //Send message and also checks whether to include medical information
-    
+
     const handleEmergencySend = async () => {
         let message = emergencyText;
         if (includeMedicalCabinet) {
             message += '\n' + medicalTextMessage;
         }
 
-        try {
-            console.log("Sending emergency text:", message);
-            await sendSMS(allNumbers, message); 
-            console.log('Emergency SMS sent successfully');
-        } catch (error) {
-            console.error('Failed to send emergency SMS:', error);
+        // Check if selectedVillage array has more than one element
+        if (is911VillageClicked && selectedVillage) {
+            try {
+                console.log("Sending emergency text:", message);
+                // await sendSMS(allNumbers, message);    **uncomment to send message**
+                console.log('Emergency SMS sent successfully');
+
+                showAlert(`Emergency Text sent successfully to ${selectedVillage}`);
+
+                dial911()
+
+                setShowDropdown(false)
+
+                setIs911VillageClicked(false)
+
+            } catch (error) {
+                console.error('Failed to send emergency SMS:', error);
+                showAlert('Failed to send emergency text');
+            }
+        } else if (selectedVillage) {
+            try {
+                console.log("Sending emergency text:", message);
+                // await sendSMS(allNumbers, message);       **uncomment to send message**
+                console.log('Emergency SMS sent successfully');
+                showAlert(`Emergency Text sent successfully to ${selectedVillage}`);
+                setShowDropdown(false);
+
+            } catch (error) {
+                console.error('Failed to send emergency SMS:', error);
+                showAlert('Failed to send emergency text');
+            }
+        } else {
+            // Show alert that selectedVillage should have one element
+            showAlert('Please select a village.');
+        }
+    };
+
+    const showAlert = (message) => {
+
+        const alertElement = document.createElement('div');
+        alertElement.className = 'alert';
+        alertElement.textContent = message;
+
+        document.body.appendChild(alertElement);
+
+        setTimeout(() => {
+            alertElement.remove();
+        }, 3000);
+    };
+
+    // Calls 911 for 911 + Village
+    const dial911 = () => {
+
+        const confirmDial = confirm('Dial 911?');
+
+        if (confirmDial) {
+
+            window.location.href = 'tel:911';
         }
     };
 
@@ -186,7 +239,6 @@ const StateEmergency = ({ setTranscription }) => {
     const medicalTextMessage = `Medical Information:
       ${formattedMedicalInfo.join('\n\n')}`;
 
-    //   console.log(medicalTextMessage)
     return (
         <div className="stateEmergencyBody">
             <UserLocation />
@@ -213,8 +265,6 @@ const StateEmergency = ({ setTranscription }) => {
                 </div>
             )}
 
-
-
             <div className="emergencyButtons">
                 <div className='buttonDiv'>
                     <h4>  911 </h4>
@@ -223,7 +273,7 @@ const StateEmergency = ({ setTranscription }) => {
                     </a>
                 </div>
 
-                <div className='buttonDiv' onClick={() => { handleVillageClick(); handleMessageClick(); }}>
+                <div className='buttonDiv' onClick={() => { handleVillageClick(); handleMessageClick(); setIs911VillageClicked(true); }}>
                     <h4>  911 + Village </h4>
                     <img className="emergencyServices" src="/arrows.svg" alt="Emergency Services" />
                 </div>
