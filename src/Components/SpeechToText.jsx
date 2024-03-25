@@ -28,9 +28,6 @@ const SpeechToText = ({ onTextChange, handleEmergencySend }) => {
     return (
         <div className='textBoxBody'>
             <div className="inputAndButton">
-            <button className='micro' onClick={handleSpeechRecognition}>
-                🎤
-            </button>
             <textarea
                 className='textbox'
                 placeholder={t('speechToText.placeholder')}
@@ -40,8 +37,15 @@ const SpeechToText = ({ onTextChange, handleEmergencySend }) => {
                 onChange={handleChange}
                 >
              </textarea>
+          <div className='textButtons'>
+            <button className='micro' onClick={handleSpeechRecognition}>
+                🎤
+            </button>
+             <button className="send" onClick={handleEmergencySend}>
+                Send
+            </button>
+             </div>
 
-             <button className="send" onClick={handleEmergencySend}>Send</button>
             </div>
         </div>
     )
