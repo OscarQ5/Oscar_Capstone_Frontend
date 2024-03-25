@@ -65,13 +65,40 @@ const StateEmergency = () => {
         setShowDropdown(!showDropdown);
     }
 
+    const sendSMS = async (numbers, message) => {
+        try {
+            const response = await fetch(`${API}/sendSMS`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                },
+                body: JSON.stringify({ to: numbers, message: message })
+            });
+            if (response.ok) {
+                console.log('SMS sent successfully');
+            } else {
+                console.error('Failed to send SMS');
+            }
+        } catch (error) {
+            console.error('Error sending SMS:', error);
+        }
+    }
+
     //Send message and also checks whether to include medical information
     
-    const handleEmergencySend = () => {
+    const handleEmergencySend = async () => {
+        let message = emergencyText;
         if (includeMedicalCabinet) {
-            console.log("Sending emergency text with medical information:", emergencyText + "\n" + medicalTextMessage);
-        } else {
-            console.log("Sending emergency text only:", emergencyText);
+            message += '\n' + medicalTextMessage;
+        }
+
+        try {
+            console.log("Sending emergency text:", message);
+            await sendSMS(allNumbers, message); 
+            console.log('Emergency SMS sent successfully');
+        } catch (error) {
+            console.error('Failed to send emergency SMS:', error);
         }
     };
 
