@@ -92,9 +92,8 @@ const StateEmergency = ({ setTranscription }) => {
         temp.innerHTML = html;
         return temp.textContent || temp.innerText;
     }
-
+    
     //Send message and also checks whether to include medical information
-
     const handleEmergencySend = async () => {
         let message = emergencyText;
         if (includeMedicalCabinet) {

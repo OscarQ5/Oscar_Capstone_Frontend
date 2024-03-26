@@ -4,7 +4,7 @@
 .loginSignUp{
 
   position:fixed;
-  top:70px;
+  top:60px;
 }
 
 .PhoneInput{
@@ -94,13 +94,14 @@ display: none;
 }
 .card-3d-wrap {
   position: relative;
-  width: 440px;
+   /* width: 540px; DOING WORK */
+  width: 540px; 
   max-width: 100%;
   height: 463px;
   -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
   perspective: 800px;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .card-3d-wrapper {
   width: 100%;
@@ -126,7 +127,7 @@ display: none;
 }
 .center-wrap{
   position: absolute;
-  width: 100%;
+  width: 75%;
   padding: 0 35px;
   top: 50%;
   left: 0;
@@ -143,7 +144,7 @@ display: none;
 .form-style {
   padding: 13px 20px;
   padding-left: 55px;
-  height: 48px;
+  height: 46px;
   width: 100%;
   font-weight: 500;
   border-radius: 4px;
