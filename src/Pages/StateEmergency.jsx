@@ -7,7 +7,7 @@ import SpeechToText from '../Components/SpeechToText.jsx';
 
 const StateEmergency = ({ setTranscription }) => {
     const [villages, setVillages] = useState([]);
-    const { user, API, token } = useLoginDataProvider();
+    const { user, API, token, userAddress, userLocation } = useLoginDataProvider();
     const [selectedVillage, setSelectedVillage] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const [emergencyText, setEmergencyText] = useState('')
@@ -86,13 +86,23 @@ const StateEmergency = ({ setTranscription }) => {
             console.error('Error sending SMS:', error);
         }
     }
+
+    const sanitizeHTML = (html) => {
+        const temp = document.createElement("div");
+        temp.innerHTML = html;
+        return temp.textContent || temp.innerText;
+    }
     
     //Send message and also checks whether to include medical information
     const handleEmergencySend = async () => {
         let message = emergencyText;
         if (includeMedicalCabinet) {
-            message += '\n' + medicalTextMessage;
+            message += '\n' + medicalTextMessage + '\n' + (userLocation ? `<a href="https://www.google.com/maps?q=${userLocation.latitude},${userLocation.longitude}">${userAddress}</a>` : '');
+        } else {
+            message += '\n' + (userLocation ? `<a href="https://www.google.com/maps?q=${userLocation.latitude},${userLocation.longitude}">${userAddress}</a>` : '')
         }
+
+        message = sanitizeHTML(message)
 
         // Check if selectedVillage array has more than one element
         if (is911VillageClicked && selectedVillage) {
@@ -288,6 +298,3 @@ const StateEmergency = ({ setTranscription }) => {
 };
 
 export default StateEmergency;
-
-
-

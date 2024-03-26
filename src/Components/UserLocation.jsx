@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
+import { useLoginDataProvider } from "../Components/LoginProvider"
 import '../Styles/UserLocation.css';
 
 const MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
 
 const UserLocation = () => {
+    const { userAddress, setUserAddress, userLocation, setUserLocation } = useLoginDataProvider()
+
     const [loading, setLoading] = useState(true);
-    const [userLocation, setUserLocation] = useState(null);
-    const [userAddress, setUserAddress] = useState(null);
     const [map, setMap] = useState(null);
     const [places, setPlaces] = useState([]);
     const [currentMarkers, setCurrentMarkers] = useState([]);
