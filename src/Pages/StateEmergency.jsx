@@ -86,9 +86,8 @@ const StateEmergency = ({ setTranscription }) => {
             console.error('Error sending SMS:', error);
         }
     }
-
+    
     //Send message and also checks whether to include medical information
-
     const handleEmergencySend = async () => {
         let message = emergencyText;
         if (includeMedicalCabinet) {

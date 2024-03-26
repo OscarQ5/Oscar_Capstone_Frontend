@@ -4,24 +4,36 @@
     height: 0;
     overflow: hidden;
     z-index: -1;
-    content: url('./villageLogo2.jpg') url("./Beads.jpg") url('./dadAndSon.jpg') ;
+    content: url('/villageLogo2.jpg') url('/dadAndSon.jpg') url('/heart1.jpg') url('/hearthand1.jpg') url('/hearthand1.jpg') 
 }
 
 @keyframes imageShift {
     
-  0% {
-    background-image:url('./dadAndSon.jpg')  ;
-    background-size: cover;
-
-  }
-  60% {
-    background-image: url('./dadAndSon.jpg');
+  /* 0% {
+      background-image: url('/dadAndSon.jpg');
+      background-size: cover;
+      
+    } */
+    
+    /* 40% {
+        background-image:url('/heart3.jpg')  ;
+      background-size: cover;
+  
+    } */
+    0% {
+        background-image:url('/heart1.jpg')  ;
+      background-size: cover;
+  
+    }
+    
+    50% {
+      background-image:url('/heart1.jpg')  ;
     background-size: cover;
 
   }
  
   100%, 99.999%  {
-    background-image: url('./villageLogo2.jpg');
+    background-image: url('/villageLogo2.jpg');
     background-size: cover;
     
   }
@@ -37,7 +49,7 @@
   height: 100%;
   color: white;
   padding: 15px;
-  animation: imageShift 10s forwards linear;
+  animation: imageShift 5s forwards linear;
   /* animation: imageShift infinite 10s;  */
  animation-timing-function: linear;
 }
@@ -68,7 +80,7 @@
 
 .h1andButton{
     opacity: 0; /* Start as invisible */
-    animation: fadeIn 9s ease-in-out forwards; /* Adjust the duration as needed */
+    animation: fadeIn 7s ease-in-out forwards; /* Adjust the duration as needed */
 }
 @keyframes fadeIn {
     66% {
