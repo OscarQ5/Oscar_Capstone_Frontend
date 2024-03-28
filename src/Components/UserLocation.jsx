@@ -80,8 +80,11 @@ const UserLocation = () => {
                 <div>
                     <p>${place.place_name}</p>
                     <button class="get-directions-btn" data-lng="${place.geometry.coordinates[0]}" data-lat="${place.geometry.coordinates[1]}">
-                        Get Directions
+                        Driving
                     </button>
+                    <button class="get-directions-walking-btn" data-lng="${place.geometry.coordinates[0]}" data-lat="${place.geometry.coordinates[1]}">
+                   Walking
+                </button>
                 </div>
             `;
     
@@ -98,12 +101,18 @@ const UserLocation = () => {
                 })
             // Add event listener for the "Get Directions" button in the popup
             popup.on('open', () => {
+                const btn = document.querySelector('.get-directions-walking-btn');
+                btn.addEventListener('click', () => {
+                    handleWalkingDirection(place, popup);
+                });
+            });
+              
+            popup.on('open', () => {
                 const btn = document.querySelector('.get-directions-btn');
                 btn.addEventListener('click', () => {
                     handleDirections(place, popup);
                 });
             });
-              
             return marker;
         });
     
@@ -121,8 +130,24 @@ const UserLocation = () => {
         }
     }
 
+    const fetchWalkingRouteAndDirections = async (destination) => {
+        try {
+            const response = await fetch(`https://api.mapbox.com/directions/v5/mapbox/walking/${userLocation.longitude},${userLocation.latitude};${destination.geometry.coordinates[0]},${destination.geometry.coordinates[1]}?geometries=geojson&steps=true&access_token=${MAPBOX_ACCESS_TOKEN}`);
+            const data = await response.json();
+            setRoute(data.routes[0].geometry);
+            setDirections(data.routes[0].legs[0].steps);
+        } catch (err) {
+            console.error('Error fetching route and directions:', err);
+        }
+    }
+
     const handleDirections = (destination, popup) => {
         fetchRouteAndDirections(destination);
+        popup.remove(); // Close the popup
+    }
+
+    const handleWalkingDirection = (destination, popup) => {
+        fetchWalkingRouteAndDirections(destination);
         popup.remove(); // Close the popup
     }
 
@@ -193,19 +218,33 @@ const UserLocation = () => {
     }, [map, userLocation]);
 
     useEffect(() => {
-        if (!userLocation || !MAPBOX_ACCESS_TOKEN) return;
-
-        mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
-        const newMap = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [userLocation.longitude, userLocation.latitude],
-            zoom: 12,
-        });
-        if (map) {
-            map.remove();
+        const initializeMap = () => {
+            if (!userLocation || !MAPBOX_ACCESS_TOKEN) return;
+    
+            mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+            const newMap = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [userLocation.longitude, userLocation.latitude],
+                zoom: 12,
+            });
+    
+            if (map) {
+                map.remove();
+            }
+            
+            setMap(newMap);
+        };
+    
+        if (!map) {
+            initializeMap();
         }
-        setMap(newMap);
+    
+        return () => {
+            if (map) {
+                map.remove();
+            }
+        };
     }, [userLocation]);
 
     const closeDirections = () => {
@@ -216,22 +255,27 @@ const UserLocation = () => {
     return (
         <div className='userLocation'>
             {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'>{userAddress}</h2>}
+            <h3 className="directionHeader">Direction</h3>
             <div className="mapButtons">
+
                 <div className="mapButtonDiv">
-                    <h4>Fire</h4>
+                    <h5 onClick={() => handleSearch('fire_station')}>Fire</h5>
                     <img onClick={() => handleSearch('fire_station')} className="fireStation" src="/fireStationsvg.svg" alt="Fire Station Button" />
                 </div>
                 <div className="mapButtonDiv">
-                    <h4>Police</h4>
+                    <h5 onClick={() => handleSearch('police')}>Police</h5>
                     <img onClick={() => handleSearch('police')} className="policeStation" src="/policeStation.svg" alt="Police Station Button" />
                 </div>
                 <div className="mapButtonDiv">
-                    <h4>Hospital</h4>
+                    <h5 onClick={() => handleSearch('hospital')}>Hospital</h5>
                     <img onClick={() => handleSearch('hospital')} className="hospitalStation" src="/hospitalStation.svg" alt="Hospital Button" />
                 </div>
             </div>
             <div className="mapDivBody">
-                <div id="map" style={{ width: '40vw', height: '400px' }}></div>
+                    {/* <div className="mapBoxDiv"> */}
+                <div id="map" style={{ width: '40vw', height: '400px', borderRadius: '60px' }}></div>
+                    {/* </div> */}
+
                 {directions && (
                     <div className="mapDirections">
                         <div className="closeDirections">

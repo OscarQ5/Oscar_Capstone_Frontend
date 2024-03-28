@@ -4,37 +4,54 @@ import UserLocation from '../Components/UserLocation.jsx';
 import '../Styles/StateEmergency.css'
 import { useLoginDataProvider } from '../Components/LoginProvider';
 import SpeechToText from '../Components/SpeechToText.jsx';
+import MedicalConfirmationModal from '../Components/MedicalConfirmationModal.jsx';
 
 const StateEmergency = ({ setTranscription }) => {
     const [villages, setVillages] = useState([]);
     const { user, API, token, userAddress, userLocation } = useLoginDataProvider();
     const [selectedVillage, setSelectedVillage] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
-    const [emergencyText, setEmergencyText] = useState('')
+    const [emergencyText, setEmergencyText] = useState('');
     const [villageUsers, setVillageUsers] = useState([]);
     const [selectedVillageId, setSelectedVillageId] = useState("");
     const [allNumbers, setAllNumbers] = useState([]);
     const [medHistory, setMedHistory] = useState([]);
     const [includeMedicalCabinet, setIncludeMedicalCabinet] = useState(false);
     const [is911VillageClicked, setIs911VillageClicked] = useState(false);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [buttonsHidden, setButtonsHidden] = useState(false);
 
-
+    
     const handleMessageClick = () => {
-        // Ask for confirmation
-        const confirmed = window.confirm("Include your Personal Medical Information ?");
-
-
-        if (confirmed) {
-            setIncludeMedicalCabinet(true);
-
-        } else {
-            setIncludeMedicalCabinet(false);
-        }
+        setIsModalOpen(true);
+        setButtonsHidden(true);
     };
 
+    const handleConfirmModal = () => {
+        setIncludeMedicalCabinet(true);
+        setIsModalOpen(false);
+        setButtonsHidden(true);
+    };
 
+    const handleCloseModal = () => {
+        setIncludeMedicalCabinet(false);
+        setIsModalOpen(false);
+        setButtonsHidden(true);
+    };
+
+    const cancelButton = () => {
+        setIncludeMedicalCabinet(false);
+        setShowDropdown(false);
+        setIs911VillageClicked(false);
+        showAlert(`Emergency Text successfully cancelled.`);
+        setButtonsHidden(false);
+    }
+
+    const hideButtons = () => {
+        setButtonsHidden(true);
+    };
+    
     //Grabs all the villages the user is associated with
-
     useEffect(() => {
         fetch(`${API}/users/villages`, {
             headers: {
@@ -48,9 +65,7 @@ const StateEmergency = ({ setTranscription }) => {
             .catch((error) => console.error("Error fetching villages:", error));
     }, [API, token]);
 
-
     //stores the village_id when a village is selected
-
     const handleVillageSelect = (e) => {
         const selectedVillageName = e.target.value;
         setSelectedVillage(selectedVillageName);
@@ -58,14 +73,13 @@ const StateEmergency = ({ setTranscription }) => {
         const selectedVillageObject = villages.find(village => village.village_name === selectedVillageName);
 
         if (selectedVillageObject) {
-
             setSelectedVillageId(selectedVillageObject.village_id);
         }
-    }
+    };
 
     const handleVillageClick = () => {
         setShowDropdown(!showDropdown);
-    }
+    };
 
     const sendSMS = async (numbers, message) => {
         try {
@@ -85,24 +99,24 @@ const StateEmergency = ({ setTranscription }) => {
         } catch (error) {
             console.error('Error sending SMS:', error);
         }
-    }
+    };
 
     const sanitizeHTML = (html) => {
         const temp = document.createElement("div");
         temp.innerHTML = html;
         return temp.textContent || temp.innerText;
-    }
-    
+    };
+
     //Send message and also checks whether to include medical information
     const handleEmergencySend = async () => {
         let message = emergencyText;
         if (includeMedicalCabinet) {
-            message += '\n' + medicalTextMessage + '\n' + (userLocation ? `<a href="https://www.google.com/maps?q=${userLocation.latitude},${userLocation.longitude}">${userAddress}</a>` : '');
+            message += '\n\n' + medicalTextMessage + '\n\n' + (userLocation ? `<a href="https://www.google.com/maps?q=${userLocation.latitude},${userLocation.longitude}">${userAddress}</a>` : '');
         } else {
-            message += '\n' + (userLocation ? `<a href="https://www.google.com/maps?q=${userLocation.latitude},${userLocation.longitude}">${userAddress}</a>` : '')
+            message += '\n\n' + (userLocation ? `<a href="https://www.google.com/maps?q=${userLocation.latitude},${userLocation.longitude}">${userAddress}</a>` : '')
         }
 
-        message = sanitizeHTML(message)
+        message = sanitizeHTML(message);
 
         // Check if selectedVillage array has more than one element
         if (is911VillageClicked && selectedVillage) {
@@ -113,11 +127,15 @@ const StateEmergency = ({ setTranscription }) => {
 
                 showAlert(`Emergency Text sent successfully to ${selectedVillage}`);
 
-                dial911()
+                dial911();
 
-                setShowDropdown(false)
+                setShowDropdown(false);
 
-                setIs911VillageClicked(false)
+                setIs911VillageClicked(false);
+
+                setButtonsHidden(false);
+
+
 
             } catch (error) {
                 console.error('Failed to send emergency SMS:', error);
@@ -130,6 +148,7 @@ const StateEmergency = ({ setTranscription }) => {
                 console.log('Emergency SMS sent successfully');
                 showAlert(`Emergency Text sent successfully to ${selectedVillage}`);
                 setShowDropdown(false);
+                setButtonsHidden(false);
 
             } catch (error) {
                 console.error('Failed to send emergency SMS:', error);
@@ -142,7 +161,6 @@ const StateEmergency = ({ setTranscription }) => {
     };
 
     const showAlert = (message) => {
-
         const alertElement = document.createElement('div');
         alertElement.className = 'alert';
         alertElement.textContent = message;
@@ -156,17 +174,14 @@ const StateEmergency = ({ setTranscription }) => {
 
     // Calls 911 for 911 + Village
     const dial911 = () => {
-
         const confirmDial = confirm('Dial 911?');
 
         if (confirmDial) {
-
             window.location.href = 'tel:911';
         }
     };
 
     //Grabs all the users in the selected village
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -193,7 +208,7 @@ const StateEmergency = ({ setTranscription }) => {
                     }));
                     setVillageUsers(usersWithInfo);
                 } else {
-                    console.error("Data is not an array:", data);
+                    // console.error("Data is not an array:", data);
                     // Handle the error or set an empty array based on your needs
                     setVillageUsers([]);
                 }
@@ -206,15 +221,12 @@ const StateEmergency = ({ setTranscription }) => {
     }, [selectedVillageId, API, token]);
 
     //allNumbers holds the array of numbers when sending village message
-
     useEffect(() => {
-        const numbers = villageUsers.map(user => user.userInfo.phone_number)
+        const numbers = villageUsers.map(user => user.userInfo.phone_number);
         setAllNumbers(numbers);
     }, [villageUsers]);
 
-
     //Medicine cabinet for the user in case of emergency
-
     useEffect(() => {
         fetch(`${API}/users/medical`, {
             headers: {
@@ -226,7 +238,6 @@ const StateEmergency = ({ setTranscription }) => {
             .catch((error) => console.error('Error fetching medical history:', error));
     }, [API, token]);
 
-
     let medicalCard = medHistory.map((user) => [
         user.allergies,
         user.blood_type,
@@ -237,20 +248,27 @@ const StateEmergency = ({ setTranscription }) => {
     const formattedMedicalInfo = medicalCard.map((info, index) => {
         const [allergies, bloodType, medicalHistory, medication] = info;
         return `
-          - Allergies: ${allergies}
-          - Blood Type: ${bloodType}
-          - Medical History: ${medicalHistory}
-          - Current Medication: ${medication}`;
+              - Allergies: ${allergies}
+              - Blood Type: ${bloodType}
+              - Medical History: ${medicalHistory}
+              - Current Medication: ${medication}`;
     });
 
     //Medical Cabinet Detail String Form
-
     const medicalTextMessage = `Medical Information:
-      ${formattedMedicalInfo.join('\n\n')}`;
+          ${formattedMedicalInfo.join('\n')}`;
 
     return (
         <div className="stateEmergencyBody">
-            <UserLocation />
+            
+            <UserLocation/>
+
+            <MedicalConfirmationModal
+                isOpen={isModalOpen}
+                onClose={handleCloseModal}
+                onConfirm={handleConfirmModal}
+                handleVillageClick={handleVillageClick}
+            />
 
             {showDropdown && (
                 <div>
@@ -268,33 +286,42 @@ const StateEmergency = ({ setTranscription }) => {
                     </select>
 
                     <div className="textBox">
-                        <SpeechToText onTextChange={setEmergencyText} handleEmergencySend={handleEmergencySend} />
+                        <SpeechToText
+                            onTextChange={setEmergencyText}
+                            handleEmergencySend={handleEmergencySend}
+                            cancelButton={cancelButton}
+                             />
                     </div>
 
                 </div>
             )}
+            <div className='contactHeader' style={{ display: buttonsHidden ? 'none' : 'block' }}><h3>Contact</h3></div>
 
-            <div className="emergencyButtons">
+<div className="emergencyButtons" style={{ display: buttonsHidden ? 'none' : 'flex' }}>
+    
                 <div className='buttonDiv'>
-                    <h4>  911 </h4>
+                <a href="tel:911">
+                    <h5>  911 </h5>
+                    </a>
                     <a href="tel:911">
                         <img className="emergencyServices" src="/blueStar.svg" alt="Emergency Services" />
                     </a>
                 </div>
 
-                <div className='buttonDiv' onClick={() => { handleVillageClick(); handleMessageClick(); setIs911VillageClicked(true); }}>
-                    <h4>  911 + Village </h4>
+                <div className='buttonDiv' onClick={() => { handleMessageClick(); setIs911VillageClicked(true); hideButtons(); }}>
+                    <h5 onClick={() => { handleMessageClick(); setIs911VillageClicked(true); hideButtons(); }}>  911 + Village </h5>
                     <img className="emergencyServices" src="/arrows.svg" alt="Emergency Services" />
                 </div>
 
-                <div className='buttonDiv' onClick={() => { handleVillageClick(); handleMessageClick(); }}>
-                    <h4>  Village </h4>
+                <div className='buttonDiv' onClick={() => { handleMessageClick(); hideButtons(); }}>
+                    <h5 onClick={() => { handleMessageClick(); hideButtons(); }}>  Village </h5>
                     <img className="emergencyServices" src="/community.svg" alt="Emergency Services" />
                 </div>
             </div>
-        </div>
 
+        </div>
     );
 };
 
 export default StateEmergency;
+
