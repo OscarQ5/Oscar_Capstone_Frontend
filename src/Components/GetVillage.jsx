@@ -30,7 +30,7 @@ const GetVillage = () => {
     useEffect(() => {
         if (!village_id) return;
 
-        fetch(`${API}/users/villages/${village_id}`, {
+        fetch(`${API}/users/villages/village/${village_id}`, {
             headers: {
                 "Authorization": token
             }

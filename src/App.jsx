@@ -130,7 +130,7 @@ function App() {
           />
 
           <Route
-            path="users/villages/:village_id"
+            path="users/villages/village/:village_id"
             element={
               <ProtectedRoute
                 element={GetVillage}
