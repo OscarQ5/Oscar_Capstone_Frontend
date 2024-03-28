@@ -6,7 +6,12 @@ import '../Styles/AllVillages.css'
 const AllVillages = () => {
     const [villages, setVillages] = useState([]);
     const { API, token } = useLoginDataProvider();
-
+    const [allVillages, setAllVillages] = useState([])
+    const [searchResults, setSearchResults] = useState([])
+    const [formData, setFormData] = useState({
+        village_name: "",
+    })
+    console.log(allVillages)
     useEffect(() => {
         fetch(`${API}/users/villages`, {
             headers: {
@@ -17,6 +22,17 @@ const AllVillages = () => {
             .then((res) => setVillages(res))
             .catch((error) => console.error("Error fetching villages:", error));
     }, [API, token]);
+
+    useEffect(() => {
+        fetch(`${API}/users/villages/allvillages`, {
+            headers: {
+                "Authorization": token
+            }
+        })
+            .then((res) => res.json())
+            .then((res) => setAllVillages(res))
+            .catch((error) => console.error("Error fetching villages:", error));
+    }, [API, token])
 
     const handleDelete = (villageId) => {
         fetch(`${API}/users/villages/${villageId}`, {
@@ -30,18 +46,56 @@ const AllVillages = () => {
                     throw new Error("Failed to delete");
                 }
                 console.log("Completed Delete");
-                
+
                 setVillages(prevVillages => prevVillages.filter(village => village.village_id !== villageId));
             })
             .catch(err => console.error("Error deleting village:", err));
     };
 
+    const handleSearch = (e) => {
+        e.preventDefault();
+
+        const results = allVillages.filter(village =>
+            village.village_name === formData.village_name
+        );
+
+        setSearchResults(results);
+    }
+
     return (
         <div>
             <div className='villageCardBody'>
+            <div className="searchR">
+                <h2>Find Village 🔎</h2>
+                <div className="phoneFilter">
+                    <form onSubmit={handleSearch}>
+                        <label htmlFor="village_name">Enter Village Name:</label>
+                        <input
+                            type="text"
+                            id="village_name"
+                            name="village_name"
+                            value={formData.village_name}
+                            placeholder="ex. Pursuit"
+                            onChange={(e) => setFormData({ ...formData, village_name: e.target.value })}
+                        />
+                        <div>
+                            <h2>Search Result:</h2>
+                            {searchResults.map((result) => (
+                                <div key={result.village_id} className="search-result">
+                                    <h2>Viilage Name: {result.village_name}</h2> <h2> Village Code: {result.village_code}</h2>
+                                    <div className="requestB">
+                                        <button className='requestButton'>Request</button>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <button className='searchButton' type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
                 {villages.map((village) => (
                     <div key={village.village_id} className="villageCard">
-                        <Link to={`/users/villages/${village.village_id}`} className="villageLink">
+                        <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
                             {village.village_name}
                         </Link>
                         <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button>
