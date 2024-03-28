@@ -60,3 +60,24 @@ color:black;
 .send{
     font-weight: bold;
 }
+
+.cancelSend{
+    /* height: 30px;
+    width: 30px; */
+    display:flex;
+ justify-content: center;
+ align-items: center;
+ border-color: red;
+ /* position:relative;
+ top: 20px;
+ left:-50px; */
+ font-size:x-small;
+ border-radius: 5px;
+ font-weight: bold;
+}
+
+.cancelSend:hover{
+    background-color: aliceblue;
+    border-color: red;
+    color:black;
+}

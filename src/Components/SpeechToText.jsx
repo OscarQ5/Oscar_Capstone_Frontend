@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import '../Styles/SpeechToText.css'
 
-const SpeechToText = ({ onTextChange, handleEmergencySend }) => {
+const SpeechToText = ({ onTextChange, handleEmergencySend, cancelButton}) => {
     const [transcription, setTranscription] = useState('')
 
     const handleSpeechRecognition = () => {
@@ -38,11 +38,14 @@ const SpeechToText = ({ onTextChange, handleEmergencySend }) => {
                 >
              </textarea>
           <div className='textButtons'>
-            <button className='micro' onClick={handleSpeechRecognition}>
+            <button className='micro' onClick={handleSpeechRecognition} >
                 🎤
             </button>
-             <button className="send" onClick={handleEmergencySend}>
+             <button className="send" onClick={handleEmergencySend} >
                 Send
+            </button>
+            <button className='cancelSend' onClick={cancelButton}> 
+                Cancel
             </button>
              </div>
 
