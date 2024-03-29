@@ -10,12 +10,17 @@ const VillagesPage = () => {
     return (
         <div className="villagePageBody">
             <h1> My Villages </h1>
+
+            <div className='myVillageBodyMaster'>
+
             <div className='villageBubble'>
               <AllVillages />
               </div>
             <div className="addVillageButton">
                 <Link to="/users/villages/new"><button className='villageAdd'>Add Village</button></Link>
                 <Link to='/users/home'><button className="villageBack">Back</button></Link>
+            </div>
+
             </div>
 
         </div>
