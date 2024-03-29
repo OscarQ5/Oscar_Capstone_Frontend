@@ -23,7 +23,7 @@
 .villageCardBody {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   align-items: center;
   justify-content: space-evenly;
   /* gap: 30px; */
@@ -53,4 +53,28 @@
   text-decoration: none;
   font-weight: bold;
   color: red;
+}
+
+.masterVillageCard{
+  margin-left:15px;
+  border:2px solid red;
+  flex-wrap: wrap;
+  display:flex;
+  justify-content: space-around;
+  flex-direction: row;
+  overflow-y: auto;
+  height: 300px;
+  width:800px;
+  border-radius: 35px;
+}
+
+.searchRV{
+ overflow-y: auto;
+ max-height:450px;
+ border: 1px solid red;
+ background-color: rgb(234, 234, 234);
+ border-radius: 50px;
+ color: black;
+ position:relative;
+ top:-20px;
 }
