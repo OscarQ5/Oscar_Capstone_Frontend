@@ -2,25 +2,34 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/SignupForm.css'
 import { useLoginDataProvider } from "./LoginProvider"
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
 
 function SignupForm() {
     const { API, setToken, setUser, setForm } = useLoginDataProvider()
-
-    // const API = import.meta.env.VITE_BASE_URL;
     const navigate = useNavigate()
-
     const [formData, setFormData] = useState({
         name: '',
         password_hash: '',
         email: '',
         phone_number: '',
+        username: ''
     });
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData(prevState => ({
-            ...prevState, [e.target.id]: e.target.value
-        }));
+        const { id, value } = e.target;
+
+        if (id === "phone_number") {
+            setFormData(prevState => ({
+                ...prevState,
+                phone_number: value
+            }));
+        } else {
+            setFormData(prevState => ({
+                ...prevState,
+                [id]: value
+            }));
+        }
     };
 
     const handleSubmit = (event) => {
@@ -54,6 +63,7 @@ function SignupForm() {
                         password_hash: '',
                         email: '',
                         phone_number: '',
+                        username: ''
                     })
                     navigate(`${user.user_id}/contacts`);
                 } else {
@@ -81,6 +91,16 @@ function SignupForm() {
                     required
                 />
 
+                <label htmlFor="username">User Name</label>
+                <input
+                    id="username"
+                    value={formData.username}
+                    type="text"
+                    onChange={handleChange}
+                    placeholder="ex. Jane D."
+                    required
+                />
+
                 <label htmlFor="password_hash">Password </label>
                 <input
                     id="password_hash"
@@ -102,17 +122,17 @@ function SignupForm() {
                 />
 
                 <label htmlFor="phone_number">Phone Number</label>
-                <input
+                <PhoneInput
                     id="phone_number"
                     value={formData.phone_number}
-                    type="text"
-                    onChange={handleChange}
+                    onChange={(value) => setFormData({ ...formData, phone_number: value })}
                     placeholder="ex. 111-222-3333"
+                    defaultCountry="US"
                     required
                 />
 
                 <div className="submitButton">
-                    <button type="submit" >Submit</button>
+                    <button className="signUpsubmitButton"type="submit" >Submit</button>
                 </div>
             </form>
 

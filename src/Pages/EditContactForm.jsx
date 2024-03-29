@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom'
+import PhoneInput from 'react-phone-number-input';
 import { useLoginDataProvider } from "../Components/LoginProvider"
+import "../Styles/EditContactForm.css"
 
 const EditContactForm = () => {
-    const { API, user, token } = useLoginDataProvider()
 
+    const { API, user, token } = useLoginDataProvider()
     const navigate = useNavigate()
     const { contact_id } = useParams()
-
     const [contact, setContact] = useState({
         firstname: "",
         lastname: "",
@@ -16,7 +17,13 @@ const EditContactForm = () => {
     })
 
     const handleTextChange = (event) => {
-        setContact({ ...contact, [event.target.id]: event.target.value });
+        const { id, value } = event.target;
+
+        if (id === "phone_number") {
+            setContact({ ...contact, phone_number: value });
+        } else {
+            setContact({ ...contact, [id]: value });
+        }
     };
 
     useEffect(() => {
@@ -100,12 +107,12 @@ const EditContactForm = () => {
                 />
 
                 <label htmlFor="phone_number">Phone Number:</label>
-                <input
+                <PhoneInput
                     id="phone_number"
                     value={contact.phone_number}
-                    type="tel"
-                    onChange={handleTextChange}
-                    placeholder="ex. 919-222-2222"
+                    onChange={(value) => setContact({ ...contact, phone_number: value })}
+                    placeholder="ex. 111-222-3333"
+                    defaultCountry="US"
                     required
                 />
 
@@ -113,7 +120,7 @@ const EditContactForm = () => {
 
                     <button type="submit">Submit</button>
 
-                    <img onClick={handleDelete} className="deleteButton" src="/Anonymous_Architetto_--_Cestino_pieno.svg" alt="Delete Emergency Contact" />
+                    <img onClick={handleDelete} className="deleteButtonEC" src="/Anonymous_Architetto_--_Cestino_pieno.svg" alt="Delete Emergency Contact" />
                 </div>
             </form>
 

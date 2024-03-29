@@ -52,7 +52,7 @@ const GoogleMapsComponent = ({ locations, userLocation }) => {
                         onCloseClick={onInfoWindowClose}
                     >
                         <div>
-                            {/* Add information to display in the InfoWindow */}
+ 
                             <h3>Name: {selectedMarker.name}</h3>
                             <p>{selectedMarker.address}</p>
                         </div>

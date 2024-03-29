@@ -1,0 +1,125 @@
+.emergencyButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: -75px;
+  margin-bottom:10px;
+  gap: 100px;
+
+}
+
+.emergencyServices {
+  height: 60px;
+  width: 64px;
+  padding: 10px;
+  border: 3px solid red;
+  background-color: aliceblue;
+  border-radius: 50px;
+}
+
+.emergencyServices:hover {
+  padding: 10px;
+  border: 3px solid white;
+  background-color: aliceblue;
+  border-radius: 50px;
+}
+
+.buttonDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.buttonDiv h4 {
+  color: white;
+  font-size: smaller;
+}
+
+.villageDropdown {
+  margin-top: 30px;
+  border: 2px solid red;
+  color: black;
+  background-color: aliceblue;
+  font-size: medium;
+  font-weight: bolder;
+  border-radius: 50px;
+}
+
+.stateEmergencyBody{
+  height:100vh;
+  width: 100vw;
+  margin-top: 0px;
+  overflow-y:auto;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
+
+}
+
+.textBox{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.send{
+  font-size: x-small;
+  border-color: red;
+}
+
+.send:hover{
+  background-color: white;
+  color:black;
+  border-color: red;
+}
+
+.alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+/* 
+.MedicalConfirmationModal{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position:relative;
+  border: 1px solid red;
+  width: 40vw;
+  top:-300px;
+
+} */
+
+.buttonDiv h5{
+  position:relative;
+  top: 75px;
+  opacity: 0;
+}
+
+.buttonDiv h5:hover{
+  position:relative;
+  color: rgb(255, 255, 255);
+  background-color:red;
+  border:2px solid red;
+  border-radius:10px;
+  top: 75px;
+  opacity: 1;
+  cursor: pointer;
+  width: 85px;
+}
+
+.contactHeader h3{
+  margin-top:30px;
+  color: white;
+  text-decoration: underline red;
+}

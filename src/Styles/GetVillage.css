@@ -3,15 +3,25 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width:100vw;
+  height:100vh;
+  overflow-y: auto;
+  /* scrollbar-width: thin;  */
+  /* scrollbar-color: transparent transparent; */
+  /* margin-top:75px; */
 }
 
 .villageDetail {
+  border: 1px solid red;
   background-color: rgb(234, 234, 234);
   border-radius: 50px;
   color: black;
-  max-height: 300px; 
-  overflow-y: scroll;
-  margin-bottom: 20px;
+  max-height: 270px; 
+  /* min-height: 50px; */
+  overflow-y: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
+  /* margin-bottom: 20px; */
 }
 
 .searchR {
@@ -19,15 +29,27 @@
   background-color: rgb(234, 234, 234);
   border-radius: 50px;
   color: black;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
+}
+.addB{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .addButton {
-  margin-bottom: 7px;
+  /* margin-bottom: 7px; */
+  height:30px;
+  border-radius: 30px;
+  display:flex;
+  flex-direction: row;
+  justify-items:flex-end;
+  align-items: center;
 }
 
 .villageMemberCard {
-  border: 2px solid red;
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 50px;
   display: flex;
   flex-direction: row;
@@ -47,4 +69,37 @@
   background-color: black;
   border-radius: 90px;
   height: 50px;
+}
+
+.getVillForm{
+  display:flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+}
+
+.searchButton{
+  display:flex;
+  align-items: center;
+  height:30px;
+  border-radius: 30px;
+}
+
+.villagePageBackB{
+  margin-top: 10px;
+  display:flex;
+  align-items: center;
+  height:30px;
+  border-radius: 30px;
+  border: 1px solid red;
+}
+
+
+.villagePageBackB:hover{
+color:red;
+border: 1px solid white;
+}
+
+.villagePageBackLink{
+  text-decoration: none;
 }

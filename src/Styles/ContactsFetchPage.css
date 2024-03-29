@@ -20,10 +20,11 @@
 }
 
 .editButton:hover {
-  /* border: 2px solid black; */
-  background-color: rgb(232, 116, 45);
+  border: 2px solid red;
+  background-color:white;
+;
   border-radius: 60px;
-  padding: 5px;
+  padding: 2px;
 }
 
 .deleteButton {
@@ -45,13 +46,15 @@
 .addUserButton {
   width: 80px;
   height: 40px;
-  background-color: rgb(232, 116, 45);
+  background-color: rgb(234, 234, 234);
+  color: black;
+  border:2px solid red;
   border-radius: 60px;
 }
 
 .addUserButton:hover {
-  background-color: rgb(113, 110, 108);
-  border: 2px solid rgb(232, 116, 45);
+  background-color: rgb(0, 0, 0);
+  border: 2px solid red;
 }
 
 .emButtons {
@@ -59,20 +62,22 @@
   flex-direction: row;
   justify-content: center;
   gap: 10px;
+  margin-top: 20px;
 }
 
 .backButton {
-  background-color: rgb(232, 116, 45);
   border-radius: 60px;
+  background-color: rgb(234, 234, 234);
   color: black;
+  border:2px solid red;
   width: 80px;
   height: 37px;
   padding: 2px;
 }
 
 .backButton:hover {
-  background-color: rgb(113, 110, 108);
-  border: 2px solid rgb(232, 116, 45);
+  background-color: rgb(0, 0, 0);
+  border: 2px solid red;
 }
 .phoneButton {
   width: 25px;
@@ -80,25 +85,46 @@
 }
 
 .phoneButton:hover {
-  background-color: rgb(157, 238, 35);
+  background-color: rgb(28, 238, 49);;
   border-radius: 50px;
 }
 
 .messageButton {
   width: 25px;
-  height: 25px;
+  height: 27px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+
+  
 }
 
 .messageButton:hover {
-  background-color: rgb(157, 238, 35);
+  background-color: rgb(255, 255, 255);;
   border-radius: 50px;
-  padding: 4px;
+  padding: 6px;
+  border:2px solid red;
 }
 
 .numberDiv {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content:space-between;
   align-items: center;
-  gap: 9px;
+  gap: 13px;
 }
+
+.cCard{
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
+
+}
+/* .emContactsPageBody{
+  margin-top: 120px;
+  height:100vh;
+  overflow-y: auto;
+  margin-bottom:40px;
+} */

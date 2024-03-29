@@ -6,7 +6,7 @@ const ProtectedRoute = ({element: Component, isAuthenticated, user, token}) => {
       <Component user={user} token={token} />
     ):
     (
-        <Navigate to='/login' replace />
+        <Navigate to='/users/login' replace />
     )
 };
 export default ProtectedRoute;

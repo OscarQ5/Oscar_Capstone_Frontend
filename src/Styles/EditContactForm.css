@@ -1,0 +1,19 @@
+.deleteButtonEC{
+    width:40px;
+    height:30px;
+    background-color: rgb(216, 216, 216);
+    border-radius: 90px;
+    padding:5px;
+    border: 2px solid red;
+    }
+
+    .deleteButtonEC:hover{
+        width:40px;
+        height:30px;
+        background-color: rgb(48, 42, 42);
+        border-radius: 90px;
+    }
+
+ .emergencyContactForm{
+    margin-top: 80px;
+ }

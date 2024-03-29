@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { useLoginDataProvider } from "./LoginProvider"
 import '../Styles/ContactsFetchPage.css'
 import { Link } from 'react-router-dom';
+import { formatPhoneNumber } from 'react-phone-number-input';
 
 const EmergencyContactsFetch = () => {
     const [eContacts, setEContacts] = useState([])
@@ -27,15 +28,15 @@ const EmergencyContactsFetch = () => {
                     <h2>{contact.lastname}</h2>
 
                     <div className='numberDiv'>
-                        <h2>{contact.phone_number}</h2>
-                        <img className="phoneButton" src='../phone_icon.svg' alt="Call Contact" />
-                        <img className="messageButton" src='../message_icon.svg' alt="Message Contact" />
+                      
+                        <h2>{formatPhoneNumber(contact.phone_number)}</h2>
+                       
+                        
+                        <a href={`sms:${contact.phone_number}`}><img className="messageButton" src='../message_icon.svg' alt="Message Contact" /></a>
                     </div>
 
                     <div>
-
-                        <Link to={`edit/${contact.contact_id}`} > <img className="editButton" src='../DarkButton.svg' alt="Edit Emergency Contact" /> </Link>
-
+                        <Link to={`edit/${contact.contact_id}`} ><img className="editButton" src='../DarkButton.svg' alt="Edit Emergency Contact" /></Link>
                     </div>
                 </div>
             ))}

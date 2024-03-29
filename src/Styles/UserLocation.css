@@ -1,0 +1,147 @@
+
+.userLocation{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+    top:25px;
+    /* overflow-y: auto; */
+} 
+
+.custom-popup {
+    max-width: 200px;
+    color: black;
+}
+
+.get-directions-btn {
+    padding: 5px 10px;
+    background-color: rgb(232, 116, 45);
+    color: rgb(212, 212, 212);
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.get-directions-walking-btn {
+    padding: 5px 10px;
+    background-color: rgb(232, 116, 45);
+    color: rgb(243, 243, 243);
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.get-directions-btn:hover {
+    background-color: #b30c00;
+}
+
+.get-directions-walking-btn:hover {
+    background-color: #b30c00;
+}
+
+.mapDivBody{
+    
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width: 75vw;
+    
+}
+
+.mapDirections{
+    min-height: 375px;
+    max-height: 375px;
+    min-width: 350px;
+    max-width: 350px;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: transparent transparent;
+    border: 2px solid white;
+    border-radius: 45px;
+}
+
+.userAddress{
+    position:relative;
+    top:35px;
+    border-bottom: 1px solid red;
+}
+
+.h2Directions{
+    text-decoration: underline;
+
+    
+}
+
+.closeDirections{
+display:flex;
+flex-direction: row;
+justify-content: flex-start;
+align-items:center;
+border-radius: 40px;
+width: 1vw;
+ margin-left: 8px;
+ margin-top:3px;
+}
+
+.closeDirectionsChar{
+    
+    border: 1px solid red;
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 15px;
+    font-size:xx-small;
+}
+
+.closeDirectionsChar:hover{
+  
+    border: 1px solid red;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px; 
+ 
+}
+
+
+.mapButtons{
+    margin-top: -74px;
+}
+.mapButtonDiv h5{
+    position:relative;
+    top: 64px;
+    opacity:0;
+    cursor: pointer;
+}
+
+.mapButtonDiv h5:hover{
+    position:relative;
+    color: rgb(255, 255, 255);
+    background-color:red;
+    border:2px solid red;
+    border-radius:10px;
+    top: 64px;
+    opacity: 1;
+    cursor: pointer;
+    
+}
+
+.directionHeader {
+    color: white;
+    text-decoration: underline red;
+}
+
+/* .mapBoxDiv{
+    border:3px solid red; 
+    border-radius: 60px; 
+    position:relative;
+    width: 40vw;
+    height:400px ;
+} */
+
+#map{
+     border:3px solid red; 
+    /* border-radius: 60px;  */
+    position:relative;
+    width: 40vw;
+    height:400px ;
+}

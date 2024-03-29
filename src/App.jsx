@@ -1,11 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./Components/Navbar.jsx";
-import LoginPage from "./Pages/LoginPage.jsx";
 import FriesNavbar from "./Components/FriesNavbar.jsx";
 import "./App.css";
 import { useLoginDataProvider } from "./Components/LoginProvider";
 import LandingPage from "./Pages/LandingPage.jsx";
-// import Login from './Pages/Login.jsx';
 import SignupPage from "./Pages/SignupPage";
 import EmergencyContactsPage from "./Pages/EmergencyContactPage";
 import MedicalHistoryPage from "./Pages/MedicalHistoryPage";
@@ -14,12 +11,13 @@ import ProtectedRoute from "./Components/ProtecteRoutes.jsx";
 import ContactsFetchPage from "./Pages/ContactsFetchPage.jsx";
 import EditContactForm from "./Pages/EditContactForm.jsx";
 import NewContactForm from "./Pages/NewContactForm.jsx";
-// import MedHistoryFetch from "./Pages/MedHistoryFetch.jsx";
-// import FetchLocation from "./Components/FetchLocation.jsx";
+import MedHistoryFetch from "./Pages/MedHistoryFetch.jsx";
 import VillagesPage from "./Pages/VillagesPage.jsx";
 import AddVillages from "./Pages/AddVillages.jsx";
 import GetVillage from "./Components/GetVillage.jsx";
 import StateEmergency from "./Pages/StateEmergency.jsx";
+import LoginSignup from "./Components/LoginSignup.jsx";
+import LandingHomePage from "./Pages/LandingHomePage.jsx";
 
 function App() {
   const { setUser, setToken, user, token } = useLoginDataProvider();
@@ -28,10 +26,9 @@ function App() {
     <>
       <Router>
         <FriesNavbar />
-        {/* <FetchLocation /> */}
 
         <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingHomePage />} />
           <Route
             path="users/sign-up"
             element={<SignupPage setUser={setUser} setToken={setToken} />}
@@ -46,7 +43,7 @@ function App() {
           />
           <Route
             path="users/login"
-            element={<LoginPage setUser={setUser} setToken={setToken} />}
+            element={<LoginSignup setUser={setUser} setToken={setToken} />}
           />
 
           <Route
@@ -97,8 +94,7 @@ function App() {
             }
           />
 
-          {/* 
-            <Route path="users/medical"
+          <Route path="users/medical"
             element={
               <ProtectedRoute
                 element={MedHistoryFetch}
@@ -107,7 +103,7 @@ function App() {
                 token={token}
               />
             }
-          /> */}
+          />
 
           <Route
             path="users/villages"
@@ -134,7 +130,7 @@ function App() {
           />
 
           <Route
-            path="users/villages/:village_id"
+            path="users/villages/village/:village_id"
             element={
               <ProtectedRoute
                 element={GetVillage}
