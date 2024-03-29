@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLoginDataProvider } from "./LoginProvider";
 import { Link } from 'react-router-dom';
-import '../Styles/AllVillages.css'
+import '../Styles/AllVIllages.css'
 
 const AllVillages = () => {
     const [villages, setVillages] = useState([]);
