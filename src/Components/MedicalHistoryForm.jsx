@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from 'react'
-import '../Styles/medicalHistoryForm.css'
+import '../Styles/MedicalHistoryForm.css'
 import { useLoginDataProvider } from "./LoginProvider"
 
 const MedicalHistoryForm = () => {
