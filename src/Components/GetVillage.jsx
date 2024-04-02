@@ -6,16 +6,30 @@ import "../Styles/GetVillage.css"
 const GetVillage = () => {
     const { village_id } = useParams();
     const [village, setVillage] = useState(null);
-    const { API, token, user } = useLoginDataProvider();
+    const { API, token, user, setUser } = useLoginDataProvider();
     const [allUsers, setAllUsers] = useState([]);
     const [searchResults, setSearchResults] = useState([]);
     const [villageUsers, setVillageUsers] = useState([]);
+    const [joinRequests, setJoinRequests] = useState([])
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         username: '',
     });
     console.log('Village ID:', village_id);
 
+    useEffect(() => {
+        if (user.is_admin) {
+
+            fetch(`${API}/users/villageJoinRequests/${village_id}`, {
+                headers: {
+                    "Authorization": token
+                }
+            })
+                .then((res) => res.json())
+                .then((data) => setJoinRequests(data))
+                .catch((error) => console.error("Error fetching join requests:", error));
+        }
+    }, [API, token, village_id, user.is_admin])
     useEffect(() => {
         fetch(`${API}/users`, {
             headers: {
@@ -41,7 +55,14 @@ const GetVillage = () => {
                 }
                 return res.json();
             })
-            .then((data) => setVillage(data))
+            .then((data) => {
+                const isAdmin = user.user_id === data.creator_id
+                setUser(prevUser => ({
+                    ...prevUser,
+                    is_admin: isAdmin
+                }))
+                setVillage(data)
+            })
             .catch((error) => console.error("Error fetching village:", error));
     }, [API, token, village_id]);
 
@@ -70,7 +91,7 @@ const GetVillage = () => {
             });
 
             if (response.ok) {
-                
+
                 const updatedResponse = await fetch(`${API}/users/village-users/${village_id}`, {
                     method: "GET",
                     headers: {
@@ -164,62 +185,75 @@ const GetVillage = () => {
             <h2>Village Details</h2>
 
             <div className="getVillForm">
-            <div className="searchR">
-                <h2>Find User 🔎</h2>
-                <div className="phoneFilter">
+                <div className="searchR">
+                    <h2>Find User 🔎</h2>
+                    <div className="phoneFilter">
 
-                    <form onSubmit={handleSearch}>
-                        <label htmlFor="username">Enter User Name:</label>
-                        <input
-                            type="text"
-                            id="username"
-                            name="username"
-                            value={username}
-                            placeholder="ex. Jane D."
-                            onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                        />
-                        <div>
-                            <h2>Search Result:</h2>
-                            {searchResults.map((result) => (
-                                <div key={result.user_id} className="search-result">
-                                    <h2>Name: {result.name}</h2> <h2> User Name: {result.username}</h2>
-                                    <div className="addB">
-                                    <button className='addButton' onClick={() => handleAddToVillage(result.user_id, village_id)}>Add</button>
+                        <form onSubmit={handleSearch}>
+                            <label htmlFor="username">Enter User Name:</label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                value={username}
+                                placeholder="ex. Jane D."
+                                onChange={(e) => setFormData({ ...formData, username: e.target.value })}
+                            />
+                            <div>
+                                <h2>Search Result:</h2>
+                                {searchResults.map((result) => (
+                                    <div key={result.user_id} className="search-result">
+                                        <h2>Name: {result.name}</h2> <h2> User Name: {result.username}</h2>
+                                        <div className="addB">
+                                            <button className='addButton' onClick={() => handleAddToVillage(result.user_id, village_id)}>Add</button>
+                                        </div>
                                     </div>
+                                ))}
+
+                            </div>
+                            <button className='searchButton' type="submit">Search</button>
+                        </form>
+
+                    </div>
+
+                </div>
+                <div className='villageDetail'>
+                    <h2>Village Name: {village.village_name}</h2>
+                    <div>
+
+                        <div >
+                            {villageUsers.map(user => (
+                                <div className="villageMemberCard" key={user.user_id}>
+                                    <h2>
+                                        Name: {user.userInfo.name} <br />
+                                        User Name: {user.userInfo.username}<br />
+                                        Role: {user.is_admin ? 'Admin' : 'Member'}
+                                    </h2>
+                                    <button className="deleteButton" onClick={() => {
+                                        console.log("Deleting user with ID:", user.user_id);
+                                        handleDelete(user.user_id);
+                                    }}>❌</button>
                                 </div>
                             ))}
-
                         </div>
-                        <button className='searchButton' type="submit">Search</button>
-                    </form>
-
-                </div>
-
-            </div>
-            <div className='villageDetail'>
-                <h2>Village Name: {village.village_name}</h2>
-                <div>
-
-                    <div >
-                        {villageUsers.map(user => (
-                            <div className="villageMemberCard" key={user.user_id}>
-                                <h2>
-                                    Name: {user.userInfo.name} <br />
-                                    User Name: {user.userInfo.username}<br />
-                                    Role: {user.is_admin ? 'Admin' : 'Member'}
-                                </h2>
-                                <button className="deleteButton" onClick={() => {
-                                    console.log("Deleting user with ID:", user.user_id);
-                                    handleDelete(user.user_id);
-                                }}>❌</button>
-                            </div>
-                        ))}
                     </div>
                 </div>
-
-                </div>
-
             </div>
+            {user.is_admin && (
+                <div className="joinRequestsSection">
+                    <h2>Join Requests</h2>
+                    <ul>
+                        {joinRequests.map(request => (
+                            <li key={request.request_id}>
+                                <p>User: {request.user_id}</p>
+                                <p>Date: {request.request_date}</p>
+                                <button onClick={() => handleApprove(request)}>Approve</button>
+                                <button onClick={() => handleReject(request)}>Reject</button>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
             <Link className="villagePageBackLink" to='/users/villages'><button className="villagePageBackB">Back</button></Link>
         </div>
     );
