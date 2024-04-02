@@ -123,3 +123,12 @@
   color: white;
   text-decoration: underline red;
 }
+
+@media screen and (max-width: 430px) {
+
+  .emergencyButtons {
+   gap:50px; 
+  }
+
+
+}

@@ -17,3 +17,12 @@
  .emergencyContactForm{
     margin-top: 80px;
  }
+
+ @media screen and (max-width: 430px) {
+
+    .emergencyContactForm{
+        width: 84vw;
+        margin-top: 50px;
+     }
+
+ }

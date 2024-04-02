@@ -38,7 +38,7 @@ const MedicalHistoryFetch = ({setShowMedicineCabinet}) => {
                             <h2>Blood Type: {person.blood_type}</h2>
                             <h2>Medical History: {person.medical_history}</h2>
                             <div>
-                            <img  onClick={handleEditClick} className="editButton" src='../DarkButton.svg' alt="Edit Emergency Contact" />   
+                            <img  onClick={handleEditClick} className="editButtonMed" src='../DarkButton.svg' alt="Edit Emergency Contact" />   
                             </div>
                         </div>
                     ))}

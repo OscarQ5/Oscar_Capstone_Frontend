@@ -24,8 +24,8 @@ const EmergencyContactsFetch = () => {
         <div className='contactBody'>
             {eContacts.map((contact) => (
                 <div key={contact.user_id} className="contactCard">
-                    <h2>{contact.firstname}</h2>
-                    <h2>{contact.lastname}</h2>
+                    <h2 className="firstNameC">{contact.firstname}</h2>
+                    <h2 className="lastNameC">{contact.lastname}</h2>
 
                     <div className='numberDiv'>
                       

@@ -22,7 +22,7 @@
 .editButton:hover {
   border: 2px solid red;
   background-color:white;
-;
+
   border-radius: 60px;
   padding: 2px;
 }
@@ -128,3 +128,94 @@
   overflow-y: auto;
   margin-bottom:40px;
 } */
+
+@media screen and (max-width: 430px) {
+  .emContactsPageBody{
+    /* border: 2px solid white; */
+    width: 100%;
+    height:80vh;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+   position:fixed;
+ overflow-x: hidden;
+  
+  }
+
+
+ .emContactsPageBody h1{
+    font-size: xx-large;
+ 
+  }
+
+  .firstNameC{
+position:relative;
+top:60px;
+font-size: 20px;
+  }
+
+  .lastNameC{
+    position:relative;
+top: -20px;
+/* font-size: 20px; */
+  }
+
+  .numberDiv{
+    position:relative;
+    top: -70px;
+  }
+.contactBody{
+
+  /* border: 1px solid red; */
+  height: 50vh;
+
+  display:flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* width:100vw; */
+  /* overflow-x: hidden; */
+  display:flex;
+  flex-direction: row;
+  
+}
+
+.contactCard {
+  border: 3px solid rgb(242, 18, 18);
+  /* padding: 20px; */
+  border-radius: 35px;
+  width:80vw;
+  height:20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(234, 234, 234);
+  color: black;
+  /* gap: 50px; */
+  /* margin: 30px; */
+  font-size: xx-small;
+  
+
+}
+
+.cCard{
+  /* border: 3px solid yellow; */
+  max-height: 500px;
+  display:flex;
+flex-wrap: wrap;
+  overflow-y: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
+
+}
+  
+.editButton {
+  width: 45px;
+  height: 23px;
+  position:relative;
+  top: -95px
+}
+
+
+}

@@ -140,8 +140,33 @@ width: 1vw;
 
 #map{
      border:3px solid red; 
-    /* border-radius: 60px;  */
+    border-radius: 60px; 
     position:relative;
     width: 40vw;
     height:400px ;
+}
+
+@media screen and (max-width: 430px) {
+
+    #map{
+        border:3px solid red; 
+
+       position:relative;
+       width: 100vw;
+       height:250px ;
+       border-radius:60px;
+   }
+
+   .mapDirections{
+    min-height: 230px;
+    max-height: 230px;
+    min-width:340px;
+    max-width: 250px;
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: transparent transparent;
+    border: 2px solid white;
+    border-radius: 45px;
+
+}
 }
