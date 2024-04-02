@@ -15,7 +15,6 @@ const GetVillage = () => {
     const [formData, setFormData] = useState({
         username: '',
     });
-    console.log('Village ID:', village_id);
 
     useEffect(() => {
         if (user.is_admin) {
@@ -30,6 +29,7 @@ const GetVillage = () => {
                 .catch((error) => console.error("Error fetching join requests:", error));
         }
     }, [API, token, village_id, user.is_admin])
+
     useEffect(() => {
         fetch(`${API}/users`, {
             headers: {
@@ -180,6 +180,34 @@ const GetVillage = () => {
         return <div>Loading...</div>;
     }
 
+    const handleRejectClick = (request) => {
+        const confirmed = window.confirm("Are you sure you want to reject this request?");
+        if (confirmed) {
+            handleReject(request);
+        }
+    }
+
+    const handleReject = async (request) => {
+        try {
+            const response = await fetch(`${API}/users/villageJoinRequests/${request.request_id}`, {
+                method: 'DELETE',
+                headers: {
+                    "Authorization": token
+                }
+            });
+
+            if (response.ok) {
+                setJoinRequests(joinRequests.filter(req => req.request_id !== request.request_id));
+                alert("Request rejected successfully!");
+            } else {
+                throw new Error('Failed to reject request');
+            }
+        } catch (error) {
+            console.error('Error rejecting request:', error);
+            alert("Failed to reject request. Please try again.");
+        }
+    }
+
     return (
         <div className="getVillageBody">
             <h2>Village Details</h2>
@@ -248,7 +276,7 @@ const GetVillage = () => {
                                 <p>User: {request.user_id}</p>
                                 <p>Date: {request.request_date}</p>
                                 <button onClick={() => handleApprove(request)}>Approve</button>
-                                <button onClick={() => handleReject(request)}>Reject</button>
+                                <button onClick={() => handleRejectClick(request)}>Reject</button>
                             </li>
                         ))}
                     </ul>
