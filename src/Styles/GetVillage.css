@@ -14,14 +14,16 @@
 .villageDetail {
   border: 1px solid red;
   background-color: rgb(234, 234, 234);
-  border-radius: 50px;
+  border-radius: 20px;
   color: black;
   max-height: 270px; 
   /* min-height: 50px; */
   overflow-y: auto;
   scrollbar-width: thin; 
   scrollbar-color: transparent transparent;
-  /* margin-bottom: 20px; */
+  margin-bottom: 10px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .searchR {
@@ -104,6 +106,58 @@ border: 1px solid white;
   text-decoration: none;
 }
 
+.joinRequestsSection{
+  margin-top: 9px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 3px;
+  border: 1px solid red;
+  background-color: rgb(234, 234, 234);
+  border-radius: 20px;
+  color: black;
+  max-height: 210px;
+  /* display:flex;
+  flex-direction: column; */
+  overflow-y: auto;
+  scrollbar-width: thin; 
+  scrollbar-color: transparent transparent;
+ }
+
+ .joinRequestsSection h2{
+  text-decoration: underline;
+  position:relative;
+  top: -7px;
+}
+
+.joinRequestsSection li{
+  list-style-type: none;
+  border-bottom: 1px solid black;
+  padding-bottom: 5px;
+  margin-top: -15px;
+ 
+}
+
+.approveButton{
+font-size: x-small;
+}
+
+.rejectButton:hover{
+  font-size: x-small;
+  color: red;
+  }
+
+.approveButton:hover{
+  color: red;
+  font-size: x-small;
+
+  }
+
+.rejectButton{
+  font-size:  x-small;
+  position:relative;
+  left: 2px;
+}
+
 @media screen and (max-width: 430px) {
 
   .getVillageBody{
@@ -127,5 +181,25 @@ border: 1px solid white;
     justify-content: center;
     width:96vw;
     padding-bottom: 5px;
+  }
+
+  .villageDetail{
+    margin-bottom: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+  }
+
+  .joinRequestsSection{
+   margin-top: 9px;
+   padding-left: 4px;
+   padding-right: 4px;
+   border: 1px solid red;
+   background-color: rgb(234, 234, 234);
+   border-radius: 20px;
+   color: black;
+  }
+
+  .joinRequestsSection h2{
+    text-decoration: underline;
   }
 }

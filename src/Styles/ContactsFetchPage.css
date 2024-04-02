@@ -19,13 +19,13 @@
   height: 23px;
 }
 
-.editButton:hover {
+/* .editButton:hover {
   border: 2px solid red;
   background-color:white;
 
   border-radius: 60px;
   padding: 2px;
-}
+} */
 
 .deleteButton {
   width: 75px;

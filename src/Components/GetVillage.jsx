@@ -18,28 +18,33 @@ const GetVillage = () => {
 
     useEffect(() => {
         if (user.is_admin) {
-
+            
             fetch(`${API}/users/villageJoinRequests/${village_id}`, {
                 headers: {
                     "Authorization": token
                 }
             })
-                .then((res) => res.json())
-                .then((data) => setJoinRequests(data))
-                .catch((error) => console.error("Error fetching join requests:", error));
+            .then((res) => res.json())
+            .then((data) => setJoinRequests(data))
+            .catch((error) => console.error("Error fetching join requests:", error));
         }
     }, [API, token, village_id, user.is_admin])
-
+    
     useEffect(() => {
         fetch(`${API}/users`, {
             headers: {
                 "Authorization": token
             }
         })
-            .then((res) => res.json())
-            .then((res) => setAllUsers(res))
-            .catch((error) => console.error("Error fetching all users:", error));
+        .then((res) => res.json())
+        .then((res) => setAllUsers(res))
+        .catch((error) => console.error("Error fetching all users:", error));
     }, [API, token]);
+    
+    let nameFilter = (userID) => {
+       let filt = allUsers.filter((id)=> userID === id.user_id)
+       return filt[0].username
+    }
 
     useEffect(() => {
         if (!village_id) return;
@@ -232,10 +237,36 @@ const GetVillage = () => {
         }
     }
 
+    const dateFormat = (input) =>{
+        let newD = new Date(input)
+        return newD.toDateString()
+    }
+
     return (
         <div className="getVillageBody">
             <h2>Village Details</h2>
 
+                <div className='villageDetail'>
+                    <h2>Village Name: {village.village_name}</h2>
+                    <div>
+
+                        <div >
+                            {villageUsers.map(user => (
+                                <div className="villageMemberCard" key={user.user_id}>
+                                    <h2>
+                                        Name: {user.userInfo.name} <br />
+                                        User Name: {user.userInfo.username}<br />
+                                        Role: {user.is_admin ? 'Admin' : 'Member'}
+                                    </h2>
+                                    <button className="deleteButton" onClick={() => {
+                                        console.log("Deleting user with ID:", user.user_id);
+                                        handleDelete(user.user_id);
+                                    }}>❌</button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             <div className="getVillForm">
                 <div className="searchR">
                     <h2>Find User 🔎</h2>
@@ -269,41 +300,20 @@ const GetVillage = () => {
                     </div>
 
                 </div>
-                <div className='villageDetail'>
-                    <h2>Village Name: {village.village_name}</h2>
-                    <div>
-
-                        <div >
-                            {villageUsers.map(user => (
-                                <div className="villageMemberCard" key={user.user_id}>
-                                    <h2>
-                                        Name: {user.userInfo.name} <br />
-                                        User Name: {user.userInfo.username}<br />
-                                        Role: {user.is_admin ? 'Admin' : 'Member'}
-                                    </h2>
-                                    <button className="deleteButton" onClick={() => {
-                                        console.log("Deleting user with ID:", user.user_id);
-                                        handleDelete(user.user_id);
-                                    }}>❌</button>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
             </div>
             {user.is_admin && (
                 <div className="joinRequestsSection">
                     <h2>Join Requests</h2>
-                    <ul>
+      
                         {joinRequests.map(request => (
                             <li key={request.request_id}>
-                                <p>User: {request.user_id}</p>
-                                <p>Date: {request.request_date}</p>
-                                <button onClick={() => handleApproveClick(request)}>Approve</button>
-                                <button onClick={() => handleRejectClick(request)}>Reject</button>
+                                <h4>User: {nameFilter(request.user_id)}</h4>
+                                <h4>Date: {dateFormat(request.request_date)}</h4>
+                                <button className="approveButton" onClick={() => handleApproveClick(request)}>Approve</button>
+                                <button className="rejectButton"  onClick={() => handleRejectClick(request)}>Reject</button>
                             </li>
                         ))}
-                    </ul>
+               
                 </div>
             )}
             <Link className="villagePageBackLink" to='/users/villages'><button className="villagePageBackB">Back</button></Link>

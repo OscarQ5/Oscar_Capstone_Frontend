@@ -86,6 +86,16 @@ const AllVillages = () => {
     return (
         <div>
             <div className='villageCardBody'>
+            <div className='masterVillageCard'>
+                {villages.map((village) => (
+                    <div key={village.village_id} className="villageCard">
+                        <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
+                            {village.village_name}
+                        </Link>
+                        <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button>
+                    </div>
+                ))}
+                </div>
             <div className="searchRV">
                 <h2>Find Village 🔎</h2>
                 <div className="phoneFilter">
@@ -114,16 +124,6 @@ const AllVillages = () => {
                     </form>
                 </div>
             </div>
-            <div className='masterVillageCard'>
-                {villages.map((village) => (
-                    <div key={village.village_id} className="villageCard">
-                        <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
-                            {village.village_name}
-                        </Link>
-                        <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button>
-                    </div>
-                ))}
-                </div>
             </div>
         </div>
     );
