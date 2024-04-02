@@ -103,3 +103,29 @@ border: 1px solid white;
 .villagePageBackLink{
   text-decoration: none;
 }
+
+@media screen and (max-width: 430px) {
+
+  .getVillageBody{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .getVillForm{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .villageMemberCard{
+    width:96vw;
+  }
+
+  .searchR{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:96vw;
+    padding-bottom: 5px;
+  }
+}

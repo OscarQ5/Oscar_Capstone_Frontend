@@ -226,13 +226,14 @@ const LoginSignup = () => {
                                                     <div className="form-group mt-2">
                                                         <PhoneInput
                                                             type="tel"
-                                                            className="form-style"
+                                                            className="form-style smaller-input"
                                                             placeholder="Phone Number"
                                                             id="phone_number"
                                                             value={signupFormData.phone_number}
                                                             defaultCountry="US"
                                                             onChange={(value) => setSignupFormData({ ...signupFormData, phone_number: value })}
                                                             required
+                                                         
                                                         />
                                                         <i className="input-icon uil uil-phone"></i>
                                                     </div>

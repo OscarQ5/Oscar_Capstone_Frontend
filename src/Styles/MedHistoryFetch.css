@@ -21,3 +21,11 @@
 .medCab{
 font-size: medium;
 }
+
+.editButtonMed{
+    width: 45px;
+    height: 23px;
+    position:relative;
+    
+}
+

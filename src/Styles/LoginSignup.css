@@ -200,6 +200,42 @@ display: none;
   border:2px solid red;
 }
 
+@media screen and (max-width: 430px) {
+
+  .loginSignUp{
+    position:fixed;
+   top: 200px;
+   max-width: 100vw;
+ left: 30px;
+  }
+
+  .card-3d-wrap{
+   width:88vw;
+  }
+
+  .card-front, .card-back {
+   width:88vw;
+  }
+  
+  .center-wrap{
+    position:relative;
+    left:  -20px;
+    width:63vw;
+    top: 220px;
+  }
+
+.form-group .form-style{
+    text-align: start;
+}
+
+.PhoneInputInput{
+  position:relative;
+  width:257px;
+}
+  
+}
+
+
 /* #stars {
   width: 1px;
   height: 1px;

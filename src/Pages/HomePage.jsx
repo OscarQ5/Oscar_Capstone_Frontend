@@ -9,6 +9,7 @@ const HomePage = () => {
 
     const { API, token, user } = useLoginDataProvider()
     const [showMedicineCabinet, setShowMedicineCabinet] = useState(false);
+    const navigate = useNavigate();
 
     const tellTime = () => {
         let today = new Date()
@@ -21,8 +22,17 @@ const HomePage = () => {
         setShowMedicineCabinet(!showMedicineCabinet);
     };
 
+    const goToVillages = () => {
+        navigate('/users/villages');
+    };
+
+    const goToEmergencyContacts = () => {
+        navigate('/users/contacts');
+    };
+
+
     return (
-        <>
+        <div className="homePageBody">
             <div>
                 <h2 className="time">{tellTime()}</h2>
             </div>
@@ -34,16 +44,16 @@ const HomePage = () => {
 
                 <div className="buttons">
 
-                    <Link to={`/users/emergency`} style={{ margin: '0', padding: '0' }}> <img className="SoSButton"  src='../emergency-health.svg' alt="Emergency Button" />  </Link>
-                    <Link to={`/users/villages`} style={{ margin: '0', padding: '0' }}>  <button className="villagesButton">VILLAGES</button> </Link>
-                    <Link to={`/users/contacts`} style={{ margin: '0', padding: '0' }}>  <button className="emergencyContactButton">EMERGENCY CONTACTS</button> </Link>
+                    <Link to={`/users/emergency`} style={{ margin: '0', padding: '0' }}> <img className="SoSButton"  src='../emergency-health.svg' alt="Emergency Button"  />  </Link>
+                    <button className="villagesButton" onClick={goToVillages}>VILLAGES</button> 
+                      <button className="emergencyContactButton" onClick={goToEmergencyContacts}>EMERGENCY CONTACTS</button> 
 {/* 
                     {showMedicineCabinet && <MedicalHistoryFetch setShowMedicineCabinet={setShowMedicineCabinet} />}
 
                     <button className="medicineCabinetButton" onClick={toggleMedicineCabinet}>MEDICAL CABINET</button> */}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
