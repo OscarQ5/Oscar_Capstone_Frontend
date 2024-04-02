@@ -187,6 +187,30 @@ const GetVillage = () => {
         }
     }
 
+    const handleApproveClick = (request) => {
+        const confirmed = window.confirm("Are you sure you want to approve this request?");
+        if (confirmed) {
+            handleApprove(request);
+        }
+    }
+
+    const handleApprove = async (request) => {
+        try {
+            await handleAddToVillage(request.user_id)
+            setJoinRequests(joinRequests.filter(req => req.request_id !== request.request_id));
+            await fetch(`${API}/users/villageJoinRequests/${request.request_id}`, {
+                method: 'DELETE',
+                headers: {
+                    "Authorization": token
+                }
+            })
+            alert("Request approved successfully!")
+        } catch (error) {
+            console.error('Error approving request:', error);
+            alert("Failed to approve request. Please try again.");
+        }
+    }
+
     const handleReject = async (request) => {
         try {
             const response = await fetch(`${API}/users/villageJoinRequests/${request.request_id}`, {
@@ -275,7 +299,7 @@ const GetVillage = () => {
                             <li key={request.request_id}>
                                 <p>User: {request.user_id}</p>
                                 <p>Date: {request.request_date}</p>
-                                <button onClick={() => handleApprove(request)}>Approve</button>
+                                <button onClick={() => handleApproveClick(request)}>Approve</button>
                                 <button onClick={() => handleRejectClick(request)}>Reject</button>
                             </li>
                         ))}
