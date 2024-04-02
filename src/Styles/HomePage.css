@@ -50,3 +50,25 @@ padding: 10px;
   color:black;
   border-radius: 40px;
 }
+
+@media screen and (max-width: 430px) {
+
+  .time{
+    position:relative;
+    top: -150px;
+  }
+
+  .emergencyContactButton{
+position:relative;
+top: 140px;
+
+  }
+
+  .villagesButton{
+    position:relative;
+  top: 140px;
+  }
+
+  
+}
+

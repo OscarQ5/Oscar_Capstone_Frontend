@@ -5,7 +5,7 @@ import '../Styles/AllVIllages.css'
 
 const AllVillages = () => {
     const [villages, setVillages] = useState([]);
-    const { API, token } = useLoginDataProvider();
+    const { API, token, user } = useLoginDataProvider();
     const [allVillages, setAllVillages] = useState([])
     const [searchResults, setSearchResults] = useState([])
     const [formData, setFormData] = useState({
@@ -62,9 +62,40 @@ const AllVillages = () => {
         setSearchResults(results);
     }
 
+    const handleRequest = async (user_id, village_id) => {
+        try {
+            const response = await fetch(`${API}/users/villageJoinRequests`, {
+                method: 'POST',
+                body: JSON.stringify({ user_id, village_id }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': token
+                }
+            });
+            if (response.ok) {
+                console.log('Join request sent successfully');
+            } else {
+                const errorData = await response.json();
+                console.error('Error Response:', errorData);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     return (
         <div>
             <div className='villageCardBody'>
+            <div className='masterVillageCard'>
+                {villages.map((village) => (
+                    <div key={village.village_id} className="villageCard">
+                        <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
+                            {village.village_name}
+                        </Link>
+                        <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button>
+                    </div>
+                ))}
+                </div>
             <div className="searchRV">
                 <h2>Find Village 🔎</h2>
                 <div className="phoneFilter">
@@ -84,7 +115,7 @@ const AllVillages = () => {
                                 <div key={result.village_id} className="search-result">
                                     <h2>Viilage Name: {result.village_name}</h2> <h2> Village Code: {result.village_code}</h2>
                                     <div className="requestB">
-                                        <button className='requestButton'>Request</button>
+                                        <button className='requestButton' onClick={() => handleRequest(user.user_id, result.village_id)} >Request</button>
                                     </div>
                                 </div>
                             ))}
@@ -93,16 +124,6 @@ const AllVillages = () => {
                     </form>
                 </div>
             </div>
-            <div className='masterVillageCard'>
-                {villages.map((village) => (
-                    <div key={village.village_id} className="villageCard">
-                        <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
-                            {village.village_name}
-                        </Link>
-                        <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button>
-                    </div>
-                ))}
-                </div>
             </div>
         </div>
     );

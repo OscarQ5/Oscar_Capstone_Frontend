@@ -4,7 +4,7 @@
     height: 0;
     overflow: hidden;
     z-index: -1;
-    content: url('/villageLogo2.jpg') url('/dadAndSon.jpg') url('/heart1.jpg') url('/hearthand1.jpg') url('/hearthand1.jpg') 
+    content: url('/villageLogo2.jpg') url('/dadAndSon.jpg') url('/heart1.jpg') url('/hearthand1.jpg') url('/hearthand1.jpg') url('/HeartBallon.jpg') url('/b&wHeartBalloon.jpg') url('/manyBalloons.jpg') url('/stickmanHeart.jpg') url('/stickmanCheck.jpg')
 }
 
 @keyframes imageShift {
@@ -62,14 +62,11 @@
   font-weight: 500;
 }
 
-
 .home button {
   margin-top: -60px;
   border: 1px solid red;
 
 }
-
-
 
 .home button:hover{
     border: 1px solid red;
@@ -94,4 +91,68 @@
 
     }
   }
+
+
+
+
+
+  /* MEDIA QUERIES */
+  
+  @media screen and (max-width: 430px) {
+
+
+  @keyframes imageShiftPhone  {
+
+      0% {
+          background-image:url('/HeartBallon.jpg') ;
+        background-size: cover;
+    
+      }
+      
+      50% {
+        background-image:url('/HeartBallon.jpg');
+        background-size: cover;
+        
+      }
+      
+      
+      100%, 99.999%  {
+        background-image: url('/b&wHeartBalloon.jpg') ;
+        background-size: cover;
+        
+      }
+      
+    }
+    
+    .home {
+  
+      position: fixed;
+      /* top: 90px; */
+      left: 0px;
+      width: 100%;
+      height: 100%;
+      color: white;
+      padding: 15px;
+      animation: imageShiftPhone 5s forwards linear;
+      /* animation: imageShift infinite 10s;  */
+     animation-timing-function: linear;
+    }
+
+    .h1andButton{
+      position: relative;
+      top:100px;
+      opacity: 0; /* Start as invisible */
+      animation: fadeIn 7s ease-in-out forwards; /* Adjust the duration as needed */
+  }
+  
+  .home h1 {
+
+    font-size: 6em;
+    color: rgb(0, 0, 0);
+    margin-top: 350px;
+    font-weight: 500;
+  }
+  }
+
+
   

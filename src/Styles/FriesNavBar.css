@@ -128,3 +128,14 @@
 .timeNav{
   color:black;
 }
+
+@media screen and (max-width: 430px) {
+
+  .logo-caption {
+    display: none;
+    position:relative;
+    left: -30px;
+  }
+
+
+}
