@@ -51,8 +51,19 @@ padding: 10px;
   border-radius: 40px;
 }
 
-@media screen and (max-width: 430px) {
+.userName{
+  /* position:relative; */
+  color:white;
+  font-size: larger
+  /* bottom:  110px; */
+}
 
+@media screen and (max-width: 430px) {
+.userName{
+  position:relative;
+  color:white;
+  bottom:  110px;
+}
   .time{
     position:relative;
     top: -150px;

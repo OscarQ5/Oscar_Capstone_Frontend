@@ -106,7 +106,7 @@ const EditContactForm = () => {
                     required
                 />
 
-                <label htmlFor="phone_number">Phone Number:</label>
+                <label className='phoneLabel' htmlFor="phone_number">Phone Number:</label>
                 <PhoneInput
                     id="phone_number"
                     value={contact.phone_number}
