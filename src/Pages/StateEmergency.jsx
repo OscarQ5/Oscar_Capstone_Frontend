@@ -261,7 +261,10 @@ const StateEmergency = ({ setTranscription }) => {
     return (
         <div className="stateEmergencyBody">
             
-            <UserLocation/>
+            <div className='userLocationBody'>
+
+            <UserLocation />
+            </div>
 
             <MedicalConfirmationModal
                 isOpen={isModalOpen}
@@ -295,6 +298,9 @@ const StateEmergency = ({ setTranscription }) => {
 
                 </div>
             )}
+            <div className='EPcontactBody'>
+
+           
             <div className='contactHeader' style={{ display: buttonsHidden ? 'none' : 'block' }}><h3>Contact</h3></div>
 
 <div className="emergencyButtons" style={{ display: buttonsHidden ? 'none' : 'flex' }}>
@@ -319,6 +325,7 @@ const StateEmergency = ({ setTranscription }) => {
                 </div>
             </div>
 
+        </div>
         </div>
     );
 };

@@ -244,7 +244,7 @@ const GetVillage = () => {
 
     return (
         <div className="getVillageBody">
-            <h2>Village Details</h2>
+            <h2 className='villageDetailHeader'>Village Details</h2>
 
                 <div className='villageDetail'>
                     <h2>Village Name: {village.village_name}</h2>
@@ -267,6 +267,8 @@ const GetVillage = () => {
                         </div>
                     </div>
                 </div>
+                <div className='findAndRequestBody'>
+
             <div className="getVillForm">
                 <div className="searchR">
                     <h2>Find User 🔎</h2>
@@ -281,7 +283,7 @@ const GetVillage = () => {
                                 value={username}
                                 placeholder="ex. Jane D."
                                 onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                            />
+                                />
                             <div>
                                 <h2>Search Result:</h2>
                                 {searchResults.map((result) => (
@@ -301,14 +303,16 @@ const GetVillage = () => {
 
                 </div>
             </div>
-            {user.is_admin && (
+            {user.is_admin && joinRequests.length > 0 &&  (
                 <div className="joinRequestsSection">
                     <h2>Join Requests</h2>
       
                         {joinRequests.map(request => (
                             <li key={request.request_id}>
-                                <h4>User: {nameFilter(request.user_id)}</h4>
-                                <h4>Date: {dateFormat(request.request_date)}</h4>
+                                <div className="joinText">
+                                <h4 className="joinName">User: {nameFilter(request.user_id)}</h4>
+                                <h4 className="joinDate">Date: {dateFormat(request.request_date)}</h4>
+                                </div>
                                 <button className="approveButton" onClick={() => handleApproveClick(request)}>Approve</button>
                                 <button className="rejectButton"  onClick={() => handleRejectClick(request)}>Reject</button>
                             </li>
@@ -316,6 +320,7 @@ const GetVillage = () => {
                
                 </div>
             )}
+            </div>
             <Link className="villagePageBackLink" to='/users/villages'><button className="villagePageBackB">Back</button></Link>
         </div>
     );

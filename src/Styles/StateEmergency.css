@@ -129,6 +129,12 @@
   .emergencyButtons {
    gap:50px; 
   }
+.EPcontactBody{
+  position: relative;
+  top: 20px;
+
+
+}
 
 
 }
