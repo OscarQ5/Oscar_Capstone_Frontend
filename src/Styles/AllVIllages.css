@@ -1,11 +1,11 @@
 .villageCard {
-  /* border:2px solid red; */
+  border:2px solid red;
   background-color: rgb(234, 234, 234);
-  border-radius: 80px;
+  border-radius: 20px;
   color: black;
   padding: 30px;
-  width: 15vw;
-  height: 19vh;
+  width: 9vw;
+  height: 15vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -85,6 +85,11 @@
  top:-20px;
 }
 
+  input{
+    height: 30px;
+    width: 260px;
+  }
+
 @media screen and (max-width: 430px) {
 
   .villageCardBody {
@@ -125,6 +130,11 @@
 
   .villageCard{
     height:150px;
-    width: 200px;
+    width: 150px;
+  }
+
+  input{
+    height: 30px;
+    width: 260px;
   }
 }
