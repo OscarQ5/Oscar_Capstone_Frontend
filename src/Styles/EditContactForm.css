@@ -25,4 +25,16 @@
         margin-top: 50px;
      }
 
+     input{
+       height: 20px;
+     }
+
+     .PhoneInput{
+        height: 47px;
+     }
+
+     .phoneLabel{
+        position:relative;
+        top:20px;
+     }
  }

@@ -152,18 +152,19 @@
   .firstNameC{
 position:relative;
 top:60px;
-font-size: 20px;
+font-size: 30px;
   }
 
   .lastNameC{
     position:relative;
 top: -20px;
-/* font-size: 20px; */
+font-size: 20px;
   }
 
   .numberDiv{
     position:relative;
     top: -70px;
+    font-size: larger;
   }
 .contactBody{
 
@@ -211,8 +212,8 @@ flex-wrap: wrap;
 }
   
 .editButton {
-  width: 45px;
-  height: 23px;
+  width: 90px;
+  height: 30px;
   position:relative;
   top: -95px
 }
