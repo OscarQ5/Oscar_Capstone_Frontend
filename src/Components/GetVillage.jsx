@@ -42,8 +42,8 @@ const GetVillage = () => {
     }, [API, token]);
     
     let nameFilter = (userID) => {
-       let filt = allUsers.filter((id)=> userID === id.user_id)
-       return filt[0].username
+        const user = allUsers.find((user) => user.user_id === userID);
+        return user ? user.username : "User Not Found";
     }
 
     useEffect(() => {
