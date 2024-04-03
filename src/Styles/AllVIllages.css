@@ -66,6 +66,12 @@
   height: 300px;
   width:800px;
   border-radius: 35px;
+
+  /* test styling */
+
+  position:sticky;
+  bottom:120px;
+
 }
 
 .searchRV{
@@ -107,8 +113,8 @@
     /* border: 2px solid red; */
     border-right: none;
     border-left: none;
-    border-top: 4px solid black;
-    border-bottom: 4px solid black;;
+    /* border-top: 4px solid black;
+    border-bottom: 4px solid black;; */
     border-radius: 0px;
     position: relative;
     top: -40px;
@@ -118,6 +124,7 @@
   }
 
   .villageCard{
-    height:90px;
+    height:150px;
+    width: 200px;
   }
 }

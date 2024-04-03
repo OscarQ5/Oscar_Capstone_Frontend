@@ -6,7 +6,8 @@
     border-radius: 75px;
     gap:20px;
     padding-top: 12px;
-    position:relative;
+    position:sticky;
+    bottom:30px;
     /* margin-top: -9px; */
 
 }
