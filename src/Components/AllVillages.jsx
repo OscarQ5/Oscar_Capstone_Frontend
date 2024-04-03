@@ -62,6 +62,17 @@ const AllVillages = () => {
         setSearchResults(results);
     }
 
+    const showAlert = (message) => {
+        const alertElement = document.createElement('div');
+        alertElement.className = 'alert';
+        alertElement.textContent = message;
+
+        document.body.appendChild(alertElement);
+
+        setTimeout(() => {
+            alertElement.remove();
+        }, 3000);
+    };
     const handleRequest = async (user_id, village_id) => {
         try {
             const response = await fetch(`${API}/users/villageJoinRequests`, {
@@ -73,9 +84,14 @@ const AllVillages = () => {
                 }
             });
             if (response.ok) {
-                console.log('Join request sent successfully');
+                
+                showAlert("Join request sent successfully")
+                setSearchResults([])
+                setFormData({village_name: "",})
+
             } else {
                 const errorData = await response.json();
+                showAlert("Error sending request. Try again")
                 console.error('Error Response:', errorData);
             }
         } catch (error) {

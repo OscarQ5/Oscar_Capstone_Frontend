@@ -1,14 +1,25 @@
 .getVillageBody {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   width:100vw;
   height:100vh;
   overflow-y: auto;
+  overflow-x: hidden;
+  position:relative;
+  top: 20px;
   /* scrollbar-width: thin;  */
   /* scrollbar-color: transparent transparent; */
   /* margin-top:75px; */
+}
+
+.villageDetailHeader{
+  /* position:fixed;
+  color:white;
+ top: 200px;
+ left:330px; */
+display:none;
 }
 
 .villageDetail {
@@ -24,6 +35,8 @@
   margin-bottom: 10px;
   padding-left: 4px;
   padding-right: 4px;
+  position:relative;
+  left: -50px;
 }
 
 .searchR {
@@ -31,6 +44,7 @@
   background-color: rgb(234, 234, 234);
   border-radius: 50px;
   color: black;
+
   /* margin-bottom: 10px; */
 }
 .addB{
@@ -115,14 +129,26 @@ border: 1px solid white;
   background-color: rgb(234, 234, 234);
   border-radius: 20px;
   color: black;
-  max-height: 210px;
+  height:50vh;
+  max-height: 200px;
+  width: 270px;
   /* display:flex;
   flex-direction: column; */
   overflow-y: auto;
   scrollbar-width: thin; 
   scrollbar-color: transparent transparent;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
  }
 
+ .joinText{
+position:relative;
+left: -35px;
+top: -12px;
+ }
  .joinRequestsSection h2{
   text-decoration: underline;
   position:relative;
@@ -130,15 +156,19 @@ border: 1px solid white;
 }
 
 .joinRequestsSection li{
+
   list-style-type: none;
   border-bottom: 1px solid black;
   padding-bottom: 5px;
   margin-top: -15px;
+  margin-bottom: 10px;
  
 }
 
 .approveButton{
 font-size: x-small;
+position:relative;
+top:-10px;
 }
 
 .rejectButton:hover{
@@ -156,14 +186,56 @@ font-size: x-small;
   font-size:  x-small;
   position:relative;
   left: 2px;
+  top:-10px;
+}
+
+.findAndRequestBody{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.villagePageBackLink{
+  position:relative;
+  top:250px;
+  right: 430px;
 }
 
 @media screen and (max-width: 430px) {
 
-  .getVillageBody{
+  .villagePageBackLink{
+    position:relative;
+    top:0px;
+    right: 0px;
+  }
+  .villageDetailHeader{
+    display:none;
+   
+  
+  }
+
+  .getVillageBody {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
+    height:100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position:relative;
+    top: 20px;
+    scrollbar-width: thin;  
+    scrollbar-color: transparent transparent;
+    margin-top:75px;
+
   }
+
+  /* .getVillageBody{
+    display: flex;
+    flex-direction: column;
+  } */
 
   .getVillForm{
     display: flex;
@@ -175,31 +247,50 @@ font-size: x-small;
   }
 
   .searchR{
+    border:none;
     display:flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:96vw;
+    width:100vw;
     padding-bottom: 5px;
+    border-radius: 30px;
   }
 
   .villageDetail{
+    border: 1px solid red;
+    background-color: rgb(234, 234, 234);
+    border-radius: 20px;
+    color: black;
+    max-height: 270px; 
+    /* min-height: 50px; */
+    overflow-y: auto;
+    scrollbar-width: thin; 
+    scrollbar-color: transparent transparent;
     margin-bottom: 10px;
     padding-left: 4px;
     padding-right: 4px;
+    position:relative;
+    left:0px;
   }
 
   .joinRequestsSection{
    margin-top: 9px;
    padding-left: 4px;
    padding-right: 4px;
-   border: 1px solid red;
+   border: none;
    background-color: rgb(234, 234, 234);
    border-radius: 20px;
    color: black;
+   /* width: 100vw; */
+   max-height: 195px;
+   overflow-y: auto;
   }
 
   .joinRequestsSection h2{
+
     text-decoration: underline;
   }
+
+
 }
