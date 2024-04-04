@@ -46,3 +46,6 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.toastify {
+  padding-top: 65px;
+}
