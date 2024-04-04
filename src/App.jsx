@@ -18,6 +18,7 @@ import GetVillage from "./Components/GetVillage.jsx";
 import StateEmergency from "./Pages/StateEmergency.jsx";
 import LoginSignup from "./Components/LoginSignup.jsx";
 import LandingHomePage from "./Pages/LandingHomePage.jsx";
+// import ColorChange from "./Components/ColorChange.jsx";
 
 function App() {
   const { setUser, setToken, user, token } = useLoginDataProvider();
@@ -26,6 +27,7 @@ function App() {
     <>
       <Router>
         <FriesNavbar />
+        {/* <ColorChange /> */}
 
         <Routes>
           <Route path="/" element={<LandingHomePage />} />
