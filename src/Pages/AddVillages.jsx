@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useLoginDataProvider } from "../Components/LoginProvider";
 import { useNavigate, Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/AddVillages.css'
 
 const AddVillages = () => {
@@ -29,14 +31,16 @@ const AddVillages = () => {
                 },
             });
 
+            const data = await response.json();
             if (response.ok) {
-                console.log("Village Successfully Added", response)
+                console.log("Village Successfully Added", data);
                 navigate(`/users/villages`);
             } else {
-                throw new Error('Failed to add village');
+                throw new Error(data.error);
             }
         } catch (error) {
             console.error("Error adding village:", error);
+            toast.error(error.message || 'Failed to add village. Please try again later.', { autoClose: 3000 });
         }
     };
 
@@ -47,6 +51,7 @@ const AddVillages = () => {
 
     return (
         <div className="addVillageForm">
+            <ToastContainer className="toastify" />
             <form onSubmit={handleSubmit} className="villageForm">
 
                 <label htmlFor="village_name">Village Name:</label>

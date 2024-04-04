@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/LoginSignup.css'
 import { useLoginDataProvider } from "../Components/LoginProvider"
 import PhoneInput from 'react-phone-number-input'
@@ -73,6 +75,7 @@ const LoginSignup = () => {
                     });
                     navigate(`/users/home`);
                 } else {
+                    toast.error("Login failed: " + res.error, { autoClose: 3000 })
                     console.log("Login failed:", res);
                 }
             })
@@ -93,7 +96,9 @@ const LoginSignup = () => {
         })
             .then(res => {
                 if (!res.ok) {
-                    throw new Error('Failed to create user');
+                    return res.json().then(error => {
+                        throw new Error(error.error); // Throw the error message received from the server
+                    });
                 }
                 return res.json();
             })
@@ -117,6 +122,7 @@ const LoginSignup = () => {
                 }
             })
             .catch(err => {
+                toast.error(err.message, { autoClose: 3000 })
                 console.error("Error creating user:", err);
 
             });
@@ -124,6 +130,7 @@ const LoginSignup = () => {
 
     return (
         <div className='loginSignUp'>
+            <ToastContainer className="toastify" />
             <div id="stars"></div>
             <div id="stars2"></div>
             <div id="stars3"></div>
