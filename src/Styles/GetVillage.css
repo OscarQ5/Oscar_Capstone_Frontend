@@ -3,23 +3,23 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  width:100vw;
-  height:100vh;
+  width: 100vw;
+  height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
-  position:relative;
+  position: relative;
   top: 20px;
   /* scrollbar-width: thin;  */
   /* scrollbar-color: transparent transparent; */
   /* margin-top:75px; */
 }
 
-.villageDetailHeader{
+.villageDetailHeader {
   /* position:fixed;
   color:white;
  top: 200px;
  left:330px; */
-display:none;
+  display: none;
 }
 
 .villageDetail {
@@ -27,16 +27,16 @@ display:none;
   background-color: rgb(234, 234, 234);
   border-radius: 20px;
   color: black;
-  max-height: 270px; 
+  max-height: 270px;
   /* min-height: 50px; */
   overflow-y: auto;
-  scrollbar-width: thin; 
+  scrollbar-width: thin;
   scrollbar-color: transparent transparent;
   margin-bottom: 10px;
   padding-left: 4px;
   padding-right: 4px;
-  position:relative;
-  left: -50px;
+  position: relative;
+  left: 50px;
 }
 
 .searchR {
@@ -47,8 +47,8 @@ display:none;
 
   /* margin-bottom: 10px; */
 }
-.addB{
-  display:flex;
+.addB {
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -56,11 +56,11 @@ display:none;
 
 .addButton {
   /* margin-bottom: 7px; */
-  height:30px;
+  height: 30px;
   border-radius: 30px;
-  display:flex;
+  display: flex;
   flex-direction: row;
-  justify-items:flex-end;
+  justify-items: flex-end;
   align-items: center;
 }
 
@@ -87,40 +87,39 @@ display:none;
   height: 50px;
 }
 
-.getVillForm{
-  display:flex;
+.getVillForm {
+  display: flex;
   flex-direction: row;
   gap: 30px;
   align-items: center;
 }
 
-.searchButton{
-  display:flex;
+.searchButton {
+  display: flex;
   align-items: center;
-  height:30px;
+  height: 30px;
   border-radius: 30px;
 }
 
-.villagePageBackB{
+.villagePageBackB {
   margin-top: 10px;
-  display:flex;
+  display: flex;
   align-items: center;
-  height:30px;
+  height: 30px;
   border-radius: 30px;
   border: 1px solid red;
 }
 
-
-.villagePageBackB:hover{
-color:red;
-border: 1px solid white;
+.villagePageBackB:hover {
+  color: red;
+  border: 1px solid white;
 }
 
-.villagePageBackLink{
+.villagePageBackLink {
   text-decoration: none;
 }
 
-.joinRequestsSection{
+.joinRequestsSection {
   margin-top: 9px;
   padding-left: 4px;
   padding-right: 4px;
@@ -129,90 +128,84 @@ border: 1px solid white;
   background-color: rgb(234, 234, 234);
   border-radius: 20px;
   color: black;
-  height:50vh;
+  height: 50vh;
   max-height: 200px;
   width: 270px;
   /* display:flex;
   flex-direction: column; */
   overflow-y: auto;
-  scrollbar-width: thin; 
+  scrollbar-width: thin;
   scrollbar-color: transparent transparent;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
- }
+}
 
- .joinText{
-position:relative;
-left: -35px;
-top: -12px;
- }
- .joinRequestsSection h2{
+.joinText {
+  position: relative;
+  left: -35px;
+  top: -12px;
+}
+.joinRequestsSection h2 {
   text-decoration: underline;
-  position:relative;
+  position: relative;
   top: -7px;
 }
 
-.joinRequestsSection li{
-
+.joinRequestsSection li {
   list-style-type: none;
   border-bottom: 1px solid black;
   padding-bottom: 5px;
   margin-top: -15px;
   margin-bottom: 10px;
- 
 }
 
-.approveButton{
-font-size: x-small;
-position:relative;
-top:-10px;
+.approveButton {
+  font-size: x-small;
+  position: relative;
+  top: -10px;
 }
 
-.rejectButton:hover{
+.rejectButton:hover {
   font-size: x-small;
   color: red;
-  }
+}
 
-.approveButton:hover{
+.approveButton:hover {
   color: red;
   font-size: x-small;
+}
 
-  }
-
-.rejectButton{
-  font-size:  x-small;
-  position:relative;
+.rejectButton {
+  font-size: x-small;
+  position: relative;
   left: 2px;
-  top:-10px;
+  top: -10px;
 }
 
-.findAndRequestBody{
+.findAndRequestBody {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.villagePageBackLink{
-  position:relative;
-  top:250px;
-  right: 430px;
+.villagePageBackLink {
+  position: fixed;
+  top: 650px;
+  right: 720px;
 }
 
 @media screen and (max-width: 430px) {
-
-  .villagePageBackLink{
-    position:relative;
-    top:0px;
+  .villagePageBackLink {
+    position: relative;
+    top: -10px;
     right: 0px;
   }
-  .villageDetailHeader{
-    display:none;
-   
-  
+  .villageDetailHeader {
+    display: none;
   }
 
   .getVillageBody {
@@ -220,16 +213,15 @@ top:-10px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:100vw;
-    height:100vh;
+    width: 100vw;
+    height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
-    position:relative;
+    position: relative;
     top: 20px;
-    scrollbar-width: thin;  
+    scrollbar-width: thin;
     scrollbar-color: transparent transparent;
-    margin-top:75px;
-
+    margin-top: 75px;
   }
 
   /* .getVillageBody{
@@ -237,60 +229,62 @@ top:-10px;
     flex-direction: column;
   } */
 
-  .getVillForm{
+  .getVillForm {
     display: flex;
     flex-direction: column;
   }
 
-  .villageMemberCard{
-    width:96vw;
+  .villageMemberCard {
+    width: 96vw;
   }
 
-  .searchR{
-    border:none;
-    display:flex;
+  .searchR {
+    border: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width:100vw;
+    width: 100vw;
     padding-bottom: 5px;
     border-radius: 30px;
+    position: relative;
+    bottom: 80px;
   }
 
-  .villageDetail{
+  .villageDetail {
     border: 1px solid red;
     background-color: rgb(234, 234, 234);
     border-radius: 20px;
     color: black;
-    max-height: 270px; 
+    max-height: 270px;
     /* min-height: 50px; */
     overflow-y: auto;
-    scrollbar-width: thin; 
+    scrollbar-width: thin;
     scrollbar-color: transparent transparent;
     margin-bottom: 10px;
     padding-left: 4px;
     padding-right: 4px;
-    position:relative;
-    left:0px;
+    position: relative;
+    left: 0px;
+    bottom: 50px;
   }
 
-  .joinRequestsSection{
-   margin-top: 9px;
-   padding-left: 4px;
-   padding-right: 4px;
-   border: none;
-   background-color: rgb(234, 234, 234);
-   border-radius: 20px;
-   color: black;
-   /* width: 100vw; */
-   max-height: 195px;
-   overflow-y: auto;
+  .joinRequestsSection {
+    margin-top: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: none;
+    background-color: rgb(234, 234, 234);
+    border-radius: 20px;
+    color: black;
+    /* width: 100vw; */
+    max-height: 195px;
+    overflow-y: auto;
+    position: relative;
+    bottom: 69px;
   }
 
-  .joinRequestsSection h2{
-
+  .joinRequestsSection h2 {
     text-decoration: underline;
   }
-
-
 }

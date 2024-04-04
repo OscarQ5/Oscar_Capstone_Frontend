@@ -246,27 +246,6 @@ const GetVillage = () => {
         <div className="getVillageBody">
             <h2 className='villageDetailHeader'>Village Details</h2>
 
-                <div className='villageDetail'>
-                    <h2>Village Name: {village.village_name}</h2>
-                    <div>
-
-                        <div >
-                            {villageUsers.map(user => (
-                                <div className="villageMemberCard" key={user.user_id}>
-                                    <h2>
-                                        Name: {user.userInfo.name} <br />
-                                        User Name: {user.userInfo.username}<br />
-                                        Role: {user.is_admin ? 'Admin' : 'Member'}
-                                    </h2>
-                                    <button className="deleteButton" onClick={() => {
-                                        console.log("Deleting user with ID:", user.user_id);
-                                        handleDelete(user.user_id);
-                                    }}>❌</button>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
                 <div className='findAndRequestBody'>
 
             <div className="getVillForm">
@@ -321,6 +300,27 @@ const GetVillage = () => {
                 </div>
             )}
             </div>
+                <div className='villageDetail'>
+                    <h2>Village Name: {village.village_name}</h2>
+                    <div>
+
+                        <div >
+                            {villageUsers.map(user => (
+                                <div className="villageMemberCard" key={user.user_id}>
+                                    <h2>
+                                        Name: {user.userInfo.name} <br />
+                                        User Name: {user.userInfo.username}<br />
+                                        Role: {user.is_admin ? 'Admin' : 'Member'}
+                                    </h2>
+                                    <button className="deleteButton" onClick={() => {
+                                        console.log("Deleting user with ID:", user.user_id);
+                                        handleDelete(user.user_id);
+                                    }}>❌</button>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
             <Link className="villagePageBackLink" to='/users/villages'><button className="villagePageBackB">Back</button></Link>
         </div>
     );
