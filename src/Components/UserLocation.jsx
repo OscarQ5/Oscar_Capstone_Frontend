@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import mapboxgl from 'mapbox-gl';
 import { useLoginDataProvider } from "../Components/LoginProvider"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/UserLocation.css';
 
 const MAPBOX_ACCESS_TOKEN = import.meta.env.VITE_MAPBOX_ACCESS_TOKEN;
@@ -87,18 +89,18 @@ const UserLocation = () => {
                 </button>
                 </div>
             `;
-    
+
             const popup = new mapboxgl.Popup({
                 className: 'custom-popup',
             }).setHTML(popupContent);
-    
+
             const marker = new mapboxgl.Marker()
                 .setLngLat(place.geometry.coordinates)
                 .setPopup(popup)
                 .addTo(map);
-                marker.getElement().addEventListener('click', () => {
-                    setSelectedPlace(place);
-                })
+            marker.getElement().addEventListener('click', () => {
+                setSelectedPlace(place);
+            })
             // Add event listener for the "Get Directions" button in the popup
             popup.on('open', () => {
                 const btn = document.querySelector('.get-directions-walking-btn');
@@ -106,7 +108,7 @@ const UserLocation = () => {
                     handleWalkingDirection(place, popup);
                 });
             });
-              
+
             popup.on('open', () => {
                 const btn = document.querySelector('.get-directions-btn');
                 btn.addEventListener('click', () => {
@@ -115,7 +117,7 @@ const UserLocation = () => {
             });
             return marker;
         });
-    
+
         setCurrentMarkers(markers);
     };
 
@@ -197,7 +199,7 @@ const UserLocation = () => {
             }
         }
     }, [map, route]);
-    
+
 
     useEffect(() => {
         getUserLocation();
@@ -212,7 +214,7 @@ const UserLocation = () => {
     useEffect(() => {
         if (map && userLocation) {
             const userMarker = new mapboxgl.Marker({
-                color: '#E87400' 
+                color: '#E87400'
             }).setLngLat([userLocation.longitude, userLocation.latitude]).addTo(map);
         }
     }, [map, userLocation]);
@@ -220,7 +222,7 @@ const UserLocation = () => {
     useEffect(() => {
         const initializeMap = () => {
             if (!userLocation || !MAPBOX_ACCESS_TOKEN) return;
-    
+
             mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
             const newMap = new mapboxgl.Map({
                 container: 'map',
@@ -228,18 +230,18 @@ const UserLocation = () => {
                 center: [userLocation.longitude, userLocation.latitude],
                 zoom: 12,
             });
-    
+
             if (map) {
                 map.remove();
             }
-            
+
             setMap(newMap);
         };
-    
+
         if (!map) {
             initializeMap();
         }
-    
+
         return () => {
             if (map) {
                 map.remove();
@@ -252,30 +254,51 @@ const UserLocation = () => {
         setDirections(null);
     }
 
+    const handleEmergencyButtonClick = (emergencyType) => {
+        if (emergencyType === 'fire_station') {
+            emergencyType = "Fire"
+        } else if (emergencyType === 'police') {
+            emergencyType = 'Police'
+        } else if (emergencyType === 'hospital') {
+            emergencyType = 'Hospital'
+        }
+
+        toast.info(`${emergencyType} button clicked`, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
+    }
+
     return (
         <div className='userLocation'>
+            <ToastContainer />
             {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'>{userAddress}</h2>}
             <h3 className="directionHeader">Route & Direction</h3>
             <div className="mapButtons">
 
                 <div className="mapButtonDiv">
-                    <h5 onClick={() => handleSearch('fire_station')}>Fire</h5>
-                    <img onClick={() => handleSearch('fire_station')} className="fireStation" src="/fireStationsvg.svg" alt="Fire Station Button" />
+                    <h5 onClick={() => { handleSearch('fire_station'), handleEmergencyButtonClick('fire_station') }}>Fire</h5>
+                    <img onClick={() => { handleSearch('fire_station'), handleEmergencyButtonClick('fire_station') }} className="fireStation" src="/fireStationsvg.svg" alt="Fire Station Button" />
                 </div>
                 <div className="mapButtonDiv">
-                    <h5 onClick={() => handleSearch('police')}>Police</h5>
-                    <img onClick={() => handleSearch('police')} className="policeStation" src="/policeStation.svg" alt="Police Station Button" />
+                    <h5 onClick={() => { handleSearch('police'), handleEmergencyButtonClick('police') }}>Police</h5>
+                    <img onClick={() => { handleSearch('police'), handleEmergencyButtonClick('police') }} className="policeStation" src="/policeStation.svg" alt="Police Station Button" />
                 </div>
                 <div className="mapButtonDiv">
-                    <h5 onClick={() => handleSearch('hospital')}>Hospital</h5>
-                    <img onClick={() => handleSearch('hospital')} className="hospitalStation" src="/hospitalStation.svg" alt="Hospital Button" />
+                    <h5 onClick={() => { handleSearch('hospital'), handleEmergencyButtonClick('hospital') }}>Hospital</h5>
+                    <img onClick={() => { handleSearch('hospital'), handleEmergencyButtonClick('hospital') }} className="hospitalStation" src="/hospitalStation.svg" alt="Hospital Button" />
                 </div>
             </div>
             <div className="mapDivBody">
-                    {/* <div className="mapBoxDiv"> */}
+                {/* <div className="mapBoxDiv"> */}
                 <div id="map"></div>
                 {/* <div id="map" style={{ width: '40vw', height: '400px', borderRadius: '60px' }}></div> */}
-                    {/* </div> */}
+                {/* </div> */}
 
                 {directions && (
                     <div className="mapDirections">
