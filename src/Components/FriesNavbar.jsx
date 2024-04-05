@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router';
 import { useLoginDataProvider } from "../Components/LoginProvider"
 import '../Styles/FriesNavBar.css';
+import ColorChange from "../Components/ColorChange.jsx"
 
 const FriesNavbar = () => {
   const { setUser, setToken, token, user } = useLoginDataProvider()
@@ -48,7 +49,12 @@ const FriesNavbar = () => {
       <div>
         {/* <h2 className="timeNav">{tellTime()}</h2> */}
         <h5 className='logo-caption'>It takes a Village</h5>
-      </div>
+      </div >
+     <div className="colorC"> 
+
+       <ColorChange />
+     </div>
+      
       <div className='fries-btn-container'>
         <button type="button" ref={menuRef} className={`fries-btn ${openMenu ? 'open' : ''}`} onClick={toggleMenu}>
           <div className='fry'></div>

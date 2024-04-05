@@ -1,0 +1,11 @@
+.colorChange {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* border: 2px solid red; */
+  position: relative;
+  height: 25px;
+  border-radius: 100%;
+  padding: 5px;
+  /* background: radial-gradient(ellipse at bottom, #10161e 0%, #f6f6f6 100%); */
+}
