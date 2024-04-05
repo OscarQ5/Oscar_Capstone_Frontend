@@ -130,6 +130,11 @@
   color: black;
 }
 
+.colorC {
+  position: relative;
+  left: -30px;
+}
+
 @media screen and (max-width: 430px) {
   .logo-caption {
     display: none;
@@ -139,6 +144,6 @@
 
   .colorC {
     position: relative;
-    right: 70px;
+    right: 17px;
   }
 }

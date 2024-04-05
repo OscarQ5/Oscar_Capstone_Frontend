@@ -307,7 +307,7 @@ const StateEmergency = ({ setTranscription }) => {
     
                 <div className='buttonDiv'>
                 <a href="tel:911">
-                    <h5>  911 </h5>
+                    <h5 className='EPBottomButton'>  911 </h5>
                     </a>
                     <a href="tel:911">
                         <img className="emergencyServices" src="/blueStar.svg" alt="Emergency Services" />
@@ -315,12 +315,12 @@ const StateEmergency = ({ setTranscription }) => {
                 </div>
 
                 <div className='buttonDiv' onClick={() => { handleMessageClick(); setIs911VillageClicked(true); hideButtons(); }}>
-                    <h5 onClick={() => { handleMessageClick(); setIs911VillageClicked(true); hideButtons(); }}>  911 + Village </h5>
+                    <h5 className='EPBottomButton' onClick={() => { handleMessageClick(); setIs911VillageClicked(true); hideButtons(); }}>  911 + Village </h5>
                     <img className="emergencyServices" src="/arrows.svg" alt="Emergency Services" />
                 </div>
 
                 <div className='buttonDiv' onClick={() => { handleMessageClick(); hideButtons(); }}>
-                    <h5 onClick={() => { handleMessageClick(); hideButtons(); }}>  Village </h5>
+                    <h5 className='EPBottomButton' onClick={() => { handleMessageClick(); hideButtons(); }}>  Village </h5>
                     <img className="emergencyServices" src="/community.svg" alt="Emergency Services" />
                 </div>
             </div>

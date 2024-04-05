@@ -87,18 +87,18 @@ const UserLocation = () => {
                 </button>
                 </div>
             `;
-    
+
             const popup = new mapboxgl.Popup({
                 className: 'custom-popup',
             }).setHTML(popupContent);
-    
+
             const marker = new mapboxgl.Marker()
                 .setLngLat(place.geometry.coordinates)
                 .setPopup(popup)
                 .addTo(map);
-                marker.getElement().addEventListener('click', () => {
-                    setSelectedPlace(place);
-                })
+            marker.getElement().addEventListener('click', () => {
+                setSelectedPlace(place);
+            })
             // Add event listener for the "Get Directions" button in the popup
             popup.on('open', () => {
                 const btn = document.querySelector('.get-directions-walking-btn');
@@ -106,7 +106,7 @@ const UserLocation = () => {
                     handleWalkingDirection(place, popup);
                 });
             });
-              
+
             popup.on('open', () => {
                 const btn = document.querySelector('.get-directions-btn');
                 btn.addEventListener('click', () => {
@@ -115,7 +115,7 @@ const UserLocation = () => {
             });
             return marker;
         });
-    
+
         setCurrentMarkers(markers);
     };
 
@@ -197,7 +197,7 @@ const UserLocation = () => {
             }
         }
     }, [map, route]);
-    
+
 
     useEffect(() => {
         getUserLocation();
@@ -212,7 +212,7 @@ const UserLocation = () => {
     useEffect(() => {
         if (map && userLocation) {
             const userMarker = new mapboxgl.Marker({
-                color: '#E87400' 
+                color: '#E87400'
             }).setLngLat([userLocation.longitude, userLocation.latitude]).addTo(map);
         }
     }, [map, userLocation]);
@@ -220,7 +220,7 @@ const UserLocation = () => {
     useEffect(() => {
         const initializeMap = () => {
             if (!userLocation || !MAPBOX_ACCESS_TOKEN) return;
-    
+
             mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
             const newMap = new mapboxgl.Map({
                 container: 'map',
@@ -228,18 +228,18 @@ const UserLocation = () => {
                 center: [userLocation.longitude, userLocation.latitude],
                 zoom: 12,
             });
-    
+
             if (map) {
                 map.remove();
             }
-            
+
             setMap(newMap);
         };
-    
+
         if (!map) {
             initializeMap();
         }
-    
+
         return () => {
             if (map) {
                 map.remove();
@@ -254,7 +254,7 @@ const UserLocation = () => {
 
     return (
         <div className='userLocation'>
-            {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'>{userAddress}</h2>}
+            {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'> <img className='pinImg' src='/MapMarker.svg'/> {userAddress}</h2>}
             <h3 className="directionHeader">Route & Direction</h3>
             <div className="mapButtons">
 
@@ -272,10 +272,10 @@ const UserLocation = () => {
                 </div>
             </div>
             <div className="mapDivBody">
-                    {/* <div className="mapBoxDiv"> */}
+                {/* <div className="mapBoxDiv"> */}
                 <div id="map"></div>
                 {/* <div id="map" style={{ width: '40vw', height: '400px', borderRadius: '60px' }}></div> */}
-                    {/* </div> */}
+                {/* </div> */}
 
                 {directions && (
                     <div className="mapDirections">
