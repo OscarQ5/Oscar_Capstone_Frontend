@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLoginDataProvider } from "./LoginProvider";
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/AllVIllages.css'
 
 const AllVillages = () => {
@@ -43,11 +45,15 @@ const AllVillages = () => {
         })
             .then(res => {
                 if (!res.ok) {
-                    throw new Error("Failed to delete");
+                    if (res.status === 403) {
+                        toast.error("You are not authorized to delete this village.");
+                    } else {
+                        throw new Error("Failed to delete");
+                    }
+                } else {
+                    console.log("Completed Delete");
+                    setVillages(prevVillages => prevVillages.filter(village => village.village_id !== villageId));
                 }
-                console.log("Completed Delete");
-
-                setVillages(prevVillages => prevVillages.filter(village => village.village_id !== villageId));
             })
             .catch(err => console.error("Error deleting village:", err));
     };
@@ -84,10 +90,10 @@ const AllVillages = () => {
                 }
             });
             if (response.ok) {
-                
+
                 showAlert("Join request sent successfully")
                 setSearchResults([])
-                setFormData({village_name: "",})
+                setFormData({ village_name: "", })
 
             } else {
                 const errorData = await response.json();
@@ -102,43 +108,44 @@ const AllVillages = () => {
     return (
         <div>
             <div className='villageCardBody'>
-            <div className="searchRV">
-                <h2>Find Village 🔎</h2>
-                <div className="phoneFilter">
-                    <form onSubmit={handleSearch}>
-                        <label htmlFor="village_name">Enter Village Name:</label>
-                        <input
-                            type="text"
-                            id="village_name"
-                            name="village_name"
-                            value={formData.village_name}
-                            placeholder="ex. Pursuit"
-                            onChange={(e) => setFormData({ ...formData, village_name: e.target.value })}
-                        />
-                        <div>
-                            <h2>Search Result:</h2>
-                            {searchResults.map((result) => (
-                                <div key={result.village_id} className="search-result">
-                                    <h2>Viilage Name: {result.village_name}</h2> <h2> Village Code: {result.village_code}</h2>
-                                    <div className="requestB">
-                                        <button className='requestButton' onClick={() => handleRequest(user.user_id, result.village_id)} >Request</button>
+                <ToastContainer className='toastify' />
+                <div className="searchRV">
+                    <h2>Find Village 🔎</h2>
+                    <div className="phoneFilter">
+                        <form onSubmit={handleSearch}>
+                            <label htmlFor="village_name">Enter Village Name:</label>
+                            <input
+                                type="text"
+                                id="village_name"
+                                name="village_name"
+                                value={formData.village_name}
+                                placeholder="ex. Pursuit"
+                                onChange={(e) => setFormData({ ...formData, village_name: e.target.value })}
+                            />
+                            <div>
+                                <h2>Search Result:</h2>
+                                {searchResults.map((result) => (
+                                    <div key={result.village_id} className="search-result">
+                                        <h2>Viilage Name: {result.village_name}</h2> <h2> Village Code: {result.village_code}</h2>
+                                        <div className="requestB">
+                                            <button className='requestButton' onClick={() => handleRequest(user.user_id, result.village_id)} >Request</button>
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
-                        </div>
-                        <button className='searchButton' type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-            <div className='masterVillageCard'>
-                {villages.map((village) => (
-                    <div key={village.village_id} className="villageCard">
-                        <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
-                            {village.village_name}
-                        </Link>
-                        <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button>
+                                ))}
+                            </div>
+                            <button className='searchButton' type="submit">Search</button>
+                        </form>
                     </div>
-                ))}
+                </div>
+                <div className='masterVillageCard'>
+                    {villages.map((village) => (
+                        <div key={village.village_id} className="villageCard">
+                            <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
+                                {village.village_name}
+                            </Link>
+                            <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button>
+                        </div>
+                    ))}
                 </div>
             </div>
         </div>
