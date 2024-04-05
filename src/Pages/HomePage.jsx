@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import MedicalHistoryFetch from '../Components/MedicalHistoryFetch';
 
+
 const HomePage = () => {
 
     const { API, token, user } = useLoginDataProvider()
@@ -34,6 +35,7 @@ const HomePage = () => {
     return (
         <div className="homePageBody">
             <div>
+             
                 <h2 className="time">{tellTime()}</h2>
             </div>
             <div className="HomePage">

@@ -70,8 +70,6 @@
 
 .h2Directions{
     text-decoration: underline;
-
-    
 }
 
 .closeDirections{
@@ -106,6 +104,7 @@ width: 1vw;
 .mapButtons{
     margin-top: -74px;
 }
+
 .mapButtonDiv h5{
     position:relative;
     top: 64px;
@@ -113,17 +112,21 @@ width: 1vw;
     cursor: pointer;
 }
 
-.mapButtonDiv h5:hover{
-    position:relative;
-    color: rgb(255, 255, 255);
-    background-color:red;
-    border:2px solid red;
-    border-radius:10px;
-    top: 64px;
-    opacity: 1;
-    cursor: pointer;
-    
+.mapButtonDiv:hover{
+
+   h5{
+        position:relative;
+        color: rgb(255, 255, 255);
+        background-color:red;
+        border:2px solid red;
+        border-radius:10px;
+        top: 64px;
+        opacity: 1;
+        cursor: pointer;
+        
+    }
 }
+
 
 .directionHeader {
     color: white;
