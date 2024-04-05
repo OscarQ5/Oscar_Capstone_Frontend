@@ -28,6 +28,7 @@
   border-radius: 20px;
   color: black;
   max-height: 270px;
+  min-width: 500px;
   /* min-height: 50px; */
   overflow-y: auto;
   scrollbar-width: thin;
@@ -194,8 +195,8 @@
 
 .villagePageBackLink {
   position: fixed;
-  top: 650px;
-  right: 720px;
+  top: 580px;
+  right: 590px;
 }
 
 @media screen and (max-width: 430px) {
@@ -248,7 +249,11 @@
     padding-bottom: 5px;
     border-radius: 30px;
     position: relative;
-    bottom: 80px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    bottom: 60px;
   }
 
   .villageDetail {
@@ -257,6 +262,7 @@
     border-radius: 20px;
     color: black;
     max-height: 270px;
+    min-width: 100%;
     /* min-height: 50px; */
     overflow-y: auto;
     scrollbar-width: thin;
