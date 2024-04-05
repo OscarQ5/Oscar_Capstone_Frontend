@@ -276,7 +276,7 @@ const UserLocation = () => {
 
     return (
         <div className='userLocation'>
-            <ToastContainer />
+            <ToastContainer className='toastify' />
             {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'>{userAddress}</h2>}
             <h3 className="directionHeader">Route & Direction</h3>
             <div className="mapButtons">
