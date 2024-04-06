@@ -111,7 +111,10 @@ input {
     flex-direction: column;
     gap: 40px;
   }
-
+  .allVBodyMaster{
+    position:relative;
+    bottom:30px;
+  }
   .searchRV {
     position: relative;
     border-radius: 50px;
@@ -134,7 +137,7 @@ input {
     border-bottom: 4px solid black;; */
     border-radius: 0px;
     position: relative;
-    top: -40px;
+    top: -70px;
     width: 99%;
     height: 210px;
     left: -7px;

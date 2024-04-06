@@ -106,7 +106,7 @@ const AllVillages = () => {
     };
 
     return (
-        <div>
+        <div className="allVBodyMaster">
             <div className='villageCardBody'>
                 <ToastContainer className='toastify' />
                 <div className="searchRV">

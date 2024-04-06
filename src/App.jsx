@@ -18,6 +18,7 @@ import GetVillage from "./Components/GetVillage.jsx";
 import StateEmergency from "./Pages/StateEmergency.jsx";
 import LoginSignup from "./Components/LoginSignup.jsx";
 import LandingHomePage from "./Pages/LandingHomePage.jsx";
+import About from "./Pages/About.jsx";
 // import ColorChange from "./Components/ColorChange.jsx";
 
 function App() {
@@ -31,6 +32,9 @@ function App() {
 
         <Routes>
           <Route path="/" element={<LandingHomePage />} />
+
+          <Route path="/about" element={<About/>} />
+          
           <Route
             path="users/sign-up"
             element={<SignupPage setUser={setUser} setToken={setToken} />}

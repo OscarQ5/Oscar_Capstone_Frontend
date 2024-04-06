@@ -1,0 +1,99 @@
+.aboutBody {
+    background-image: url('/stickmanHeart.jpg');
+    background-size: contain;
+    background-color: white;
+    background-repeat: no-repeat;
+    position: relative;
+    top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+    max-height: 98vh; /* Use max-height instead of height */
+text-align: center;
+}
+
+.about{
+    color:black;
+    width:60%;
+    position:relative;
+    bottom: 90px;
+
+}
+
+.howToUse ul {
+    list-style-type: none; 
+    font-weight: bold;
+}
+
+.howToUse{
+    
+    color:black;
+    width:60%;
+    position:relative;
+    right:20px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    position:relative;
+    bottom: 90px;
+}
+
+.buttonOpt{
+    position:relative;
+    right:20px;
+}
+
+.howToUse h2{
+    position:relative;
+    left: 20px;
+}
+
+@media screen and (max-width: 430px) {
+
+    .aboutBody {
+        background-image: url('/stickmanHeart.jpg');
+        background-size: 40% auto;
+        background-color: white;
+        background-repeat: no-repeat;
+        position: relative;
+        top: 58px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        overflow-y: scroll;
+       height:100vh;
+    text-align: center;
+
+    }
+
+    .about{
+        
+        padding-top:-250px;
+        height:100vh;
+        position:relative;
+        bottom:100px;
+        left:20px;
+        
+    }
+
+    .howToUse{
+        height:100vh;
+        width:100vw;
+        display:flex;
+        flex-wrap: wrap;
+      justify-content: center;
+   overflow-y: auto;
+   scrollbar-width: thin;
+   scrollbar-color: transparent transparent;
+   position:relative;
+   bottom: 90px;
+    }
+
+    .howToUse h2{
+        position:relative;
+        left: 20px;
+    }
+}

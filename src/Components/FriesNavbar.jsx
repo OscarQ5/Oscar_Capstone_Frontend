@@ -50,6 +50,7 @@ const FriesNavbar = () => {
         {/* <h2 className="timeNav">{tellTime()}</h2> */}
         {/* <h5 className='logo-caption'>It takes a Village</h5> */}
       {/* </div > */}
+
      <div className="colorC"> 
 
        <ColorChange />
@@ -67,6 +68,7 @@ const FriesNavbar = () => {
               <li>
                 <Link to={'/'} className='Link'> Home </Link>
               </li>
+           
               {(!user && !token) && ( // Conditionally render based on user and token state
                 <>
                   <li>
@@ -74,6 +76,9 @@ const FriesNavbar = () => {
                   </li>
                   <li>
                     <Link to={'/users/login'} className='Link'> Log in </Link>
+                  </li>
+                  <li>
+                    <Link to={'/about'} className='Link'>About</Link>
                   </li>
                 </>
               )}
@@ -91,6 +96,9 @@ const FriesNavbar = () => {
                   </li>
                   <li>
                     <Link to={'/users/medical'} className='Link'> Medical History </Link>
+                  </li>
+                  <li>
+                    <Link to={'/about'} className='Link'>About</Link>
                   </li>
                   <li>
                     <Link to={'/'} className='Link logout' onClick={handleLogOut} style={{ textDecoration: 'none' }}>Log Out</Link>
