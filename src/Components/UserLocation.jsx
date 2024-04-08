@@ -215,6 +215,7 @@ const UserLocation = () => {
         if (map && userLocation) {
             const userMarker = new mapboxgl.Marker({
                 color: '#E87400'
+                
             }).setLngLat([userLocation.longitude, userLocation.latitude]).addTo(map);
         }
     }, [map, userLocation]);
@@ -277,7 +278,7 @@ const UserLocation = () => {
     return (
         <div className='userLocation'>
             <ToastContainer className='toastify' />
-            {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'> <img className='pinImg' src='/MapMarker.svg'/> {userAddress}</h2>}
+            {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'> <img className='pinImg' src='/MapMarker2.svg'/> {userAddress}</h2>}
             
             <h3 className="directionHeader">Route & Direction</h3>
             <div className="mapButtons">

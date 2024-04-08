@@ -17,10 +17,10 @@
 }
 
 .villageCard:hover {
- color: rgb(232, 116, 45);
-  background-image: url("/hands1Logo.jpg");
+  color: rgba(234, 127, 100, 0.774);
+  background-image: url("/homeHut2.svg");
   background-size: cover;
-
+  background-color: rgba(245, 243, 241, 0.928);
 
   .villageLink {
     /* font-size: large; */
@@ -111,9 +111,9 @@ input {
     flex-direction: column;
     gap: 40px;
   }
-  .allVBodyMaster{
-    position:relative;
-    bottom:30px;
+  .allVBodyMaster {
+    position: relative;
+    bottom: 30px;
   }
   .searchRV {
     position: relative;

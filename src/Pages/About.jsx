@@ -11,7 +11,7 @@ const About = () => {
             <br />
             <div className="about">
                 <h2>About Village</h2>
-                <p>Village is a desktop and mobile friendly application designed to enhance communication and coordination among parents, friends, and loved ones. With a range of features including geolocation tracking, resource locators, and messaging capabilities, the app simplifies the process of staying connected, safe, and organized within family units. Its primary goal is to streamline communication and improve coordination between caregivers, ensuring better care and support for children, family members, and friends.</p>
+                <p>Introducing Village: the user-friendly app crafted for seamless communication and coordination within your inner circle of parents, friends, and cherished ones. Whether on desktop or mobile, this innovative platform offers an array of tools such as geolocation tracking, resource finders, and instant messaging. Village is your go-to solution for staying connected, safe, and well-organized within your family network. Our mission is simple: to enhance communication and elevate coordination among caregivers, resulting in optimal care and support for children, loved ones, and friends.</p>
             </div>
 
             <div className="howToUse">

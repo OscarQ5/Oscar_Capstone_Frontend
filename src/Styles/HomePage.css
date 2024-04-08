@@ -7,79 +7,72 @@
 }
 
 .SoSButton:hover {
-
   background-color: aliceblue;
-border-radius: 100px;
-padding: 10px;
-
+  border-radius: 100%;
+  padding: 2px 7px;
 }
 
 .emergencyContactButton:hover {
-  border:2px solid red;
+  border: 2px solid red;
   background-color: rgb(0, 0, 0);
   color: white;
   border-radius: 40px;
 }
 
 .time {
-  color:white;
+  color: white;
 }
 
 .userName {
   color: rgb(232, 116, 45);
 }
 
-.villagesButton{
-  border:2px solid red;
+.villagesButton {
+  border: 2px solid red;
   background-color: white;
-  color:black;
+  color: black;
   border-radius: 40px;
 }
 
-
-.villagesButton:hover{
-  border:2px solid red;
+.villagesButton:hover {
+  border: 2px solid red;
   background-color: rgb(0, 0, 0);
-  color:white;
+  color: white;
   border-radius: 40px;
 }
 
-.emergencyContactButton{
-  border:2px solid red;
+.emergencyContactButton {
+  border: 2px solid red;
   background-color: white;
-  color:black;
+  color: black;
   border-radius: 40px;
 }
 
-.userName{
+.userName {
   /* position:relative; */
-  color:white;
-  font-size: larger
+  color: white;
+  font-size: larger;
   /* bottom:  110px; */
 }
 
 @media screen and (max-width: 430px) {
-.userName{
-  position:relative;
-  color:white;
-  bottom:  110px;
-}
-  .time{
-    position:relative;
+  .userName {
+    position: relative;
+    color: white;
+    bottom: 110px;
+  }
+  .time {
+    position: relative;
     top: -150px;
   }
 
-  .emergencyContactButton{
-position:relative;
-top: 140px;
-
+  .emergencyContactButton {
+    position: relative;
+    top: 140px;
   }
 
-  .villagesButton{
-    position:relative;
-  top: 140px;
+  .villagesButton {
+    position: relative;
+    top: 140px;
   }
-
-  
 }
-
