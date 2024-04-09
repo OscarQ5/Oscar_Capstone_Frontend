@@ -143,7 +143,7 @@ const AllVillages = () => {
                             <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
                                 {village.village_name}
                             </Link>
-                            <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button>
+                            {/* <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button> */}
                         </div>
                     ))}
                 </div>

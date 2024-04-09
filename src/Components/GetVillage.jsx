@@ -247,6 +247,29 @@ const GetVillage = () => {
         return newD.toDateString()
     }
 
+    const handleVillageDelete = (villageId) => {
+        fetch(`${API}/users/villages/${villageId}`, {
+            method: "DELETE",
+            headers: {
+                "Authorization": token
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    if (res.status === 403) {
+                        toast.error("You are not authorized to delete this village.");
+                    } else {
+                        throw new Error("Failed to delete");
+                    }
+                } else {
+                    console.log("Completed Delete");
+                    setVillage(prevVillages => prevVillages.filter(village => village.village_id !== villageId));
+                    navigate('/users/villages')
+                }
+            })
+            .catch(err => console.error("Error deleting village:", err));
+    }
+
     return (
         <div className="getVillageBody">
             <ToastContainer className="toastify" />
@@ -308,6 +331,8 @@ const GetVillage = () => {
             </div>
                 <div className='villageDetail'>
                     <h2>Village Name: {village.village_name}</h2>
+
+                    <button className="villageDelete" onClick={() => handleVillageDelete(village.village_id)}>Delete Village</button>
                     <div>
 
                         <div >
