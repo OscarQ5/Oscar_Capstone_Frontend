@@ -77,15 +77,17 @@
 }
 
 .deleteButton {
-  border-radius: 90px;
-  height: 50px;
+  border-radius: 90%;
+  height: 40px;
   background-color: #242424;
 }
 
 .deleteButton:hover {
-  background-color: black;
-  border-radius: 90px;
-  height: 50px;
+  border:1px solid red;
+  background-color: white;
+  border-radius: 100px;
+  height: 40px;
+
 }
 
 .getVillForm {
@@ -199,6 +201,21 @@
   right: 590px;
 }
 
+.villageDelete {
+  font-size: xx-small;
+  border-radius: 80px;
+  background-color: #242424;
+  margin-bottom: 10px;
+  position: relative;
+  bottom: 10px;
+}
+
+.villageDelete:hover {
+  font-size: xx-small;
+  border-radius: 80px;
+  background-color: black;
+  border: 2px solid red;
+}
 @media screen and (max-width: 430px) {
   .villagePageBackLink {
     position: relative;
