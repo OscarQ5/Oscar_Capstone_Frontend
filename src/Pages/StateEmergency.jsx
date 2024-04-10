@@ -122,10 +122,10 @@ const StateEmergency = ({ setTranscription }) => {
         if (is911VillageClicked && selectedVillage) {
             try {
                 console.log("Sending emergency text:", message);
-                // await sendSMS(allNumbers, message);    **uncomment to send message**
                 console.log('Emergency SMS sent successfully');
-
+                
                 showAlert(`Emergency Text sent successfully to ${selectedVillage}`);
+                // await sendSMS(allNumbers, message);    **uncomment to send message**
 
                 dial911();
 
@@ -144,9 +144,9 @@ const StateEmergency = ({ setTranscription }) => {
         } else if (selectedVillage) {
             try {
                 console.log("Sending emergency text:", message);
-                await sendSMS(allNumbers, message);      
                 console.log('Emergency SMS sent successfully');
                 showAlert(`Emergency Text sent successfully to ${selectedVillage}`);
+                await sendSMS(allNumbers, message);  
                 setShowDropdown(false);
                 setButtonsHidden(false);
 
