@@ -1,0 +1,20 @@
+.editUserButton {
+    border: 2px solid red;
+    background-color: white;
+    color: black;
+    border-radius: 40px;
+}
+
+.editUserButton:hover {
+    border: 2px solid red;
+    background-color: rgb(0, 0, 0);
+    color: white;
+    border-radius: 40px;
+}
+
+@media screen and (max-width: 430px) {
+    .editUserButton {
+        position: relative;
+        top: 140px;
+    }
+}

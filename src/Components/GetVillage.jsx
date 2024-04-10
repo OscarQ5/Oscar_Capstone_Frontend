@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { useLoginDataProvider } from "../Components/LoginProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "../Styles/GetVillage.css"
 
 const GetVillage = () => {
@@ -162,7 +164,7 @@ const GetVillage = () => {
     }, [village_id, API, token]);
 
     const handleDelete = (villageUserId) => {
-        fetch(`${API}/users/village-users/${villageUserId}`, {
+        fetch(`${API}/users/village-users/${villageUserId}?village_id=${village_id}`, {
             method: "DELETE",
             headers: {
                 "Authorization": token
@@ -176,7 +178,10 @@ const GetVillage = () => {
 
                 setVillageUsers(prevUsers => prevUsers.filter(user => user.user_id !== villageUserId));
             })
-            .catch(err => console.error("Error deleting:", err));
+            .catch(err => {
+                console.error("Error deleting:", err)
+                toast.error("You are not authorized to delete users from this village.")
+            });
     };
 
     const { username } = formData;
@@ -267,6 +272,7 @@ const GetVillage = () => {
 
     return (
         <div className="getVillageBody">
+            <ToastContainer className="toastify" />
             <h2 className='villageDetailHeader'>Village Details</h2>
 
                 <div className='findAndRequestBody'>
