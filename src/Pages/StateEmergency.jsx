@@ -144,7 +144,7 @@ const StateEmergency = ({ setTranscription }) => {
         } else if (selectedVillage) {
             try {
                 console.log("Sending emergency text:", message);
-                // await sendSMS(allNumbers, message);       **uncomment to send message**
+                await sendSMS(allNumbers, message);      
                 console.log('Emergency SMS sent successfully');
                 showAlert(`Emergency Text sent successfully to ${selectedVillage}`);
                 setShowDropdown(false);

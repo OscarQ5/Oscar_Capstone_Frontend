@@ -19,6 +19,7 @@ import StateEmergency from "./Pages/StateEmergency.jsx";
 import LoginSignup from "./Components/LoginSignup.jsx";
 import LandingHomePage from "./Pages/LandingHomePage.jsx";
 import About from "./Pages/About.jsx";
+import EditProfilePage from "./Pages/EditProfilePage.jsx";
 // import ColorChange from "./Components/ColorChange.jsx";
 
 function App() {
@@ -57,6 +58,18 @@ function App() {
             element={
               <ProtectedRoute
                 element={HomePage}
+                isAuthenticated={!!user && !!token}
+                user={user}
+                token={token}
+              />
+            }
+          />
+
+          <Route
+            path="users/edit-profile"
+            element={
+              <ProtectedRoute
+                element={EditProfilePage}
                 isAuthenticated={!!user && !!token}
                 user={user}
                 token={token}
