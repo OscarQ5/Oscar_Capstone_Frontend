@@ -31,6 +31,9 @@ const HomePage = () => {
         navigate('/users/contacts');
     };
 
+    const goToEditProfile = () => {
+        navigate('/users/edit-profile')
+    }
 
     return (
         <div className="homePageBody">
@@ -51,6 +54,7 @@ const HomePage = () => {
                     <Link to={`/users/emergency`} style={{ margin: '0', padding: '0' }}> <img className="SoSButton" src='../Help-button.svg' alt="Emergency Button" />  </Link>
                     <button className="villagesButton" onClick={goToVillages}>VILLAGES</button>
                     <button className="emergencyContactButton" onClick={goToEmergencyContacts}>EMERGENCY CONTACTS</button>
+                    <button className="editProfileButton" onClick={goToEditProfile}>EDIT PROFILE</button>
                     {/* 
                     {showMedicineCabinet && <MedicalHistoryFetch setShowMedicineCabinet={setShowMedicineCabinet} />}
 

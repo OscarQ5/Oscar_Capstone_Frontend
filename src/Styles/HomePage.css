@@ -55,6 +55,20 @@
   /* bottom:  110px; */
 }
 
+.editProfileButton {
+  border: 2px solid red;
+  background-color: white;
+  color: black;
+  border-radius: 40px;
+}
+
+.editProfileButton:hover {
+  border: 2px solid red;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  border-radius: 40px;
+}
+
 @media screen and (max-width: 430px) {
   .userName {
     position: relative;
@@ -72,6 +86,11 @@
   }
 
   .villagesButton {
+    position: relative;
+    top: 140px;
+  }
+
+  .editProfileButton {
     position: relative;
     top: 140px;
   }
