@@ -41,6 +41,32 @@
   border-radius: 40px;
 }
 
+.userNameAndButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.editPButton {
+  font-size: larger;
+  padding: 5px;
+}
+
+.editPButton:hover {
+  cursor: pointer;
+  animation: logo-spin infinite 2s linear;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .emergencyContactButton {
   border: 2px solid red;
   background-color: white;
@@ -75,6 +101,15 @@
     color: white;
     bottom: 110px;
   }
+
+  .editPButton {
+    position: relative;
+    font-size: larger;
+    padding: 5px;
+    bottom: 110px;
+  }
+
+  
   .time {
     position: relative;
     top: -150px;

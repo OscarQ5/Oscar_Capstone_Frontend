@@ -83,11 +83,10 @@
 }
 
 .deleteButton:hover {
-  border:1px solid red;
+  border: 1px solid red;
   background-color: white;
   border-radius: 100px;
   height: 40px;
-
 }
 
 .getVillForm {
@@ -112,7 +111,7 @@
   border-radius: 30px;
   border: 1px solid red;
   position: relative;
-  top: 20px;
+  top: 0px;
 }
 
 .villagePageBackB:hover {
