@@ -3,11 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import '../Styles/SignupForm.css'
 import { useLoginDataProvider } from "./LoginProvider"
 import PhoneInput from 'react-phone-number-input';
+import { FaEye, FaRegEyeSlash } from 'react-icons/fa'
 import 'react-phone-number-input/style.css';
 
 function SignupForm() {
     const { API, setToken, setUser, setForm } = useLoginDataProvider()
     const navigate = useNavigate()
+    const [showPassword, setShowPassword] = useState(false)
     const [formData, setFormData] = useState({
         name: '',
         password_hash: '',
@@ -102,14 +104,21 @@ function SignupForm() {
                 />
 
                 <label htmlFor="password_hash">Password </label>
-                <input
-                    id="password_hash"
-                    value={formData.password_hash}
-                    type="password"
-                    onChange={handleChange}
-                    placeholder="Password"
-                    required
-                />
+                <div className='password-input-container' >
+                    <input
+                        id="password_hash"
+                        value={formData.password_hash}
+                        type={showPassword ? "text" : "password"}
+                        onChange={handleChange}
+                        placeholder="Password"
+                        required
+                    />
+                    {showPassword ? (
+                        <FaEye className="eye-icon" onClick={() => setShowPassword(false)} />
+                    ) : (
+                        <FaRegEyeSlash className="eye-icon" onClick={() => setShowPassword(true)} />
+                    )}
+                </div>
 
                 <label htmlFor="email">Email</label>
                 <input
@@ -132,7 +141,7 @@ function SignupForm() {
                 />
 
                 <div className="submitButton">
-                    <button className="signUpsubmitButton"type="submit" >Submit</button>
+                    <button className="signUpsubmitButton" type="submit" >Submit</button>
                 </div>
             </form>
 
