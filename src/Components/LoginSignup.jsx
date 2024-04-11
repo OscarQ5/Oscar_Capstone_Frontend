@@ -5,11 +5,13 @@ import 'react-toastify/dist/ReactToastify.css';
 import '../Styles/LoginSignup.css'
 import { useLoginDataProvider } from "../Components/LoginProvider"
 import PhoneInput from 'react-phone-number-input'
+import { FaEye, FaRegEyeSlash } from 'react-icons/fa'
 import 'react-phone-number-input/style.css'
 
 const LoginSignup = () => {
     const { API, setToken, setUser, setForm } = useLoginDataProvider()
     const navigate = useNavigate()
+    const [showPassword, setShowPassword] = useState(false)
 
     // State for login form data
     const [loginFormData, setLoginFormData] = useState({
@@ -161,7 +163,7 @@ const LoginSignup = () => {
                                                     </div>
                                                     <div className="form-group mt-2">
                                                         <input
-                                                            type="password"
+                                                            type={showPassword ? "text" : "password"}
                                                             className="form-style"
                                                             placeholder="Password"
                                                             name="password_hash"
@@ -169,6 +171,11 @@ const LoginSignup = () => {
                                                             onChange={handleInputChange}
                                                             required
                                                         />
+                                                        {showPassword ? (
+                                                            <FaEye className="eye-icon" onClick={() => setShowPassword(false)} />
+                                                        ) : (
+                                                            <FaRegEyeSlash className="eye-icon" onClick={() => setShowPassword(true)} />
+                                                        )}
                                                         <i className="input-icon uil uil-lock-alt"></i>
                                                     </div>
                                                     <button onClick={handleLogin} className="btn mt-4">Login</button>
@@ -208,7 +215,7 @@ const LoginSignup = () => {
                                                     </div>
                                                     <div className="form-group mt-2">
                                                         <input
-                                                            type="password"
+                                                            type={showPassword ? "text" : "password"}
                                                             className="form-style"
                                                             placeholder="Password"
                                                             id="password_hash"
@@ -216,6 +223,11 @@ const LoginSignup = () => {
                                                             onChange={handleChange}
                                                             required
                                                         />
+                                                        {showPassword ? (
+                                                            <FaEye className="eye-icon" onClick={() => setShowPassword(false)} />
+                                                        ) : (
+                                                            <FaRegEyeSlash className="eye-icon" onClick={() => setShowPassword(true)} />
+                                                        )}
                                                         <i className="input-icon uil uil-lock-alt"></i>
                                                     </div>
                                                     <div className="form-group mt-2">
@@ -240,7 +252,7 @@ const LoginSignup = () => {
                                                             defaultCountry="US"
                                                             onChange={(value) => setSignupFormData({ ...signupFormData, phone_number: value })}
                                                             required
-                                                         
+
                                                         />
                                                         <i className="input-icon uil uil-phone"></i>
                                                     </div>

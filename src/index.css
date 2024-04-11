@@ -49,3 +49,16 @@ button:focus-visible {
 .toastify {
   padding-top: 65px;
 }
+
+.password-input-container {
+  position: relative;
+}
+
+.eye-icon {
+  color: red;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
