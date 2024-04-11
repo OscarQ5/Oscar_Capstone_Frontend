@@ -52,7 +52,7 @@ const UserLocation = () => {
         if (!userLocation) return;
 
         try {
-            const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${category}.json?bbox=${userLocation.longitude - 0.2},${userLocation.latitude - 0.2},${userLocation.longitude + 0.2},${userLocation.latitude + 0.2}&access_token=${MAPBOX_ACCESS_TOKEN}`);
+            const response = await fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${category}.json?bbox=${userLocation.longitude - 0.1},${userLocation.latitude - 0.1},${userLocation.longitude + 0.1},${userLocation.latitude + 0.1}&access_token=${MAPBOX_ACCESS_TOKEN}`);
             const data = await response.json();
             if (data.features && data.features.length > 0) {
                 setPlaces(data.features);

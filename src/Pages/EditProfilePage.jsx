@@ -82,6 +82,7 @@ const EditProfilePage = () => {
     }, [API, token, user.id]);
 
     return (
+        <div className='editProfilePageBody'>
         <div className="editProfilePage">
             <ToastContainer />
             <h2>Edit Profile</h2>
@@ -148,6 +149,7 @@ const EditProfilePage = () => {
                 </div><br />
                 <button className='editUserButton' type="submit">Save Changes</button>
             </form>
+        </div>
         </div>
     )
 }
