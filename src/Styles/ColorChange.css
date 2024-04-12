@@ -21,8 +21,8 @@
 @media screen and (max-width: 430px) {
   .colorChange {
     height: 38px;
-    width: 45px;
-    padding-left: 2px;
+    width: 38px;
+    
     border-radius: 100%;
     position: relative;
     left: 10px;
@@ -31,4 +31,6 @@
     align-items: center;
     justify-content: center;
   }
+
+
 }
