@@ -162,7 +162,7 @@ const EditProfilePage = () => {
                             <FaRegEyeSlash className="eye-icon" onClick={() => setShowPassword(true)} />
                         )}
                     </div>
-                </div><br />
+                </div>
                 <button className='editUserButton' type="submit">Save Changes</button>
             </form>
         </div>

@@ -99,34 +99,31 @@
   .userName {
     position: relative;
     color: white;
-    bottom: 110px;
+    bottom: 50px;
   }
 
   .editPButton {
     position: relative;
     font-size: larger;
     padding: 5px;
-    bottom: 110px;
+    bottom: 50px;
   }
 
   
   .time {
     position: relative;
-    top: -150px;
+    bottom:50px;
   }
 
   .emergencyContactButton {
     position: relative;
-    top: 140px;
+    top: 75px;
   }
 
   .villagesButton {
     position: relative;
-    top: 140px;
+    top: 75px;
   }
 
-  .editProfileButton {
-    position: relative;
-    top: 140px;
-  }
+ 
 }

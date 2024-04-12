@@ -145,7 +145,7 @@
 
   .firstNameC {
     position: relative;
-    top: 75px;
+    top: 81px;
     font-size: 30px;
   }
 
@@ -204,6 +204,6 @@
     width: 90px;
     height: 30px;
     position: relative;
-    top: -95px;
+    top: -110px;
   }
 }

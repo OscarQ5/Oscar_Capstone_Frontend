@@ -71,11 +71,19 @@ border:2px solid red;
 
  .addVillageButton{
     position:relative;
-    top:50px;
+    top:-40px;
  }
     .villagePageBody{
         position:relative;
-        top: 30px;
+        
+        /* top: 30px; */
+        overflow-y: auto;
+        scrollbar-width: thin; 
+        scrollbar-color: transparent transparent;
     }
-  
+
+    .villageBubble{
+      position:relative;
+      bottom:30px;
+    }
 }
