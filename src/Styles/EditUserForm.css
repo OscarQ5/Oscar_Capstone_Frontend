@@ -26,6 +26,10 @@
   background-color: white;
   color: black;
   border-radius: 40px;
+  position:relative;
+  top:20px;
+
+
 }
 
 .editUserButton:hover {
@@ -46,7 +50,7 @@ label {
 @media screen and (max-width: 430px) {
   .editUserButton {
     position: relative;
-    top: 140px;
+    top: 20px;
   }
 
   .editProfilePageBody {
@@ -63,6 +67,7 @@ label {
     overflow-y: scroll;
     height: 100vh;
     text-align: center;
+  
   }
 
   .editProfilePage {

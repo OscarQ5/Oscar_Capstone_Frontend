@@ -84,3 +84,24 @@ border-radius: 35px;
   background-color: black;
   color:white;
 }
+
+@media screen and (max-width: 430px) {
+
+  .signUpForm {
+    border: 3px solid rgb(242, 18, 18);
+    padding: 20px;
+    border-radius: 35px;
+    width: 86vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(234, 234, 234);
+    color: black;
+  }
+
+  .blurb-SU {
+    width: 90vw;
+   
+  }
+}
