@@ -137,15 +137,15 @@
   text-decoration: underline red;
 }
 
-a{
+a {
   text-decoration: none;
 }
 @media screen and (max-width: 430px) {
-  .stateEmergencyBody{
+  .stateEmergencyBody {
+    height: 100vh;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
-
   }
   .emergencyButtons {
     gap: 50px;
@@ -155,14 +155,14 @@ a{
     position: relative;
     top: 20px;
   }
-/* 
+  /* 
   .buttonDiv {
     display: flex;
     flex-direction: column;
     justify-content: end;
     /* align-items: end; */
-    /* max-height: 90px;
+  /* max-height: 90px;
     position: relative; */
-    /* top: 50px; */
+  /* top: 50px; */
   /* }  */
 }
