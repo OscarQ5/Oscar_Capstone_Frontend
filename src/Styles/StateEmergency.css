@@ -140,7 +140,8 @@
 a {
   text-decoration: none;
 }
-@media screen and (max-width: 430px) {
+
+@media screen and (max-width: 1024px) {
   .stateEmergencyBody {
     height: 100vh;
     overflow-y: auto;
@@ -150,19 +151,54 @@ a {
   .emergencyButtons {
     gap: 50px;
   }
-
+  
   .EPcontactBody {
     position: relative;
     top: 20px;
   }
-  /* 
-  .buttonDiv {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    /* align-items: end; */
-  /* max-height: 90px;
-    position: relative; */
-  /* top: 50px; */
-  /* }  */
+  
+}
+
+@media screen and (max-width: 768px) {
+  .stateEmergencyBody {
+    height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+  }
+  .emergencyButtons {
+    gap: 50px;
+  }
+  
+  .EPcontactBody {
+    position: relative;
+    top: 20px;
+  }
+  
+  @media screen and (max-width: 430px) {
+    .stateEmergencyBody {
+      height: 100vh;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: transparent transparent;
+    }
+    .emergencyButtons {
+      gap: 50px;
+    }
+  
+    .EPcontactBody {
+      position: relative;
+      top: 20px;
+    }
+    /* 
+    .buttonDiv {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      /* align-items: end; */
+    /* max-height: 90px;
+      position: relative; */
+    /* top: 50px; */
+    /* }  */
+  }
 }
