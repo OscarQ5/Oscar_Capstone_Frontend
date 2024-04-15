@@ -217,6 +217,220 @@
   background-color: black;
   border: 2px solid red;
 }
+
+/* experiment */
+
+@media screen and (max-width: 1024px) {
+  .villagePageBackLink {
+    position: relative;
+    top: -10px;
+    right: 0px;
+  }
+  .villageDetailHeader {
+    display: none;
+  }
+
+  .getVillageBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    top: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    margin-top: 75px;
+  }
+
+  /* .getVillageBody{
+    display: flex;
+    flex-direction: column;
+  } */
+
+  .getVillForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .villageMemberCard {
+    width: 96vw;
+  }
+
+  .searchR {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    padding-bottom: 5px;
+    border-radius: 30px;
+    position: relative;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    bottom: 63px;
+  }
+
+  .villageDetail {
+    border: 1px solid red;
+    background-color: rgb(234, 234, 234);
+    border-radius: 20px;
+    color: black;
+    max-height: 200px;
+    min-width: 95%;
+    /* min-height: 50px; */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    margin-bottom: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: relative;
+    left: 0px;
+    bottom: 50px;
+  }
+
+  .joinRequestsSection {
+    margin-top: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: none;
+    background-color: rgb(234, 234, 234);
+    border-radius: 20px;
+    color: black;
+    /* width: 100vw; */
+    max-height: 195px;
+    overflow-y: auto;
+    position: relative;
+    bottom: 69px;
+  }
+
+  .joinRequestsSection h2 {
+    text-decoration: underline;
+  }
+
+  .villageMemberCard h2{
+    font-size: medium;
+  }
+
+  .findUserH2{
+    position:relative;
+    top: 15px;
+  }
+}
+
+/* experiment */
+
+@media screen and (max-width: 768px) {
+  .villagePageBackLink {
+    position: relative;
+    top: -10px;
+    right: 0px;
+  }
+  .villageDetailHeader {
+    display: none;
+  }
+
+  .getVillageBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+    top: 20px;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    margin-top: 75px;
+  }
+
+  /* .getVillageBody{
+    display: flex;
+    flex-direction: column;
+  } */
+
+  .getVillForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .villageMemberCard {
+    width: 96vw;
+  }
+
+  .searchR {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    padding-bottom: 5px;
+    border-radius: 30px;
+    position: relative;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    bottom: 63px;
+  }
+
+  .villageDetail {
+    border: 1px solid red;
+    background-color: rgb(234, 234, 234);
+    border-radius: 20px;
+    color: black;
+    max-height: 200px;
+    min-width: 95%;
+    /* min-height: 50px; */
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+    margin-bottom: 10px;
+    padding-left: 4px;
+    padding-right: 4px;
+    position: relative;
+    left: 0px;
+    bottom: 50px;
+  }
+
+  .joinRequestsSection {
+    margin-top: 9px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border: none;
+    background-color: rgb(234, 234, 234);
+    border-radius: 20px;
+    color: black;
+    /* width: 100vw; */
+    max-height: 195px;
+    overflow-y: auto;
+    position: relative;
+    bottom: 69px;
+  }
+
+  .joinRequestsSection h2 {
+    text-decoration: underline;
+  }
+
+  .villageMemberCard h2{
+    font-size: medium;
+  }
+
+  .findUserH2{
+    position:relative;
+    top: 15px;
+  }
+}
 @media screen and (max-width: 430px) {
   .villagePageBackLink {
     position: relative;
@@ -263,15 +477,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100vw;
+    width: 85%;
     padding-bottom: 5px;
     border-radius: 30px;
     position: relative;
-    height: 300px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     overflow-y: auto;
-    bottom: 60px;
+    bottom: 63px;
   }
 
   .villageDetail {
@@ -279,8 +493,8 @@
     background-color: rgb(234, 234, 234);
     border-radius: 20px;
     color: black;
-    max-height: 270px;
-    min-width: 100%;
+    max-height: 200px;
+    min-width: 95%;
     /* min-height: 50px; */
     overflow-y: auto;
     scrollbar-width: thin;
@@ -311,6 +525,15 @@
   .joinRequestsSection h2 {
     text-decoration: underline;
   }
+
+  .villageMemberCard h2{
+    font-size: medium;
+  }
+
+  .findUserH2{
+    position:relative;
+    top: 15px;
+  }
 }
 
 /* new dimension */
@@ -321,7 +544,7 @@
   }
   .villagePageBackLink {
     position: relative;
-    top: -10px;
+    top: -30px;
     right: 0px;
   }
   .villageDetailHeader {
@@ -359,6 +582,9 @@
     width: 90vw;
   }
 
+  .villageMemberCard h2{
+    font-size: smaller;
+  }
   .searchR {
     border: none;
     display: flex;
@@ -369,13 +595,25 @@
     padding-bottom: 5px;
     border-radius: 30px;
     position: relative;
-    height: 300px;
+    height: 250px;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     overflow-y: auto;
-    bottom: 60px;
+    bottom: 40px;
   }
 
+  .findUserH2{
+    position:relative;
+    top: 15px;
+  }
+
+  input{
+    width:80vw;
+  }
+  .search-result h2{
+    font-size: smaller;
+  }
   .villageDetail {
     border: 1px solid red;
     background-color: rgb(234, 234, 234);

@@ -291,7 +291,7 @@ const GetVillage = () => {
 
                 <div className="getVillForm">
                     <div className="searchR">
-                        <h2>Find User 🔎</h2>
+                        <h2 className="findUserH2">Find User 🔎</h2>
                         <div className="phoneFilter">
 
                             <form onSubmit={handleSearch}>
