@@ -134,6 +134,7 @@ const GetVillage = () => {
 
                 const updatedSearchResults = searchResults.filter(result => result.user_id !== userId);
                 setSearchResults(updatedSearchResults);
+                toast.success("User added to the village successfully")
             } else {
                 const errorData = await response.json();
                 console.error('Error Response:', errorData);
