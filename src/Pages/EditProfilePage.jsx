@@ -7,7 +7,7 @@ import { FaEye, FaRegEyeSlash } from 'react-icons/fa'
 import '../Styles/EditUserForm.css'
 
 const EditProfilePage = () => {
-    const { user, API, token } = useLoginDataProvider()
+    const { user, API, token, setUser } = useLoginDataProvider()
     const navigate = useNavigate()
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -55,6 +55,7 @@ const EditProfilePage = () => {
             });
             if (response.ok) {
                 toast.success("User updated successfully")
+                setUser({ ...user, ...userData })
                 navigate('/users/home')
             } else {
                 console.error("Failed to update user")
