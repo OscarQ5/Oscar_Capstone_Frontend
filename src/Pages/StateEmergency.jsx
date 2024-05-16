@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import FetchLocation from "../Components/FetchLocation.jsx";
 import UserLocation from '../Components/UserLocation.jsx';
 import '../Styles/StateEmergency.css'
 import { useLoginDataProvider } from '../Components/LoginProvider';
 import SpeechToText from '../Components/SpeechToText.jsx';
 import MedicalConfirmationModal from '../Components/MedicalConfirmationModal.jsx';
 
-const StateEmergency = ({ setTranscription }) => {
+const StateEmergency = () => {
     const [villages, setVillages] = useState([]);
-    const { user, API, token, userAddress, userLocation } = useLoginDataProvider();
+    const { API, token, userAddress, userLocation } = useLoginDataProvider();
     const [selectedVillage, setSelectedVillage] = useState('');
     const [showDropdown, setShowDropdown] = useState(false);
     const [emergencyText, setEmergencyText] = useState('');
@@ -21,7 +20,6 @@ const StateEmergency = ({ setTranscription }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [buttonsHidden, setButtonsHidden] = useState(false);
 
-    
     const handleMessageClick = () => {
         setIsModalOpen(true);
         setButtonsHidden(true);
@@ -50,7 +48,7 @@ const StateEmergency = ({ setTranscription }) => {
     const hideButtons = () => {
         setButtonsHidden(true);
     };
-    
+
     //Grabs all the villages the user is associated with
     useEffect(() => {
         fetch(`${API}/users/villages`, {
@@ -123,7 +121,7 @@ const StateEmergency = ({ setTranscription }) => {
             try {
                 console.log("Sending emergency text:", message);
                 console.log('Emergency SMS sent successfully');
-                
+
                 showAlert(`Emergency Text sent successfully to ${selectedVillage}`);
                 // await sendSMS(allNumbers, message);    **uncomment to send message**
 
@@ -146,7 +144,7 @@ const StateEmergency = ({ setTranscription }) => {
                 console.log("Sending emergency text:", message);
                 console.log('Emergency SMS sent successfully');
                 showAlert(`Emergency Text sent successfully to ${selectedVillage}`);
-                await sendSMS(allNumbers, message);  
+                await sendSMS(allNumbers, message);
                 setShowDropdown(false);
                 setButtonsHidden(false);
 
@@ -155,7 +153,6 @@ const StateEmergency = ({ setTranscription }) => {
                 showAlert('Failed to send emergency text');
             }
         } else {
-            // Show alert that selectedVillage should have one element
             showAlert('Please select a village.');
         }
     };
@@ -185,32 +182,32 @@ const StateEmergency = ({ setTranscription }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`${API}/users/village-users/${selectedVillageId}`, {
-                    method: "GET",
-                    headers: {
-                        "Content-Type": "application/json",
-                        'Authorization': token
-                    },
-                });
-                const data = await response.json();
+                if (selectedVillageId) {
+                    const response = await fetch(`${API}/users/village-users/${selectedVillageId}`, {
+                        method: "GET",
+                        headers: {
+                            "Content-Type": "application/json",
+                            'Authorization': token
+                        },
+                    });
+                    const data = await response.json();
 
-                if (Array.isArray(data)) {
-                    const usersWithInfo = await Promise.all(data.map(async (user) => {
-                        const userInfoResponse = await fetch(`${API}/users/${user.user_id}`, {
-                            method: "GET",
-                            headers: {
-                                "Content-Type": "application/json",
-                                'Authorization': token
-                            },
-                        });
-                        const userInfo = await userInfoResponse.json();
-                        return { ...user, userInfo };
-                    }));
-                    setVillageUsers(usersWithInfo);
-                } else {
-                    // console.error("Data is not an array:", data);
-                    // Handle the error or set an empty array based on your needs
-                    setVillageUsers([]);
+                    if (Array.isArray(data)) {
+                        const usersWithInfo = await Promise.all(data.map(async (user) => {
+                            const userInfoResponse = await fetch(`${API}/users/${user.user_id}`, {
+                                method: "GET",
+                                headers: {
+                                    "Content-Type": "application/json",
+                                    'Authorization': token
+                                },
+                            });
+                            const userInfo = await userInfoResponse.json();
+                            return { ...user, userInfo };
+                        }));
+                        setVillageUsers(usersWithInfo);
+                    } else {
+                        setVillageUsers([]);
+                    }
                 }
             } catch (error) {
                 console.error(error);
@@ -260,10 +257,10 @@ const StateEmergency = ({ setTranscription }) => {
 
     return (
         <div className="stateEmergencyBody">
-            
+
             <div className='userLocationBody'>
 
-            <UserLocation />
+                <UserLocation />
             </div>
 
             <MedicalConfirmationModal
@@ -293,42 +290,41 @@ const StateEmergency = ({ setTranscription }) => {
                             onTextChange={setEmergencyText}
                             handleEmergencySend={handleEmergencySend}
                             cancelButton={cancelButton}
-                             />
+                        />
                     </div>
 
                 </div>
             )}
             <div className='EPcontactBody'>
 
-           
-            <div className='contactHeader' style={{ display: buttonsHidden ? 'none' : 'block' }}><h3>Contact</h3></div>
 
-<div className="emergencyButtons" style={{ display: buttonsHidden ? 'none' : 'flex' }}>
-    
-                <div className='buttonDiv'>
-                <a href="tel:911">
-                    <h5 className='EPBottomButton'>  911 </h5>
-                    </a>
-                    <a href="tel:911">
-                        <img className="emergencyServices" src="/blueStar.svg" alt="Emergency Services" />
-                    </a>
+                <div className='contactHeader' style={{ display: buttonsHidden ? 'none' : 'block' }}><h3>Contact</h3></div>
+
+                <div className="emergencyButtons" style={{ display: buttonsHidden ? 'none' : 'flex' }}>
+
+                    <div className='buttonDiv'>
+                        <a href="tel:911">
+                            <h5 className='EPBottomButton'>  911 </h5>
+                        </a>
+                        <a href="tel:911">
+                            <img className="emergencyServices" src="/blueStar.svg" alt="Emergency Services" />
+                        </a>
+                    </div>
+
+                    <div className='buttonDiv' onClick={() => { handleMessageClick(); setIs911VillageClicked(true); hideButtons(); }}>
+                        <h5 className='EPBottomButton' onClick={() => { handleMessageClick(); setIs911VillageClicked(true); hideButtons(); }}>  911 + Village </h5>
+                        <img className="emergencyServices" src="/arrows.svg" alt="Emergency Services" />
+                    </div>
+
+                    <div className='buttonDiv' onClick={() => { handleMessageClick(); hideButtons(); }}>
+                        <h5 className='EPBottomButton' onClick={() => { handleMessageClick(); hideButtons(); }}>  Village </h5>
+                        <img className="emergencyServices" src="/community.svg" alt="Emergency Services" />
+                    </div>
                 </div>
 
-                <div className='buttonDiv' onClick={() => { handleMessageClick(); setIs911VillageClicked(true); hideButtons(); }}>
-                    <h5 className='EPBottomButton' onClick={() => { handleMessageClick(); setIs911VillageClicked(true); hideButtons(); }}>  911 + Village </h5>
-                    <img className="emergencyServices" src="/arrows.svg" alt="Emergency Services" />
-                </div>
-
-                <div className='buttonDiv' onClick={() => { handleMessageClick(); hideButtons(); }}>
-                    <h5 className='EPBottomButton' onClick={() => { handleMessageClick(); hideButtons(); }}>  Village </h5>
-                    <img className="emergencyServices" src="/community.svg" alt="Emergency Services" />
-                </div>
             </div>
-
-        </div>
         </div>
     );
 };
 
 export default StateEmergency;
-

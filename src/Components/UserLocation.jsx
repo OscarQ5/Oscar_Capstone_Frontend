@@ -145,27 +145,24 @@ const UserLocation = () => {
 
     const handleDirections = (destination, popup) => {
         fetchRouteAndDirections(destination);
-        popup.remove(); // Close the popup
+        popup.remove();
     }
 
     const handleWalkingDirection = (destination, popup) => {
         fetchWalkingRouteAndDirections(destination);
-        popup.remove(); // Close the popup
+        popup.remove();
     }
 
     useEffect(() => {
         if (map) {
             if (route) {
-                // Add or update route on the map
                 if (map.getSource('route')) {
-                    // If source exists, update data
                     map.getSource('route').setData({
                         type: 'Feature',
                         properties: {},
                         geometry: route,
                     });
                 } else {
-                    // Otherwise, add new source and layer
                     map.addSource('route', {
                         type: 'geojson',
                         data: {
@@ -189,7 +186,6 @@ const UserLocation = () => {
                     });
                 }
             } else {
-                // Remove route layer and source from the map
                 if (map.getLayer('route')) {
                     map.removeLayer('route');
                 }
@@ -215,7 +211,7 @@ const UserLocation = () => {
         if (map && userLocation) {
             const userMarker = new mapboxgl.Marker({
                 color: '#E87400'
-                
+
             }).setLngLat([userLocation.longitude, userLocation.latitude]).addTo(map);
         }
     }, [map, userLocation]);
@@ -278,8 +274,8 @@ const UserLocation = () => {
     return (
         <div className='userLocation'>
             <ToastContainer className='toastify' />
-            {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'> <img className='pinImg' src='/MapMarker2.svg'/> {userAddress}</h2>}
-            
+            {loading ? <h2 className='userAddress'>Loading...</h2> : <h2 className='userAddress'> <img className='pinImg' src='/MapMarker2.svg' /> {userAddress}</h2>}
+
             <h3 className="directionHeader">Route & Direction</h3>
             <div className="mapButtons">
 
@@ -297,10 +293,7 @@ const UserLocation = () => {
                 </div>
             </div>
             <div className="mapDivBody">
-                {/* <div className="mapBoxDiv"> */}
                 <div id="map"></div>
-                {/* <div id="map" style={{ width: '40vw', height: '400px', borderRadius: '60px' }}></div> */}
-                {/* </div> */}
 
                 {directions && (
                     <div className="mapDirections">

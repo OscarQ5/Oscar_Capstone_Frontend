@@ -1,97 +1,79 @@
-.textBoxBody{
-    /* border: 1px solid red; */
+.textBoxBody {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
 }
 
-.inputAndButton{
-    border-radius: 40px;;
-    /* border: 1px solid red; */
+.inputAndButton {
+    border-radius: 40px;
     width: 40vw;
-    margin-top:20px;
-    display:flex;
+    margin-top: 20px;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.micro{
+.micro {
     height: 30px;
     width: 30px;
-    display:flex;
- justify-content: center;
- align-items: center;
- border-color: red;
- /* position:relative;
- top: 20px;
- left:-50px; */
- font-size:medium;
- border-radius: 60px;;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: red;
+    font-size: medium;
+    border-radius: 60px;
 }
 
-.micro:hover{
+.micro:hover {
     background-color: aliceblue;
     border-color: red;
 }
 
-/* input .textbox{
-    height: 40px;
-} */
-
-.textbox{
+.textbox {
     display: flex;
-  flex-wrap: wrap;
-  border-radius: 10px;
-/* margin-left:30px; */
-background-color: white;
-color:black;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    background-color: white;
+    color: black;
 }
 
-.textButtons{
-    display:flex;
+.textButtons {
+    display: flex;
     flex-direction: column;
-    align-items:center;
-   gap:10px;
+    align-items: center;
+    gap: 10px;
 }
 
-.send{
+.send {
     font-weight: bold;
 }
 
-.cancelSend{
-    /* height: 30px;
-    width: 30px; */
-    display:flex;
- justify-content: center;
- align-items: center;
- border-color: red;
- /* position:relative;
- top: 20px;
- left:-50px; */
- font-size:x-small;
- border-radius: 5px;
- font-weight: bold;
+.cancelSend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-color: red;
+    font-size: x-small;
+    border-radius: 5px;
+    font-weight: bold;
 }
 
-.cancelSend:hover{
+.cancelSend:hover {
     background-color: aliceblue;
     border-color: red;
-    color:black;
+    color: black;
 }
 
 @media screen and (max-width: 430px) {
-    .inputAndButton{
-        border-radius: 40px;;
-        /* border: 1px solid red; */
+    .inputAndButton {
+        border-radius: 40px;
         width: 80vw;
-        margin-top:20px;
-        display:flex;
+        margin-top: 20px;
+        display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-evenly;
     }
-
 }

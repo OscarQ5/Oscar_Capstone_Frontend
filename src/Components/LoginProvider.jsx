@@ -1,7 +1,5 @@
 import { useContext, createContext, useState } from 'react';
 
-import axios from "axios"
-
 export const LoginData = createContext()
 
 export function useLoginDataProvider() {
@@ -22,12 +20,10 @@ function LoginProvider({ children }) {
         email: '',
         password_hash: '',
         phone_number: '',
-        username:''
+        username: ''
     })
 
     const isAuthenticated = user && token
-
-    // axios.defaults.headers.common["Authorization"] = token
 
     return (
         <LoginData.Provider value={{

@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLoginDataProvider } from "../Components/LoginProvider";
 import '../Styles/EditMedicalHistory.css'
 
-const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShowMedicineCabinet }) => {
+const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel }) => {
     const { API, token } = useLoginDataProvider();
-    const { medical_id } = medHistory[0]; 
+    const { medical_id } = medHistory[0];
     const [medicalHistory, setMedicalHistory] = useState({
         blood_type: medHistory[0].blood_type,
         allergies: medHistory[0].allergies,
@@ -27,29 +27,13 @@ const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShow
                 'Authorization': token
             }
         })
-        .then(res => res.json())
-        .then(res => {
-            console.log( res);
-            setEditMode(false); 
-            setShowMedicineCabinet(false)
-        })
-        .catch(err => console.log(err));
+            .then(res => res.json())
+            .then(res => {
+                console.log(res);
+                setEditMode(false);
+            })
+            .catch(err => console.log(err));
     };
-
-    // const handleDelete = () => {
-    //     fetch(`${API}/users/medical/${medical_id}`, {
-    //         method: "DELETE",
-    //         headers: {
-    //             "Authorization" : token
-    //         }
-    //     })
-    //     .then(res => res.json())
-    //     .then(res => {
-    //         console.log("Completed Delete");
-    //         setEditMode(false); 
-    //     })
-    //     .catch(err => console.log(err));
-    // };
 
     return (
         <div className="medicalHistoryForm">
@@ -63,8 +47,8 @@ const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShow
                     placeholder="ex. Bananas"
                     required
                 />
-     
-     <label htmlFor="medication">Are you taking any medication? </label>
+
+                <label htmlFor="medication">Are you taking any medication? </label>
                 <input
                     id="medication"
                     value={medicalHistory.medication}
@@ -73,7 +57,6 @@ const EditMedicalHistory = ({ medHistory, setEditMode, handleEditCancel, setShow
                     placeholder="ex. Albuterol"
                     required
                 />
-
                 <label htmlFor="medical_history">Any Past Medical History?</label>
                 <input
                     id="medical_history"

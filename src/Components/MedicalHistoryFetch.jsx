@@ -1,9 +1,9 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLoginDataProvider } from "../Components/LoginProvider";
 import EditMedicalHistory from "./EditMedicalHistory";
 import '../Styles/MedicalHistoryFetch.css'
 
-const MedicalHistoryFetch = ({setShowMedicineCabinet}) => {
+const MedicalHistoryFetch = () => {
     const { API, token } = useLoginDataProvider();
     const [medHistory, setMedHistory] = useState([]);
     const [editMode, setEditMode] = useState(false);
@@ -14,9 +14,9 @@ const MedicalHistoryFetch = ({setShowMedicineCabinet}) => {
                 "Authorization": token
             }
         })
-        .then((res) => res.json())
-        .then((res) => setMedHistory(res))
-        .catch((error) => console.error('Error fetching medical history:', error));
+            .then((res) => res.json())
+            .then((res) => setMedHistory(res))
+            .catch((error) => console.error('Error fetching medical history:', error));
     }, [API, token, medHistory]);
 
     const handleEditClick = () => {
@@ -38,7 +38,12 @@ const MedicalHistoryFetch = ({setShowMedicineCabinet}) => {
                             <h2>Blood Type: {person.blood_type}</h2>
                             <h2>Medical History: {person.medical_history}</h2>
                             <div>
-                            <img  onClick={handleEditClick} className="editButtonMed" src='../DarkButton.svg' alt="Edit Emergency Contact" />   
+                                <img
+                                    onClick={handleEditClick}
+                                    className="editButtonMed"
+                                    src='../DarkButton.svg'
+                                    alt="Edit Emergency Contact"
+                                />
                             </div>
                         </div>
                     ))}
@@ -50,7 +55,6 @@ const MedicalHistoryFetch = ({setShowMedicineCabinet}) => {
                     medHistory={medHistory}
                     setEditMode={setEditMode}
                     handleEditCancel={handleEditCancel}
-                    setShowMedicineCabinet={setShowMedicineCabinet}
                 />
             )}
         </div>

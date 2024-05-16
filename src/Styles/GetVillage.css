@@ -9,16 +9,9 @@
   overflow-x: hidden;
   position: relative;
   top: 20px;
-  /* scrollbar-width: thin;  */
-  /* scrollbar-color: transparent transparent; */
-  /* margin-top:75px; */
 }
 
 .villageDetailHeader {
-  /* position:fixed;
-  color:white;
- top: 200px;
- left:330px; */
   display: none;
 }
 
@@ -29,7 +22,6 @@
   color: black;
   max-height: 270px;
   min-width: 500px;
-  /* min-height: 50px; */
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -45,9 +37,8 @@
   background-color: rgb(234, 234, 234);
   border-radius: 50px;
   color: black;
-
-  /* margin-bottom: 10px; */
 }
+
 .addB {
   display: flex;
   flex-direction: row;
@@ -56,7 +47,6 @@
 }
 
 .addButton {
-  /* margin-bottom: 7px; */
   height: 30px;
   border-radius: 30px;
   display: flex;
@@ -135,8 +125,6 @@
   height: 50vh;
   max-height: 200px;
   width: 270px;
-  /* display:flex;
-  flex-direction: column; */
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
@@ -152,6 +140,7 @@
   left: -35px;
   top: -12px;
 }
+
 .joinRequestsSection h2 {
   text-decoration: underline;
   position: relative;
@@ -218,14 +207,13 @@
   border: 2px solid red;
 }
 
-/* experiment */
-
 @media screen and (max-width: 1024px) {
   .villagePageBackLink {
     position: relative;
     top: -10px;
     right: 0px;
   }
+
   .villageDetailHeader {
     display: none;
   }
@@ -245,11 +233,6 @@
     scrollbar-color: transparent transparent;
     margin-top: 75px;
   }
-
-  /* .getVillageBody{
-    display: flex;
-    flex-direction: column;
-  } */
 
   .getVillForm {
     display: flex;
@@ -284,7 +267,6 @@
     color: black;
     max-height: 200px;
     min-width: 95%;
-    /* min-height: 50px; */
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
@@ -304,7 +286,6 @@
     background-color: rgb(234, 234, 234);
     border-radius: 20px;
     color: black;
-    /* width: 100vw; */
     max-height: 195px;
     overflow-y: auto;
     position: relative;
@@ -315,17 +296,15 @@
     text-decoration: underline;
   }
 
-  .villageMemberCard h2{
+  .villageMemberCard h2 {
     font-size: medium;
   }
 
-  .findUserH2{
-    position:relative;
+  .findUserH2 {
+    position: relative;
     top: 15px;
   }
 }
-
-/* experiment */
 
 @media screen and (max-width: 768px) {
   .villagePageBackLink {
@@ -333,6 +312,7 @@
     top: -10px;
     right: 0px;
   }
+
   .villageDetailHeader {
     display: none;
   }
@@ -352,11 +332,6 @@
     scrollbar-color: transparent transparent;
     margin-top: 75px;
   }
-
-  /* .getVillageBody{
-    display: flex;
-    flex-direction: column;
-  } */
 
   .getVillForm {
     display: flex;
@@ -391,7 +366,6 @@
     color: black;
     max-height: 200px;
     min-width: 95%;
-    /* min-height: 50px; */
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
@@ -411,7 +385,6 @@
     background-color: rgb(234, 234, 234);
     border-radius: 20px;
     color: black;
-    /* width: 100vw; */
     max-height: 195px;
     overflow-y: auto;
     position: relative;
@@ -422,21 +395,23 @@
     text-decoration: underline;
   }
 
-  .villageMemberCard h2{
+  .villageMemberCard h2 {
     font-size: medium;
   }
 
-  .findUserH2{
-    position:relative;
+  .findUserH2 {
+    position: relative;
     top: 15px;
   }
 }
+
 @media screen and (max-width: 430px) {
   .villagePageBackLink {
     position: relative;
     top: -10px;
     right: 0px;
   }
+
   .villageDetailHeader {
     display: none;
   }
@@ -456,11 +431,6 @@
     scrollbar-color: transparent transparent;
     margin-top: 75px;
   }
-
-  /* .getVillageBody{
-    display: flex;
-    flex-direction: column;
-  } */
 
   .getVillForm {
     display: flex;
@@ -495,7 +465,6 @@
     color: black;
     max-height: 200px;
     min-width: 95%;
-    /* min-height: 50px; */
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
@@ -515,7 +484,6 @@
     background-color: rgb(234, 234, 234);
     border-radius: 20px;
     color: black;
-    /* width: 100vw; */
     max-height: 195px;
     overflow-y: auto;
     position: relative;
@@ -526,27 +494,27 @@
     text-decoration: underline;
   }
 
-  .villageMemberCard h2{
+  .villageMemberCard h2 {
     font-size: medium;
   }
 
-  .findUserH2{
-    position:relative;
+  .findUserH2 {
+    position: relative;
     top: 15px;
   }
 }
-
-/* new dimension */
 
 @media screen and (max-width: 360px) {
   .getVillForm {
     height: 80%;
   }
+
   .villagePageBackLink {
     position: relative;
     top: -30px;
     right: 0px;
   }
+
   .villageDetailHeader {
     display: none;
   }
@@ -567,13 +535,8 @@
     margin-top: 75px;
   }
 
-  /* .getVillageBody{
-    display: flex;
-    flex-direction: column;
-  } */
-
   .getVillForm {
-  
+
     display: flex;
     flex-direction: column;
   }
@@ -582,9 +545,10 @@
     width: 90vw;
   }
 
-  .villageMemberCard h2{
+  .villageMemberCard h2 {
     font-size: smaller;
   }
+
   .searchR {
     border: none;
     display: flex;
@@ -603,17 +567,19 @@
     bottom: 40px;
   }
 
-  .findUserH2{
-    position:relative;
+  .findUserH2 {
+    position: relative;
     top: 15px;
   }
 
-  input{
-    width:80vw;
+  input {
+    width: 80vw;
   }
-  .search-result h2{
+
+  .search-result h2 {
     font-size: smaller;
   }
+
   .villageDetail {
     border: 1px solid red;
     background-color: rgb(234, 234, 234);
@@ -621,7 +587,6 @@
     color: black;
     max-height: 270px;
     min-width: 90%;
-    /* min-height: 50px; */
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
@@ -641,7 +606,6 @@
     background-color: rgb(234, 234, 234);
     border-radius: 20px;
     color: black;
-    /* width: 100vw; */
     max-height: 195px;
     overflow-y: auto;
     position: relative;

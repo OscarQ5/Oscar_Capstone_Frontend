@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FriesNavbar from "./Components/FriesNavbar.jsx";
 import "./App.css";
 import { useLoginDataProvider } from "./Components/LoginProvider";
-import LandingPage from "./Pages/LandingPage.jsx";
 import SignupPage from "./Pages/SignupPage";
 import EmergencyContactsPage from "./Pages/EmergencyContactPage";
 import MedicalHistoryPage from "./Pages/MedicalHistoryPage";
@@ -20,7 +19,6 @@ import LoginSignup from "./Components/LoginSignup.jsx";
 import LandingHomePage from "./Pages/LandingHomePage.jsx";
 import About from "./Pages/About.jsx";
 import EditProfilePage from "./Pages/EditProfilePage.jsx";
-// import ColorChange from "./Components/ColorChange.jsx";
 
 function App() {
   const { setUser, setToken, user, token } = useLoginDataProvider();
@@ -29,13 +27,11 @@ function App() {
     <>
       <Router>
         <FriesNavbar />
-        {/* <ColorChange /> */}
-
         <Routes>
           <Route path="/" element={<LandingHomePage />} />
 
-          <Route path="/about" element={<About/>} />
-          
+          <Route path="/about" element={<About />} />
+
           <Route
             path="users/sign-up"
             element={<SignupPage setUser={setUser} setToken={setToken} />}

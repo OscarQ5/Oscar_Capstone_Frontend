@@ -9,7 +9,7 @@ export default function EmergencyContactsForm() {
     const navigate = useNavigate();
 
     if (!user) {
-        return <div>Loading...</div>; 
+        return <div>Loading...</div>;
     }
 
     const [contact, setContact] = useState({
@@ -49,7 +49,7 @@ export default function EmergencyContactsForm() {
 
     const handleTextChange = (event) => {
         const { id, value } = event.target;
-        
+
         if (id === "phone_number") {
             setContact({ ...contact, phone_number: value });
         } else {
@@ -59,12 +59,12 @@ export default function EmergencyContactsForm() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        addEmergencyContact();      
+        addEmergencyContact();
     };
 
     const handleAddMoreSubmit = (event) => {
         event.preventDefault();
-        
+
         addMoreEmergencyContact();
 
         setSuccessMessage(`Successfully added: ${contact.firstname} ${contact.lastname} `);
@@ -121,7 +121,6 @@ export default function EmergencyContactsForm() {
                     <Link to={`/users/sign-up/${user.user_id}/medical`}><button>Next</button></Link>
                 </div>
             </form>
-
         </div>
     );
 }

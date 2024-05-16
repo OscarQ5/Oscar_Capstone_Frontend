@@ -1,40 +1,40 @@
-.deleteButtonEC{
-    width:40px;
-    height:30px;
-    background-color: rgb(216, 216, 216);
-    border-radius: 90px;
-    padding:5px;
-    border: 2px solid red;
-    }
+.deleteButtonEC {
+   width: 40px;
+   height: 30px;
+   background-color: rgb(216, 216, 216);
+   border-radius: 90px;
+   padding: 5px;
+   border: 2px solid red;
+}
 
-    .deleteButtonEC:hover{
-        width:40px;
-        height:30px;
-        background-color: rgb(48, 42, 42);
-        border-radius: 90px;
-    }
+.deleteButtonEC:hover {
+   width: 40px;
+   height: 30px;
+   background-color: rgb(48, 42, 42);
+   border-radius: 90px;
+}
 
- .emergencyContactForm{
-    margin-top: 80px;
- }
+.emergencyContactForm {
+   margin-top: 80px;
+}
 
- @media screen and (max-width: 430px) {
+@media screen and (max-width: 430px) {
 
-    .emergencyContactForm{
-        width: 84vw;
-        margin-top: 50px;
-     }
+   .emergencyContactForm {
+      width: 84vw;
+      margin-top: 50px;
+   }
 
-     input{
-       height: 20px;
-     }
+   input {
+      height: 20px;
+   }
 
-     .PhoneInput{
-        height: 47px;
-     }
+   .PhoneInput {
+      height: 47px;
+   }
 
-     .phoneLabel{
-        position:relative;
-        top:20px;
-     }
- }
+   .phoneLabel {
+      position: relative;
+      top: 20px;
+   }
+}

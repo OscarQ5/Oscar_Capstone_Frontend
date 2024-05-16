@@ -86,87 +86,87 @@ const EditProfilePage = () => {
 
     return (
         <div className='editProfilePageBody'>
-        <div className="editProfilePage">
-            <ToastContainer className='toastify'/>
-            <h2>Edit Profile</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label htmlFor="name">Name</label><br />
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="username">Username</label><br />
-                    <input
-                        type="text"
-                        id="username"
-                        name="username"
-                        value={formData.username}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="email">Email</label><br />
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="phone_number">Phone Number</label><br />
-                    <input
-                        type="text"
-                        id="phone_number"
-                        name="phone_number"
-                        value={formData.phone_number}
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
-                    <label htmlFor="password">New Password</label><br />
-                    <div className="password-input-container">
+            <div className="editProfilePage">
+                <ToastContainer className='toastify' />
+                <h2>Edit Profile</h2>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <label htmlFor="name">Name</label><br />
                         <input
-                            type={showPassword ? "text" : "password"}
-                            id="password"
-                            name="password"
-                            value={password}
-                            onChange={handlePasswordChange}
+                            type="text"
+                            id="name"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
                         />
-                        {showPassword ? (
-                            <FaEye className="eye-icon" onClick={() => setShowPassword(false)} />
-                        ) : (
-                            <FaRegEyeSlash className="eye-icon" onClick={() => setShowPassword(true)} />
-                        )}
                     </div>
-                </div>
-                <div>
-                    <label htmlFor="confirm_password">Confirm New Password</label><br />
-                    <div className='password-input-container' >
+                    <div>
+                        <label htmlFor="username">Username</label><br />
                         <input
-                            type={showPassword ? "text" : "password"}
-                            id="confirm_password"
-                            name="confirm_password"
-                            value={confirmPassword}
-                            onChange={handleConfirmPasswordChange}
+                            type="text"
+                            id="username"
+                            name="username"
+                            value={formData.username}
+                            onChange={handleChange}
                         />
-                        {showPassword ? (
-                            <FaEye className="eye-icon" onClick={() => setShowPassword(false)} />
-                        ) : (
-                            <FaRegEyeSlash className="eye-icon" onClick={() => setShowPassword(true)} />
-                        )}
                     </div>
-                </div>
-                <button className='editUserButton' type="submit">Save Changes</button>
-            </form>
-        </div>
+                    <div>
+                        <label htmlFor="email">Email</label><br />
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="phone_number">Phone Number</label><br />
+                        <input
+                            type="text"
+                            id="phone_number"
+                            name="phone_number"
+                            value={formData.phone_number}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="password">New Password</label><br />
+                        <div className="password-input-container">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                id="password"
+                                name="password"
+                                value={password}
+                                onChange={handlePasswordChange}
+                            />
+                            {showPassword ? (
+                                <FaEye className="eye-icon" onClick={() => setShowPassword(false)} />
+                            ) : (
+                                <FaRegEyeSlash className="eye-icon" onClick={() => setShowPassword(true)} />
+                            )}
+                        </div>
+                    </div>
+                    <div>
+                        <label htmlFor="confirm_password">Confirm New Password</label><br />
+                        <div className='password-input-container' >
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                id="confirm_password"
+                                name="confirm_password"
+                                value={confirmPassword}
+                                onChange={handleConfirmPasswordChange}
+                            />
+                            {showPassword ? (
+                                <FaEye className="eye-icon" onClick={() => setShowPassword(false)} />
+                            ) : (
+                                <FaRegEyeSlash className="eye-icon" onClick={() => setShowPassword(true)} />
+                            )}
+                        </div>
+                    </div>
+                    <button className='editUserButton' type="submit">Save Changes</button>
+                </form>
+            </div>
         </div>
     )
 }

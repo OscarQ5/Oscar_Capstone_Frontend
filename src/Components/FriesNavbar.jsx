@@ -33,12 +33,6 @@ const FriesNavbar = () => {
     }
   }, []);
 
-  const tellTime = () => {
-    let today = new Date()
-    let readableDate = today.toDateString()
-    return readableDate
-  }
-
   return (
     <nav className='friesnavbar-style'>
       <div>
@@ -46,16 +40,11 @@ const FriesNavbar = () => {
           <img src='../VillageLogo-Vect.svg' alt='Logo with heart in hand' className='logo' />
         </Link>
       </div>
-      {/* <div> */}
-        {/* <h2 className="timeNav">{tellTime()}</h2> */}
-        {/* <h5 className='logo-caption'>It takes a Village</h5> */}
-      {/* </div > */}
 
-     <div className="colorC"> 
+      <div className="colorC">
+        <ColorChange />
+      </div>
 
-       <ColorChange />
-     </div>
-      
       <div className='fries-btn-container'>
         <button type="button" ref={menuRef} className={`fries-btn ${openMenu ? 'open' : ''}`} onClick={toggleMenu}>
           <div className='fry'></div>
@@ -68,8 +57,8 @@ const FriesNavbar = () => {
               <li>
                 <Link to={'/'} className='Link'> Home </Link>
               </li>
-           
-              {(!user && !token) && ( // Conditionally render based on user and token state
+
+              {(!user && !token) && ( 
                 <>
                   <li>
                     <Link to={'/users/sign-up'} className='Link'> Sign Up </Link>
@@ -113,15 +102,3 @@ const FriesNavbar = () => {
   );
 };
 export default FriesNavbar;
-
-
-
-
-
-
-
-
-
-
-
-

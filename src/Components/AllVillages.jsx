@@ -36,28 +36,6 @@ const AllVillages = () => {
             .catch((error) => console.error("Error fetching villages:", error));
     }, [API, token])
 
-    const handleDelete = (villageId) => {
-        fetch(`${API}/users/villages/${villageId}`, {
-            method: "DELETE",
-            headers: {
-                "Authorization": token
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    if (res.status === 403) {
-                        toast.error("You are not authorized to delete this village.");
-                    } else {
-                        throw new Error("Failed to delete");
-                    }
-                } else {
-                    console.log("Completed Delete");
-                    setVillages(prevVillages => prevVillages.filter(village => village.village_id !== villageId));
-                }
-            })
-            .catch(err => console.error("Error deleting village:", err));
-    };
-
     const handleSearch = (e) => {
         e.preventDefault();
 
@@ -143,7 +121,6 @@ const AllVillages = () => {
                             <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
                                 {village.village_name}
                             </Link>
-                            {/* <button className="villageDelete" onClick={() => handleDelete(village.village_id)}>❌</button> */}
                         </div>
                     ))}
                 </div>

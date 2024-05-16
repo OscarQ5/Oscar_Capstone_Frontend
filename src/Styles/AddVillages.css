@@ -1,4 +1,4 @@
-.addVillageForm{
+.addVillageForm {
     margin-top: 90px;
     border: 3px solid rgb(242, 18, 18);
     padding: 20px;
@@ -10,24 +10,23 @@
     align-items: center;
     background-color: rgb(234, 234, 234);
     color: black;
-    
 }
 
-.submitButton-EC button{
+.submitButton-EC button {
     border: 2px solid rgb(242, 18, 18);
     background-color: rgb(234, 234, 234);
 }
 
-.submitButton-EC button:hover{
+.submitButton-EC button:hover {
     border: 2px solid rgb(242, 18, 18);
     background-color: rgb(0, 0, 0);
-    color:white
+    color: white
 }
 
 
 @media screen and (max-width: 430px) {
 
-    .addVillageForm{
-        width:300px;
+    .addVillageForm {
+        width: 300px;
     }
 }

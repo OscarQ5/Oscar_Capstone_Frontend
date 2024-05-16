@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import '../Styles/SpeechToText.css'
 
-const SpeechToText = ({ onTextChange, handleEmergencySend, cancelButton}) => {
+const SpeechToText = ({ onTextChange, handleEmergencySend, cancelButton }) => {
     const [transcription, setTranscription] = useState('')
 
     const handleSpeechRecognition = () => {
@@ -24,31 +24,30 @@ const SpeechToText = ({ onTextChange, handleEmergencySend, cancelButton}) => {
     }
 
     const { t } = useTranslation();
-    
+
     return (
         <div className='textBoxBody'>
             <div className="inputAndButton">
-            <textarea
-                className='textbox'
-                placeholder={t('speechToText.placeholder')}
-                cols="60"
-                rows="7"
-                value={transcription}
-                onChange={handleChange}
+                <textarea
+                    className='textbox'
+                    placeholder={t('speechToText.placeholder')}
+                    cols="60"
+                    rows="7"
+                    value={transcription}
+                    onChange={handleChange}
                 >
-             </textarea>
-          <div className='textButtons'>
-            <button className='micro' onClick={handleSpeechRecognition} >
-                🎤
-            </button>
-             <button className="send" onClick={handleEmergencySend} >
-                Send
-            </button>
-            <button className='cancelSend' onClick={cancelButton}> 
-                Cancel
-            </button>
-             </div>
-
+                </textarea>
+                <div className='textButtons'>
+                    <button className='micro' onClick={handleSpeechRecognition} >
+                        🎤
+                    </button>
+                    <button className="send" onClick={handleEmergencySend} >
+                        Send
+                    </button>
+                    <button className='cancelSend' onClick={cancelButton}>
+                        Cancel
+                    </button>
+                </div>
             </div>
         </div>
     )

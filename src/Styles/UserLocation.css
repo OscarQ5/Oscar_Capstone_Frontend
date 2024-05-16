@@ -5,7 +5,6 @@
   justify-content: center;
   position: relative;
   top: 25px;
-  /* overflow-y: auto; */
 }
 
 .custom-popup {
@@ -30,6 +29,7 @@
   cursor: pointer;
   margin-top: 5px;
 }
+
 .get-directions-btn:hover {
   background-color: #b30c00;
 }
@@ -96,6 +96,7 @@
 
 .mapButtons {
   margin-top: -74px;
+  display: flex;
 }
 
 .mapButtonDiv:hover img {
@@ -114,7 +115,6 @@
     position: relative;
     color: rgb(255, 255, 255);
     background-color: red;
-    /* border:2px solid red; */
     border-radius: 10px;
     top: 64px;
     opacity: 1;
@@ -127,19 +127,10 @@
   text-decoration: underline red;
 }
 
-.pinImg{
-    height:30px;
-    width: 30px;
+.pinImg {
+  height: 30px;
+  width: 30px;
 }
-
-
-/* .mapBoxDiv{
-    border:3px solid red; 
-    border-radius: 60px; 
-    position:relative;
-    width: 40vw;
-    height:400px ;
-} */
 
 #map {
   border: 3px solid red;
@@ -149,11 +140,9 @@
   height: 400px;
 }
 
-
 @media screen and (max-width: 430px) {
   #map {
     border: 3px solid red;
-
     position: relative;
     width: 100vw;
     height: 250px;

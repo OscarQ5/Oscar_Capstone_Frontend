@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState } from 'react'
 import '../Styles/MedicalHistoryForm.css'
 import { useLoginDataProvider } from "./LoginProvider"
@@ -92,7 +92,6 @@ const MedicalHistoryForm = () => {
                 <div className="submitButton">
                     <button type="submit" >Submit</button>
                 </div>
-
             </form>
         </div>
     )

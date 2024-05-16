@@ -3,11 +3,11 @@ import { useState, useEffect } from 'react';
 import MedicalHistoryFetch from '../Components/MedicalHistoryFetch';
 import { Link } from "react-router-dom";
 import MedicalHistoryPage from './MedicalHistoryPage';
-import {useLoginDataProvider} from '../Components/LoginProvider';
+import { useLoginDataProvider } from '../Components/LoginProvider';
 import "../Styles/MedHistoryFetch.css"
 
 const MedHistoryFetch = () => {
-    const { API, user, token } = useLoginDataProvider()
+    const { API, token } = useLoginDataProvider()
     const [medHistory, setMedHistory] = useState([]);
 
     useEffect(() => {
@@ -16,9 +16,9 @@ const MedHistoryFetch = () => {
                 "Authorization": token
             }
         })
-        .then((res) => res.json())
-        .then((res) => setMedHistory(res))
-        .catch((error) => console.error('Error fetching medical history:', error));
+            .then((res) => res.json())
+            .then((res) => setMedHistory(res))
+            .catch((error) => console.error('Error fetching medical history:', error));
     }, [API, token]);
 
     return (
@@ -26,18 +26,18 @@ const MedHistoryFetch = () => {
             <h2>Medicine Cabinet</h2>
 
             <div className="mCard">
-        {medHistory.length === 0 ? (
+                {medHistory.length === 0 ? (
 
-            <MedicalHistoryPage />
+                    <MedicalHistoryPage />
 
-            ) : (
-            <div className="historyFetch">
-            <p> <MedicalHistoryFetch /> </p>
-            <Link to="/users/home"><button className="backB">Back</button></Link>
+                ) : (
+                    <div className="historyFetch">
+                        <p> <MedicalHistoryFetch /> </p>
+                        <Link to="/users/home"><button className="backB">Back</button></Link>
+                    </div>
+                )
+                }
             </div>
-            )
-    }
-            </div>       
         </div>
     );
 };

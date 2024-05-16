@@ -99,7 +99,7 @@ const LoginSignup = () => {
             .then(res => {
                 if (!res.ok) {
                     return res.json().then(error => {
-                        throw new Error(error.error); // Throw the error message received from the server
+                        throw new Error(error.error);
                     });
                 }
                 return res.json();

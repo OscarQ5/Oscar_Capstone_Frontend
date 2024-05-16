@@ -5,13 +5,13 @@ const MedicalConfirmationModal = ({ isOpen, onClose, onConfirm, handleVillageCli
   if (!isOpen) return null;
 
   const handleConfirmation = () => {
-    handleVillageClick(); 
-    onConfirm(); 
-};
-const handleDecline = () => {
-    handleVillageClick(); 
-    onClose(); 
-};
+    handleVillageClick();
+    onConfirm();
+  };
+  const handleDecline = () => {
+    handleVillageClick();
+    onClose();
+  };
 
   return (
     <div className="modal">

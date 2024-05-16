@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   overflow-y: scroll;
-  max-height: 98vh; /* Use max-height instead of height */
+  max-height: 98vh; 
   text-align: center;
 }
 
@@ -80,7 +80,6 @@
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
-    /* border-bottom: 1px solid black; */
   }
 
   .howToUse {

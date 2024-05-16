@@ -18,22 +18,8 @@
 }
 
 .emergencyServices:hover {
-  /* padding: 10px; */
-  /* border: 3px solid white; */
-  /* background-color: aliceblue; */
   border-radius: 50px;
 }
-
-/* .buttonDiv {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.buttonDiv h4 {
-  color: white;
-  font-size: smaller;
-} */
 
 .villageDropdown {
   margin-top: 30px;
@@ -84,18 +70,6 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 9999;
 }
-/* 
-.MedicalConfirmationModal{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  position:relative;
-  border: 1px solid red;
-  width: 40vw;
-  top:-300px;
-
-} */
 
 .buttonDiv h5 {
   position: relative;
@@ -119,18 +93,6 @@
   width: 85px;
 }
 
-/* .buttonDiv h5:hover{
-  position:relative;
-  color: rgb(255, 255, 255);
-  background-color:red;
-  border:2px solid red;
-  border-radius:10px;
-  top: 75px;
-  opacity: 1;
-  cursor: pointer;
-  width: 85px;
-} */
-
 .contactHeader h3 {
   margin-top: 30px;
   color: white;
@@ -148,15 +110,15 @@ a {
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
   }
+
   .emergencyButtons {
     gap: 50px;
   }
-  
+
   .EPcontactBody {
     position: relative;
     top: 20px;
   }
-  
 }
 
 
@@ -167,10 +129,11 @@ a {
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
   }
+
   .emergencyButtons {
     gap: 50px;
   }
-  
+
   .EPcontactBody {
     position: relative;
     top: 20px;
@@ -183,24 +146,15 @@ a {
       scrollbar-width: thin;
       scrollbar-color: transparent transparent;
     }
+
     .emergencyButtons {
       gap: 50px;
     }
-  
+
     .EPcontactBody {
       position: relative;
       top: 20px;
     }
-    /* 
-    .buttonDiv {
-      display: flex;
-      flex-direction: column;
-      justify-content: end;
-      /* align-items: end; */
-    /* max-height: 90px;
-      position: relative; */
-    /* top: 50px; */
-    /* }  */
   }
 }
 
@@ -211,7 +165,6 @@ a {
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
   }
-
 }
 
 @media only screen and (max-width: 6.43in) and (max-height: 2.86in) {
@@ -221,5 +174,4 @@ a {
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
   }
-
 }

@@ -6,8 +6,8 @@ const LandingHomePage = () => {
     return (
         <div className="home">
             <div className="h1andButton">
-            <h1>Village</h1>
-            <Link to={"users/home"}><button>Enter</button></Link>
+                <h1>Village</h1>
+                <Link to={"users/home"}><button>Enter</button></Link>
             </div>
         </div>
     );

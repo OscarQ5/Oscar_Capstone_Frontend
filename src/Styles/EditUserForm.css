@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   overflow-y: scroll;
-  height: 100vh; /* Use max-height instead of height */
+  height: 100vh;
   text-align: center;
   width: 100vw;
 }
@@ -21,13 +21,14 @@
   position: relative;
   bottom: 0px;
 }
+
 .editUserButton {
   border: 2px solid red;
   background-color: white;
   color: black;
   border-radius: 40px;
-  position:relative;
-  top:20px;
+  position: relative;
+  top: 20px;
 
 
 }
@@ -67,7 +68,6 @@ label {
     overflow-y: scroll;
     height: 100vh;
     text-align: center;
-  
   }
 
   .editProfilePage {

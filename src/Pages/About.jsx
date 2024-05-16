@@ -4,10 +4,10 @@ import '../Styles/About.css'
 const About = () => {
     return (
         <div className="aboutBody">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
+            <br />
             <br />
             <div className="about">
                 <h2>About Village</h2>
@@ -27,9 +27,9 @@ const About = () => {
                         <p>Upon entering the Emergency Page, you'll find three buttons positioned above the map:</p>
                         <ul>
                             <div className='buttonOpt'>
-                            <li>Fire Station</li>
-                            <li>Police</li>
-                            <li>Hospital</li>
+                                <li>Fire Station</li>
+                                <li>Police</li>
+                                <li>Hospital</li>
                             </div>
                         </ul>
                         <p>Click on the relevant button to discover the nearest emergency service option. Once selected, click on the marker to receive the route and directions.</p>
@@ -41,7 +41,6 @@ const About = () => {
                     </li>
                 </ul>
             </div>
-            
         </div>
     );
 };

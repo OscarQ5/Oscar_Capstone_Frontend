@@ -63,10 +63,12 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 .emergencyContactButton {
   border: 2px solid red;
   background-color: white;
@@ -75,10 +77,8 @@
 }
 
 .userName {
-  /* position:relative; */
   color: white;
   font-size: larger;
-  /* bottom:  110px; */
 }
 
 .editProfileButton {
@@ -109,10 +109,10 @@
     bottom: 50px;
   }
 
-  
+
   .time {
     position: relative;
-    bottom:50px;
+    bottom: 50px;
   }
 
   .emergencyContactButton {
@@ -124,6 +124,4 @@
     position: relative;
     top: 75px;
   }
-
- 
 }
