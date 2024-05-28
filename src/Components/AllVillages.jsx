@@ -10,10 +10,11 @@ const AllVillages = () => {
     const { API, token, user } = useLoginDataProvider();
     const [allVillages, setAllVillages] = useState([])
     const [searchResults, setSearchResults] = useState([])
+    const [sortKey, setSortKey] = useState("village_name")
+    const [sortOrder, setSortOrder] = useState("ascending")
     const [formData, setFormData] = useState({
         village_name: "",
     })
-    console.log(allVillages)
     useEffect(() => {
         fetch(`${API}/users/villages`, {
             headers: {
@@ -39,11 +40,29 @@ const AllVillages = () => {
     const handleSearch = (e) => {
         e.preventDefault();
 
-        const results = allVillages.filter(village =>
-            village.village_name === formData.village_name
-        );
+        const results = allVillages.filter(village => village.village_name.toLowerCase().includes(formData.village_name.toLowerCase()))
 
         setSearchResults(results);
+    }
+
+    const handleSortKeyChange = (e) => {
+        setSortKey(e.target.value)
+    }
+
+    const toggleSortOrder = () => {
+        setSortOrder(sortOrder === "ascending" ? "descending" : "ascending")
+    }
+
+    const sortVillages = (villages) => {
+        return [...villages].sort((a, b) => {
+            const valueA = a[sortKey]
+            const valueB = b[sortKey]
+            if (sortOrder === "ascending") {
+                return valueA < valueB ? -1 : 1
+            } else {
+                return valueB < valueA ? -1 : 1
+            }
+        })
     }
 
     const showAlert = (message) => {
@@ -115,11 +134,22 @@ const AllVillages = () => {
                         </form>
                     </div>
                 </div>
+                <div className="sortControls">
+                    <label>Sort by: </label>
+                    <select value={sortKey} onChange={handleSortKeyChange}>
+                        <option value="village_name">Village Name</option>
+                        <option value="village_code">Village Code</option>
+                    </select>
+                    <button onClick={toggleSortOrder}>
+                        {sortOrder === "ascending" ? "ascending ⬆️" : "descending ⬇️"}
+                    </button>
+                </div>
                 <div className='masterVillageCard'>
-                    {villages.map((village) => (
+                    {sortVillages(villages).map((village) => (
                         <div key={village.village_id} className="villageCard">
                             <Link to={`/users/villages/village/${village.village_id}`} className="villageLink">
-                                {village.village_name}
+                                Village: {village.village_name} <br/>
+                                Code: {village.village_code}
                             </Link>
                         </div>
                     ))}
